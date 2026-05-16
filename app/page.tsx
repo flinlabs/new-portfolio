@@ -1,9 +1,18 @@
-import Image from "next/image";
 import FadeIn from "@/components/FadeIn"
+import TiltCard from "@/components/TiltCard"
+import Link from "next/link"
+
+const featured = [
+	{ type: "projects",   slug: "candi",       tag: "AI · Product",  title: "CANDI",        sub: "AI Recruiting Platform",           period: "Jun – Aug 2025" },
+	{ type: "projects",   slug: "walsea",       tag: "Engineering",   title: "WAL-SEA",      sub: "Homebuilt ROV",                    period: "2021 – 2024" },
+	{ type: "experience", slug: "cgp",          tag: "AI · Product",  title: "CGP Group",    sub: "Talent Acquisition & Data Intern", period: "Jun – Aug 2025" },
+	{ type: "experience", slug: "aquameridian", tag: "Nonprofit",     title: "AquaMeridian", sub: "Founder & Executive Director",     period: "2022 – Present" },
+]
 
 export default function Home() {
 	return (
 		<main style={{ maxWidth: "900px", margin: "0 auto", padding: "144px 48px 120px" }}>
+
 			<FadeIn delay={0}>
 				<p style={{
 					fontSize: "12px",
@@ -85,6 +94,40 @@ export default function Home() {
 					</a>
 				</div>
 			</FadeIn>
+
+			<div style={{ height: "1px", background: "linear-gradient(90deg,transparent,var(--lavender),transparent)", opacity: 0.4, marginBottom: "48px" }} />
+
+			<FadeIn>
+				<p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "24px" }}>
+					Featured work
+				</p>
+			</FadeIn>
+
+			<div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+				{featured.map(({ type, slug, tag, title, sub, period }, i) => (
+					<FadeIn key={slug} delay={i * 0.07}>
+						<TiltCard>
+							<Link href={`/${type}/${slug}`} style={{
+								background: "rgba(255,255,255,0.88)",
+								backdropFilter: "blur(20px)",
+								border: "1px solid rgba(155,135,212,0.3)",
+								borderRadius: "20px",
+								padding: "32px",
+								display: "block",
+								textDecoration: "none",
+								color: "inherit",
+								boxShadow: "0 4px 24px rgba(0,0,0,0.07)",
+							}}>
+								<p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--lavender)", marginBottom: "10px" }}>{tag}</p>
+								<h3 style={{ fontFamily: "var(--font-cormorant)", fontSize: "24px", fontWeight: 600, marginBottom: "6px" }}>{title}</h3>
+								<p style={{ fontSize: "14px", color: "var(--text-muted)", marginBottom: "16px" }}>{sub}</p>
+								<p style={{ fontSize: "11px", color: "var(--text-muted)", opacity: 0.65 }}>{period}</p>
+							</Link>
+						</TiltCard>
+					</FadeIn>
+				))}
+			</div>
+
 		</main>
 	)
 }
