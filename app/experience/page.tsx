@@ -1,42 +1,81 @@
+const experiences = [
+	{
+		title: "Product & Engineering Intern",
+		company: "Berkeley SkyDeck Funded Startup",
+		period: "Jan 2025 – Present",
+		summary: "Building commercial real estate transaction tools, defining product requirements and working with the engineering team to ship them.",
+	},
+	{
+		title: "Talent Acquisition & Data Insights Intern",
+		company: "CGP Group",
+		period: "Jun – Aug 2025",
+		summary: "Led candidate sourcing across Southeast Asia and built CANDI, an AI-powered recruiting platform that cut screening time by up to 50%.",
+	},
+	{
+		title: "Real Estate Acquisition & Portfolio Management Intern",
+		company: "Link Multifamily",
+		period: "Summer 2024",
+		summary: "Underwrote multifamily acquisitions and audited a $100M+ portfolio; the analyses fed directly into go/no-go investment decisions.",
+	},
+	{
+		title: "NextGen Venture Strategy & Angel Investor Intern",
+		company: "Loeb.nyc",
+		period: "Dec 2024",
+		summary: "Evaluated seven early-stage startups through structured due diligence and made two personal angel investments of $5,000 each.",
+	},
+	{
+		title: "Underwater Robotics, CAD & Dive Coordination Intern",
+		company: "DOER Marine",
+		period: "Jun 2022 – Aug 2023",
+		summary: "Contributed to the SWAD Lanternfish submersible and helped ready equipment for Dr. Sylvia Earle's Mission Blue Galapagos expedition.",
+	},
+	{
+		title: "Founder & Executive Director",
+		company: "AquaMeridian US",
+		period: "Jun 2022 – Present",
+		summary: "Founded the U.S. chapter of an international marine conservation nonprofit. We raised $8,500+, ran 10 beach cleanups with 150+ volunteers, and logged 2,000 lbs of debris data.",
+	},
+]
+
 export default function Experience() {
 	return (
-		<main>
-			<h1>Experience</h1>
+		<main style={{ maxWidth: "960px", margin: "0 auto", padding: "144px 48px 120px" }}>
 
-			<div>
-				<h2>Product & Engineering Intern</h2>
-				<p>Berkeley SkyDeck Funded Startup · Jan 2025 – Present</p>
-				<p>Building commercial real estate transaction tools, defining product requirements and working with the engineering team to ship them.</p>
-			</div>
+			<p style={{
+				fontSize: "11px",
+				fontWeight: 500,
+				letterSpacing: "0.14em",
+				textTransform: "uppercase",
+				color: "var(--text-muted)",
+				marginBottom: "12px",
+			}}>
+				Experience
+			</p>
 
-			<div>
-				<h2>Talent Acquisition & Data Insights Intern</h2>
-				<p>CGP Group · Jun – Aug 2025</p>
-				<p>Led candidate sourcing across Southeast Asia and built CANDI, an AI-powered recruiting platform that cut screening time by up to 50%.</p>
-			</div>
+			<h1 style={{
+				fontFamily: "var(--font-cormorant)",
+				fontSize: "68px",
+				fontWeight: 600,
+				lineHeight: 1.05,
+				marginBottom: "64px",
+			}}>
+				My Experience.
+			</h1>
 
-			<div>
-				<h2>Real Estate Acquisition & Portfolio Management Intern</h2>
-				<p>Link Multifamily · Summer 2024</p>
-				<p>Underwrote multifamily acquisitions and audited a $100M+ portfolio; the analyses fed directly into go/no-go investment decisions.</p>
-			</div>
-
-			<div>
-				<h2>NextGen Venture Strategy & Angel Investor Intern</h2>
-				<p>Loeb.nyc · Dec 2024</p>
-				<p>Evaluated seven early-stage startups through structured due diligence and made two personal angel investments of $5,000 each.</p>
-			</div>
-
-			<div>
-				<h2>Underwater Robotics, CAD & Dive Coordination Intern</h2>
-				<p>DOER Marine · Jun 2022 – Aug 2023</p>
-				<p>Contributed to the SWAD Lanternfish submersible and helped ready equipment for Dr. Sylvia Earle&apos;s Mission Blue Galapagos expedition.</p>
-			</div>
-
-			<div>
-				<h2>Founder & Executive Director</h2>
-				<p>AquaMeridian US · Jun 2022 – Present</p>
-				<p>Founded the U.S. chapter of an international marine conservation nonprofit. We raised $8,500+, ran 10 beach cleanups with 150+ volunteers, and logged 2,000 lbs of debris data.</p>
+			<div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+				{experiences.map((exp) => (
+					<div key={exp.title} style={{
+						background: "var(--bg-card)",
+						border: "1px solid var(--border)",
+						borderRadius: "20px",
+						padding: "28px 32px",
+					}}>
+						<p style={{ fontSize: "12px", color: "var(--text-muted)", marginBottom: "8px" }}>{exp.period}</p>
+						<h2 style={{ fontSize: "18px", fontWeight: 600, color: "var(--text)", marginBottom: "4px" }}>{exp.title}</h2>
+						<p style={{ fontSize: "14px", color: "var(--lavender)", marginBottom: "12px" }}>{exp.company}</p>
+						<p style={{ fontSize: "14px", lineHeight: 1.7, color: "var(--text-muted)" }}>{exp.summary}</p>
+					</div>
+				))}
 			</div>
 
 		</main>
