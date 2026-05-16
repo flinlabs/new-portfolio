@@ -56,3 +56,9 @@ nav {
   	font-size: 13px;
 	font-family: var(--font-inter);
 }
+
+@keyframes blobPulse {
+	0%, 100% { transform: scale(1) rotate(0deg); }
+	33% { transform: scale(1.08) rotate(3deg); }
+	66% { transform: scale(0.95) rotate(-2deg); }
+}
