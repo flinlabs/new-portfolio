@@ -6,10 +6,22 @@
   	box-sizing: border-box;
 }
 
+:root {
+	--text: #0E0C1A;
+	--text-muted: #4A4460;
+	--lavender: #9B87D4;
+	--green: #6B9E7A;
+	--bg: #F7F6FA;
+	--bg-card: rgba(255, 255, 255, 0.82);
+	--border: rgba(155, 135, 212, 0.4);
+	--font-cormorant: "Cormorant Garamond", serif;
+	--font-inter: "Inter", sans-serif;
+}
+
 body {
-  	font-family: sans-serif;
-  	color: #0E0C1A;
-  	background: #F7F6FA;
+	font-family: var(--font-inter);
+	color: var(--text);
+	background: var(--bg);
 }
 
 main {
@@ -19,6 +31,7 @@ main {
 }
 
 h1 {
+	font-family: var(--font-cormorant);
   	font-size: 48px;
   	font-weight: 600;
   	margin-bottom: 16px;
@@ -27,7 +40,7 @@ h1 {
 p {
   	font-size: 16px;
 	line-height: 1.7;
-  	color: #4A4460;
+  	color: var(--text-muted);
 }
 
 a {
@@ -39,6 +52,7 @@ nav {
   	display: flex;
   	gap: 32px;
   	padding: 20px 48px;
-  	border-bottom: 1px solid #eee;
+	border-bottom: 1px solid var(--border);
   	font-size: 13px;
+	font-family: var(--font-inter);
 }
