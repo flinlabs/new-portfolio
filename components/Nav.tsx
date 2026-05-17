@@ -1,5 +1,6 @@
 "use client"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 
 const links = [
@@ -28,8 +29,14 @@ export default function Nav() {
 			backdropFilter: "blur(14px)",
 			borderBottom: "1px solid rgba(196,181,240,0.2)",
 		}}>
-			<Link href="/" style={{ fontFamily: "var(--font-cormorant)", fontSize: "20px", fontWeight: 600 }}>
-				Faye Lin
+			<Link href="/" style={{ display: "flex", alignItems: "center" }}>
+				<Image
+					src="/logo.png"
+					alt="Faye Lin"
+					width={40}
+					height={40}
+					style={{ objectFit: "contain", filter: "brightness(0)" }}
+				/>
 			</Link>
 			<ul style={{ display: "flex", alignItems: "center", gap: "32px", listStyle: "none", margin: 0, padding: 0 }}>
 				{links.map(({ href, label }) => {
