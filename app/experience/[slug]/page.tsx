@@ -1,6 +1,7 @@
 import { experiences } from "@/data/experiences"
 import { notFound } from "next/navigation"
 import Link from "next/link"
+import TagChips from "@/components/TagChips"
 
 export default function ExperiencePage({ params }: { params: { slug: string } }) {
 	const exp = experiences.find(e => e.slug === params.slug)
@@ -9,16 +10,7 @@ export default function ExperiencePage({ params }: { params: { slug: string } })
 	return (
 		<main style={{ maxWidth: "760px", margin: "0 auto", padding: "144px 48px 120px" }}>
 
-			<p style={{
-				fontSize: "11px",
-				fontWeight: 500,
-				letterSpacing: "0.14em",
-				textTransform: "uppercase",
-				color: "var(--text-muted)",
-				marginBottom: "12px",
-			}}>
-				{exp.tag}
-			</p>
+			<TagChips tag={exp.tag} />
 
 			<h1 style={{
 				fontFamily: "var(--font-cormorant)",
