@@ -1,64 +1,48 @@
 @import "tailwindcss";
 
-* {
-  	margin: 0;
-  	padding: 0;
-  	box-sizing: border-box;
-}
-
 :root {
+	--bg: #F4F3F9;
+	--bg-card: rgba(255, 255, 255, 0.82);
 	--text: #0E0C1A;
 	--text-muted: #4A4460;
 	--lavender: #9B87D4;
-	--green: #6B9E7A;
-	--bg: #F7F6FA;
-	--bg-card: rgba(255, 255, 255, 0.82);
 	--border: rgba(155, 135, 212, 0.4);
+	--green: #3D7A50;
 	--font-cormorant: "Cormorant Garamond", serif;
 	--font-inter: "Inter", sans-serif;
 }
 
-body {
-	font-family: var(--font-inter);
+html, body {
+	background-color: var(--bg);
 	color: var(--text);
-	background: var(--bg);
+	font-family: var(--font-inter);
+	-webkit-font-smoothing: antialiased;
+	overflow-x: hidden;
 }
 
-main {
-  	max-width: 900px;
-  	margin: 0 auto;
-  	padding: 80px 48px;
-}
-
-h1 {
-	font-family: var(--font-cormorant);
-  	font-size: 48px;
-  	font-weight: 600;
-  	margin-bottom: 16px;
-}
-
-p {
-  	font-size: 16px;
-	line-height: 1.7;
-  	color: var(--text-muted);
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 a {
-  	text-decoration: none;
-  	color: inherit;
+	text-decoration: none;
+	color: inherit;
 }
 
-nav {
-  	display: flex;
-  	gap: 32px;
-  	padding: 20px 48px;
-	border-bottom: 1px solid var(--border);
-  	font-size: 13px;
-	font-family: var(--font-inter);
+::selection {
+	background: rgba(155, 135, 212, 0.25);
+	color: var(--text);
 }
 
 @keyframes blobPulse {
 	0%, 100% { transform: scale(1) rotate(0deg); }
 	33% { transform: scale(1.08) rotate(3deg); }
 	66% { transform: scale(0.95) rotate(-2deg); }
+}
+
+@keyframes pulse {
+	0%, 100% { opacity: 1; transform: scale(1); }
+	50% { opacity: 0.5; transform: scale(0.8); }
 }
