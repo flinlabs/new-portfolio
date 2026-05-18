@@ -6,18 +6,6 @@ import TagChips from "@/components/TagChips"
 export default function Projects() {
 	return (
 		<main style={{ maxWidth: "960px", margin: "0 auto", padding: "144px 48px 120px" }}>
-
-			<p style={{
-				fontSize: "11px",
-				fontWeight: 500,
-				letterSpacing: "0.14em",
-				textTransform: "uppercase",
-				color: "var(--text-muted)",
-				marginBottom: "12px",
-			}}>
-				Projects
-			</p>
-
 			<h1 style={{
 				fontFamily: "var(--font-cormorant)",
 				fontSize: "68px",

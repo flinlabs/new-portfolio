@@ -26,18 +26,6 @@ export default function Contact() {
 
 	return (
 		<main style={{ maxWidth: "900px", margin: "0 auto", padding: "144px 48px 120px" }}>
-
-			<p style={{
-				fontSize: "11px",
-				fontWeight: 500,
-				letterSpacing: "0.14em",
-				textTransform: "uppercase",
-				color: "var(--text-muted)",
-				marginBottom: "12px",
-			}}>
-				Contact
-			</p>
-
 			<h1 style={{
 				fontFamily: "var(--font-cormorant)",
 				fontSize: "68px",
