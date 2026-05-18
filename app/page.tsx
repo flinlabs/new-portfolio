@@ -28,17 +28,22 @@ export default function Home() {
 
 			<FadeIn delay={0.08}>
 				<h1 style={{
-					fontFamily: "var(--font-cormorant)",
-					fontSize: "96px",
-					fontWeight: 600,
-					lineHeight: 1,
-					marginBottom: "24px",
-					color: "var(--text)",
+    				fontFamily: "var(--font-cormorant)",
+    				fontSize: "96px",
+    				fontWeight: 600,
+    				lineHeight: 1,
+    				marginBottom: "24px",
+    				color: "var(--text)",
 				}}>
-					Faye Lin.
+    				Faye{" "}
+    				<em style={{
+        				fontStyle: "italic",
+        				background: "linear-gradient(135deg,#9B87D4,#D4A0C0,#87B8D4)",
+        				WebkitBackgroundClip: "text",
+       					WebkitTextFillColor: "transparent",
+    				}}>Lin.</em>
 				</h1>
 			</FadeIn>
-
 			<FadeIn delay={0.14}>
 				<p style={{
 					maxWidth: "520px",
