@@ -12,9 +12,8 @@ export default function Experience() {
 				lineHeight: 1.05,
 				marginBottom: "64px",
 			}}>
-				My Experience.
+				My <em style={{ fontStyle: "italic", background: "linear-gradient(135deg,#9B87D4,#D4A0C0)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Experience</em>
 			</h1>
-
 			<div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
 				{experiences.map((exp) => (
 					<Link key={exp.slug} href={`/experience/${exp.slug}`} style={{ textDecoration: "none", color: "inherit" }}>

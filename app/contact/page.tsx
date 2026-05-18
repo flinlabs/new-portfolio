@@ -33,7 +33,7 @@ export default function Contact() {
 				lineHeight: 1.05,
 				marginBottom: "16px",
 			}}>
-				Let&apos;s talk.
+				Let&apos;s <em style={{ fontStyle: "italic", background: "linear-gradient(135deg,#9B87D4,#D4A0C0)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>talk</em>
 			</h1>
 
 			<p style={{ fontSize: "16px", lineHeight: 1.7, color: "var(--text-muted)", marginBottom: "48px" }}>

@@ -13,9 +13,8 @@ export default function Projects() {
 				lineHeight: 1.05,
 				marginBottom: "64px",
 			}}>
-				My Projects.
+				My <em style={{ fontStyle: "italic", background: "linear-gradient(135deg,#9B87D4,#D4A0C0)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Projects</em>
 			</h1>
-
 			<div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
 				{projects.map((project) => (
 					<Link key={project.slug} href={`/projects/${project.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
