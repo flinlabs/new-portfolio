@@ -41,7 +41,7 @@ export default function Home() {
         				background: "linear-gradient(135deg,#9B87D4,#D4A0C0,#87B8D4)",
         				WebkitBackgroundClip: "text",
        					WebkitTextFillColor: "transparent",
-    				}}>Lin.</em>
+    				}}>Lin</em>
 				</h1>
 			</FadeIn>
 			<FadeIn delay={0.14}>
