@@ -1,89 +1,68 @@
-import { experiences } from "@/data/experiences"
-import { notFound } from "next/navigation"
 import Link from "next/link"
+import Image from "next/image"
+import { experiences } from "@/data/experiences"
 import TagChips from "@/components/TagChips"
 
-export default function ExperiencePage({ params }: { params: { slug: string } }) {
-	const exp = experiences.find(e => e.slug === params.slug)
-	if (!exp) notFound()
-
+export default function Experience() {
 	return (
-		<main style={{ maxWidth: "760px", margin: "0 auto", padding: "144px 48px 120px" }}>
-
-			<TagChips tag={exp.tag} />
-
+		<main style={{ maxWidth: "960px", margin: "0 auto", padding: "144px 48px 120px" }}>
 			<h1 style={{
 				fontFamily: "var(--font-cormorant)",
-				fontSize: "52px",
+				fontSize: "68px",
 				fontWeight: 600,
-				lineHeight: 1.1,
-				marginBottom: "8px",
+				lineHeight: 1.05,
+				marginBottom: "64px",
 			}}>
-				{exp.title}
+				My <em style={{ fontStyle: "italic", background: "linear-gradient(135deg,#9B87D4,#D4A0C0)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Experience</em>
 			</h1>
 
-			<p style={{ fontSize: "18px", color: "var(--lavender)", marginBottom: "4px" }}>{exp.company}</p>
-			<p style={{ fontSize: "14px", color: "var(--text-muted)", marginBottom: "48px" }}>{exp.period}</p>
+			<div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+				{experiences.map((exp) => (
+					<Link key={exp.slug} href={`/experience/${exp.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
+						<div style={{
+							background: "var(--bg-card)",
+							border: "1px solid var(--border)",
+							borderRadius: "20px",
+							padding: "28px 32px",
+							display: "flex",
+							alignItems: "center",
+							gap: "32px",
+							transition: "box-shadow 0.2s ease",
+						}}>
 
-			{exp.website && (
-				<a
-					href={exp.website}
-					target="_blank"
-					rel="noopener noreferrer"
-					style={{
-						display: "inline-flex",
-						alignItems: "center",
-						gap: "6px",
-						fontSize: "13px",
-						color: "var(--lavender)",
-						border: "1px solid var(--border)",
-						borderRadius: "100px",
-						padding: "6px 16px",
-						marginBottom: "48px",
-						textDecoration: "none",
-					}}
-				>
-					{exp.websiteLabel} ↗
-				</a>
-			)}
+							<div style={{ minWidth: "110px", textAlign: "right" }}>
+								<p style={{ fontSize: "12px", color: "var(--text-muted)", lineHeight: 1.5 }}>{exp.period}</p>
+							</div>
 
-			<div style={{ height: "1px", background: "var(--border)", marginBottom: "48px" }} />
+							{exp.logo && (
+								<div style={{
+									width: "72px",
+									height: "72px",
+									borderRadius: "16px",
+									overflow: "hidden",
+									flexShrink: 0,
+									background: "rgba(255,255,255,0.8)",
+									border: "1px solid var(--border)",
+									display: "flex",
+									alignItems: "center",
+									justifyContent: "center",
+								}}>
+									<Image src={exp.logo} alt={exp.company} width={72} height={72} style={{ objectFit: "contain", padding: "8px" }} />
+								</div>
+							)}
 
-			<div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
+							<div style={{ flex: 1 }}>
+								<TagChips tag={exp.tag} />
+								<h2 style={{ fontSize: "17px", fontWeight: 600, color: "var(--text)", marginBottom: "2px" }}>{exp.title}</h2>
+								<p style={{ fontSize: "14px", color: "var(--text-muted)", marginBottom: "10px" }}>{exp.company}</p>
+								<p style={{ fontSize: "14px", lineHeight: 1.7, color: "var(--text-muted)" }}>{exp.summary}</p>
+							</div>
 
-				<div>
-					<p style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "16px" }}>Overview</p>
-					<p style={{ fontSize: "15px", lineHeight: 1.8, color: "var(--text)" }}>{exp.overview}</p>
-				</div>
+							<div style={{ fontSize: "18px", color: "var(--text-muted)", opacity: 0.4, flexShrink: 0 }}>→</div>
 
-				<div>
-					<p style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "16px" }}>Responsibilities</p>
-					<ul style={{ display: "flex", flexDirection: "column", gap: "10px", paddingLeft: "0", listStyle: "none" }}>
-						{exp.responsibilities.map((r) => (
-							<li key={r} style={{ fontSize: "15px", lineHeight: 1.7, color: "var(--text)", paddingLeft: "16px", borderLeft: "2px solid var(--border)" }}>
-								{r}
-							</li>
-						))}
-					</ul>
-				</div>
-
-				<div>
-					<p style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "16px" }}>Achievements</p>
-					<ul style={{ display: "flex", flexDirection: "column", gap: "10px", paddingLeft: "0", listStyle: "none" }}>
-						{exp.achievements.map((a) => (
-							<li key={a} style={{ fontSize: "15px", lineHeight: 1.7, color: "var(--text)", paddingLeft: "16px", borderLeft: "2px solid var(--lavender)" }}>
-								{a}
-							</li>
-						))}
-					</ul>
-				</div>
-
-			</div>
-
-			<div style={{ marginTop: "64px" }}>
-				<Link href="/experience" style={{ fontSize: "13px", color: "var(--text-muted)", textDecoration: "none" }}>
-					← Back to Experience
-				</Link>
+						</div>
+					</Link>
+				))}
 			</div>
 
 		</main>
