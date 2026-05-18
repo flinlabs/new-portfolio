@@ -2,6 +2,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
+import SearchDropdown from "@/components/SearchDropdown"
 
 const links = [
 	{ href: "/", label: "Home" },
@@ -38,26 +39,29 @@ export default function Nav() {
 					style={{ objectFit: "contain", filter: "brightness(0)" }}
 				/>
 			</Link>
-			<ul style={{ display: "flex", alignItems: "center", gap: "32px", listStyle: "none", margin: 0, padding: 0 }}>
-				{links.map(({ href, label }) => {
-					const active = pathname === href || (href !== "/" && pathname.startsWith(href))
-					return (
-						<li key={href}>
-							<Link href={href} style={{
-								fontSize: "11px",
-								fontWeight: 500,
-								letterSpacing: "0.12em",
-								textTransform: "uppercase",
-								textDecoration: "none",
-								color: active ? "var(--text)" : "var(--text-muted)",
-								transition: "color 0.2s ease",
-							}}>
-								{label}
-							</Link>
-						</li>
-					)
-				})}
-			</ul>
+			<div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
+				<SearchDropdown />
+				<ul style={{ display: "flex", alignItems: "center", gap: "32px", listStyle: "none", margin: 0, padding: 0 }}>
+					{links.map(({ href, label }) => {
+						const active = pathname === href || (href !== "/" && pathname.startsWith(href))
+						return (
+							<li key={href}>
+								<Link href={href} style={{
+									fontSize: "11px",
+									fontWeight: 500,
+									letterSpacing: "0.12em",
+									textTransform: "uppercase",
+									textDecoration: "none",
+									color: active ? "var(--text)" : "var(--text-muted)",
+									transition: "color 0.2s ease",
+								}}>
+									{label}
+								</Link>
+							</li>
+						)
+					})}
+				</ul>
+			</div>
 		</nav>
 	)
 }
