@@ -38,7 +38,7 @@ export default function About() {
 				Hi, I&apos;m <em style={{ fontStyle: "italic", background: "linear-gradient(135deg,#9B87D4,#D4A0C0)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Faye!</em>
 			</h1>
 
-			<div style={{ display: "grid", gridTemplateColumns: "1fr 340px", gap: "48px", alignItems: "start" }}>
+			<div style={{ display: "grid", gridTemplateColumns: "1fr 450px", gap: "48px", alignItems: "start" }}>
 
 				{/* Left — bio + On AI */}
 				<div>
