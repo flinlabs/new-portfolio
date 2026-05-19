@@ -5,8 +5,8 @@ import TagChips from "@/components/TagChips"
 
 export default function Experience() {
 	return (
-		<main style={{ maxWidth: "960px", margin: "0 auto", padding: "144px 48px 120px" }}>
-			<h1 style={{
+		<main className="mobile-pad" style={{ maxWidth: "960px", margin: "0 auto", padding: "144px 48px 120px" }}>
+			<h1 className="mobile-h1" style={{
 				fontFamily: "var(--font-cormorant)",
 				fontSize: "68px",
 				fontWeight: 600,
@@ -19,7 +19,7 @@ export default function Experience() {
 			<div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
 				{experiences.map((exp) => (
 					<Link key={exp.slug} href={`/experience/${exp.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
-						<div style={{
+						<div className="mobile-stack" style={{
 							background: "var(--bg-card)",
 							border: "1px solid var(--border)",
 							borderRadius: "20px",
@@ -30,7 +30,7 @@ export default function Experience() {
 							transition: "box-shadow 0.2s ease",
 						}}>
 
-							<div style={{ minWidth: "110px", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", gap: "12px" }}>
+							<div className="mobile-hide" style={{ minWidth: "110px", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", gap: "12px" }}>
 								<p style={{ fontSize: "12px", color: "var(--text-muted)", lineHeight: 1.5 }}>{exp.period}</p>
 								{exp.logo && (
 									<div style={{
@@ -52,10 +52,11 @@ export default function Experience() {
 								<TagChips tag={exp.tag} />
 								<h2 style={{ fontSize: "17px", fontWeight: 600, color: "var(--text)", marginBottom: "2px" }}>{exp.title}</h2>
 								<p style={{ fontSize: "14px", color: "var(--text-muted)", marginBottom: "10px" }}>{exp.company}</p>
+								<p style={{ fontSize: "12px", color: "var(--text-muted)", marginBottom: "8px" }}>{exp.period}</p>
 								<p style={{ fontSize: "14px", lineHeight: 1.7, color: "var(--text-muted)" }}>{exp.summary}</p>
 							</div>
 
-							<div style={{ fontSize: "18px", color: "var(--text-muted)", opacity: 0.4, flexShrink: 0 }}>→</div>
+							<div className="mobile-hide" style={{ fontSize: "18px", color: "var(--text-muted)", opacity: 0.4, flexShrink: 0 }}>→</div>
 
 						</div>
 					</Link>
