@@ -9,11 +9,11 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
 	if (!exp) notFound()
 
 	return (
-		<main style={{ maxWidth: "760px", margin: "0 auto", padding: "144px 48px 120px" }}>
+		<main className="mobile-pad" style={{ maxWidth: "760px", margin: "0 auto", padding: "144px 48px 120px" }}>
 
 			<TagChips tag={exp.tag} />
 
-			<h1 style={{
+			<h1 className="mobile-h1" style={{
 				fontFamily: "var(--font-cormorant)",
 				fontSize: "52px",
 				fontWeight: 600,
