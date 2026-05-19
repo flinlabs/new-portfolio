@@ -97,7 +97,7 @@ export const projects: Project[] = [
 			"Observed that movement does not equal eating: urchins moved at night but did not always consume kelp proportionally.",
 		],
 		tech: "Olympus TG-4 + Inon D-2000 strobe, GoPro Hero 3/7, DBPower 4K action camera, custom PVC frame.",
-		awards: "ACSEF First Place · Broadcom MASTERS Top 300",
+		awards: "ACSEF First Place · NASA + NOAA Special Awards · Broadcom MASTERS Top 300",
 		links: [
 			{ label: "See Abstract", url: "https://docs.google.com/document/d/1Fm0MtHLB4b5l-ydHrzrUPMOUSWRXsZChAUHnEgSGvBY/edit?usp=drivesdk" },
 		],

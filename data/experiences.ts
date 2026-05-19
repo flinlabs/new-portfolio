@@ -89,7 +89,7 @@ export const experiences: Experience[] = [
 		company: "Loeb.nyc",
 		tag: "Finance",
 		period: "Dec 2024",
-		summary: "Evaluated seven early-stage startups through structured due diligence and made two personal angel investments of $5,000 each.",
+		summary: "Evaluated seven early-stage startups through structured due diligence and made two personal angel investments in Shoplift and Spaceport.",
 		overview: "I was selected for Loeb.nyc's NextGen Venture Strategy & Angel Investor mentorship program, a hands-on experience covering angel investing, venture capital, and startup funding dynamics within a family office ecosystem. I engaged directly with founders, VCs, and Loeb.nyc leadership to evaluate early-stage startups across consumer, AI, and tech sectors.",
 		responsibilities: [
 			"Conducted due diligence on seven early-stage startups.",
@@ -136,7 +136,7 @@ export const experiences: Experience[] = [
 		company: "AquaMeridian US",
 		tag: "Environmental · Science",
 		period: "Jun 2022 – Present",
-		summary: "Founded the U.S. chapter of an international marine conservation nonprofit. Lead monthly beach cleanups and education programs engaging 300+ students and community members.",
+		summary: "Founded the U.S. chapter of an international marine conservation nonprofit. Led monthly beach cleanups and educational programs engaging 300+ students and community members.",
 		overview: "I established the U.S. chapter of AquaMeridian, an international marine conservation initiative, to expand outreach, education, and direct-action environmental projects. I designed and ran programs that combined community engagement with measurable conservation outcomes, from speaker panels in schools and libraries to large-scale beach cleanups. I also built the organization's funding infrastructure from scratch, developing a sponsorship strategy that secured $8,500+ from corporate and individual partners including Apple East Bay.",
 		responsibilities: [
 			"Directed strategic planning, fundraising, and operational management for U.S. chapter.",
@@ -150,6 +150,7 @@ export const experiences: Experience[] = [
 			"Collected 2,000+ lbs of marine debris, submitted to global ocean health databases.",
 			"Built a sustainable organizational structure with student leadership succession planning.",
 			"Built a student leadership pipeline with 12 members who continued operations independently.",
+			"Formed partnerships with local schools, libraries, and organizations to support marine education and habitat restoration.",
 		],
 		website: "https://aquameridian.org",
 		websiteLabel: "AquaMeridian's Website",
