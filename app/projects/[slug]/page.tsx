@@ -10,11 +10,11 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 	if (!project) notFound()
 
 	return (
-		<main style={{ maxWidth: "760px", margin: "0 auto", padding: "144px 48px 120px" }}>
+		<main className="mobile-pad" style={{ maxWidth: "760px", margin: "0 auto", padding: "144px 48px 120px" }}>
 
 			<TagChips tag={project.tag} />
 
-			<h1 style={{
+			<h1 className="mobile-h1" style={{
 				fontFamily: "var(--font-cormorant)",
 				fontSize: "52px",
 				fontWeight: 600,
