@@ -70,4 +70,8 @@ a {
 	.mobile-h1 {
 		font-size: 52px !important;
 	}
+
+	.mobile-menu-btn {
+	display: block !important;
+	}
 }
