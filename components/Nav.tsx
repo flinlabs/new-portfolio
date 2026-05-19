@@ -132,10 +132,16 @@ export default function Nav() {
 											fontSize: "48px",
 											fontWeight: 600,
 											textDecoration: "none",
-											color: active ? "var(--text)" : "var(--text-muted)",
-											opacity: active ? 1 : 0.5,
 											display: "block",
 											lineHeight: 1.3,
+											...(active ? {
+												background: "linear-gradient(135deg,#9B87D4,#D4A0C0)",
+												WebkitBackgroundClip: "text",
+												WebkitTextFillColor: "transparent",
+											} : {
+												color: "var(--text-muted)",
+												opacity: 0.5,
+											}),
 										}}
 									>
 										{label}
@@ -153,7 +159,7 @@ export default function Nav() {
 							rel="noopener noreferrer"
 							style={{ fontSize: "13px", color: "var(--text-muted)", textDecoration: "none" }}
 						>
-							LinkedIn ↗
+							LinkedIn →
 						</a>
 						<a
 							href="/FayeLin_Resume.pdf"
