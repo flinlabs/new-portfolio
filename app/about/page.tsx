@@ -26,19 +26,19 @@ const card: React.CSSProperties = {
 
 export default function About() {
 	return (
-		<main style={{ maxWidth: "1000px", margin: "0 auto", padding: "144px 48px 120px" }}>
+		<main className="mobile-pad" style={{ maxWidth: "1000px", margin: "0 auto", padding: "144px 48px 120px" }}>
 
-			<h1 style={{
+			<h1 className="mobile-h1" style={{
 				fontFamily: "var(--font-cormorant)",
 				fontSize: "68px",
 				fontWeight: 600,
 				lineHeight: 1.05,
 				marginBottom: "48px",
 			}}>
-				Hi, I&apos;m <em style={{ fontStyle: "italic", background: "linear-gradient(135deg,#9B87D4,#D4A0C0)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Faye!</em>
+				Hi, I&apos;m <em style={{ fontStyle: "italic", background: "linear-gradient(135deg,#9B87D4,#D4A0C0)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Faye.</em>
 			</h1>
 
-			<div style={{ display: "grid", gridTemplateColumns: "1fr 450px", gap: "48px", alignItems: "start" }}>
+			<div className="mobile-stack" style={{ display: "grid", gridTemplateColumns: "1fr 420px", gap: "48px", alignItems: "start" }}>
 
 				{/* Left — bio + On AI */}
 				<div>
