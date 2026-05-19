@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Inter } from "next/font/google"
 import "./globals.css"
 import Nav from "@/components/Nav"
 import Blob from "@/components/Blob"
+import { Analytics } from "@vercel/analytics/next"
 
 const cormorant = Cormorant_Garamond({
 	subsets: ["latin"],
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				<div style={{ position: "relative", zIndex: 10 }}>
 					{children}
 				</div>
+				<Analytics />
 			</body>
 		</html>
 	)
