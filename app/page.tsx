@@ -10,9 +10,9 @@ const featured = [
 
 export default function Home() {
 	return (
-		<main style={{ maxWidth: "1100px", margin: "0 auto", padding: "144px 48px 120px" }}>
+		<main className="mobile-pad" style={{ maxWidth: "1100px", margin: "0 auto", padding: "144px 48px 120px" }}>
 
-			<div style={{ display: "grid", gridTemplateColumns: "1fr 340px", gap: "64px", alignItems: "center" }}>
+			<div className="mobile-stack" style={{ display: "grid", gridTemplateColumns: "1fr 340px", gap: "64px", alignItems: "center" }}>
 
 				{/* Left — hero */}
 				<div>
@@ -30,7 +30,7 @@ export default function Home() {
 					</FadeIn>
 
 					<FadeIn delay={0.08}>
-						<h1 style={{
+						<h1 className="mobile-h1" style={{
 							fontFamily: "var(--font-cormorant)",
 							fontSize: "96px",
 							fontWeight: 600,
@@ -105,7 +105,7 @@ export default function Home() {
 				</div>
 
 				{/* Right — featured cards */}
-				<div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+				<div className="mobile-full" style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
 					<FadeIn>
 						<p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "12px" }}>
 							Featured work
