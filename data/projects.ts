@@ -55,7 +55,7 @@ export const projects: Project[] = [
 		period: "2021 – 2024",
 		summary: "A multifunctional underwater robot I designed, built, and field-tested over three years to combat kelp forest collapse. 4x faster than diver surveys. ISEF finalist, published in IEEE Xplore.",
 		overview: "WAL-SEA is a homebuilt, multifunctional remotely operated vehicle designed to combat kelp forest collapse caused by unchecked purple sea urchin populations. Existing diver-led culling is costly, slow, and unscalable, so I set out to build a modular ROV that could both survey and actively remove urchins with far greater efficiency.\n\nOver two years I designed, built, and field-tested WAL-SEA through four major development phases: initial beta prototypes, a main ROV platform, mission-specific modules, and full assembly and deployment.",
-		problem: "Kelp forests in Monterey Bay are collapsing due to overpopulated purple sea urchins, a cascading crisis triggered by sea star wasting disease and marine heatwaves. Diver-only culling is too slow, too costly, and too limited to scale.",
+		problem: "88.3% of kelp forests in Monterey Bay are collapsing due to overpopulated purple sea urchins, a cascading crisis triggered by sea star wasting disease and marine heatwaves. Diver-only culling is too slow, too costly, and too limited to scale.",
 		approach: [
 			"Designed four prototype phases: beta → main platform → mission modules → full assembly.",
 			"Solved water intrusion with compression-fit cable penetrators; optimized buoyancy using high-density foam and ballast weights.",
@@ -63,7 +63,7 @@ export const projects: Project[] = [
 			"Conducted 7 ocean deployments at Del Monte Beach across varying surge, depth, and visibility conditions.",
 		],
 		outcomes: [
-			"4x survey efficiency: 1 acre in ~20 minutes vs. 75 minutes for divers.",
+			"10x survey speed and 6x efficiency: 1 acre in ~20 minutes vs. 75 minutes for divers.",
 			"Reliable 40–60 ft operating envelope with hour-long missions and 4K footage.",
 			"Vacuum module successfully scraped and collected multiple urchins per pass.",
 			"Generated urchin density maps from overlapping survey transects for targeted restoration.",

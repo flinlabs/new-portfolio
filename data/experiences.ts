@@ -51,7 +51,7 @@ export const experiences: Experience[] = [
 		],
 		achievements: [
 			"Sourced and evaluated 40+ candidates weekly across high-demand sectors.",
-			"Built CANDI MVP, projected to cut manual screening time by 30–50%.",
+			"Built CANDI MVP, projected to cut manual screening time by up to 50%.",
 			"Reduced hiring-manager report prep from ~45–60 min to ~10–15 min.",
 			"Standardized note-taking across recruiters through automated parsing.",
 		],
@@ -101,6 +101,7 @@ export const experiences: Experience[] = [
 			"Personally invested $5,000 each into Shoplift and Spaceport.",
 			"Built foundational skills in startup analysis and venture funding decision-making.",
 			"Developed lasting connections with founders and investors in the NextGen cohort.",
+			"Made personal angel investments in Shoplift and Spaceport based on analyzing their go-to-market strategies.",
 		],
 		website: "https://loeb.nyc",
 		websiteLabel: "Loeb.nyc's Website",
@@ -108,7 +109,7 @@ export const experiences: Experience[] = [
 	{
 		slug: "doer-marine",
 		logo: "/doer-logo.png",
-		title: "Underwater Robotics, CAD & Dive Coordination Intern",
+		title: "Engineering Intern",
 		company: "DOER Marine",
 		tag: "Engineering · Environmental · Science",
 		period: "Jun 2022 – Aug 2023",
@@ -135,7 +136,7 @@ export const experiences: Experience[] = [
 		company: "AquaMeridian US",
 		tag: "Environmental · Science",
 		period: "Jun 2022 – Present",
-		summary: "Founded the U.S. chapter of an international marine conservation nonprofit. We raised $8,500+, ran 10 beach cleanups with 150+ volunteers, and logged 2,000 lbs of debris data into global ocean health databases.",
+		summary: "Founded the U.S. chapter of an international marine conservation nonprofit. Lead monthly beach cleanups and education programs engaging 300+ students and community members.",
 		overview: "I established the U.S. chapter of AquaMeridian, an international marine conservation initiative, to expand outreach, education, and direct-action environmental projects. I designed and ran programs that combined community engagement with measurable conservation outcomes, from speaker panels in schools and libraries to large-scale beach cleanups. I also built the organization's funding infrastructure from scratch, developing a sponsorship strategy that secured $8,500+ from corporate and individual partners including Apple East Bay.",
 		responsibilities: [
 			"Directed strategic planning, fundraising, and operational management for U.S. chapter.",
