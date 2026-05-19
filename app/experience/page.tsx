@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { experiences } from "@/data/experiences"
 import TagChips from "@/components/TagChips"
 
@@ -14,6 +15,7 @@ export default function Experience() {
 			}}>
 				My <em style={{ fontStyle: "italic", background: "linear-gradient(135deg,#9B87D4,#D4A0C0)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Experience</em>
 			</h1>
+
 			<div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
 				{experiences.map((exp) => (
 					<Link key={exp.slug} href={`/experience/${exp.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
@@ -27,8 +29,23 @@ export default function Experience() {
 							gap: "32px",
 							transition: "box-shadow 0.2s ease",
 						}}>
-							<div style={{ minWidth: "110px", textAlign: "right" }}>
+
+							<div style={{ minWidth: "110px", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", gap: "12px" }}>
 								<p style={{ fontSize: "12px", color: "var(--text-muted)", lineHeight: 1.5 }}>{exp.period}</p>
+								{exp.logo && (
+									<div style={{
+										width: "72px",
+										height: "72px",
+										borderRadius: "16px",
+										overflow: "hidden",
+										background: "rgba(255,255,255,0.8)",
+										display: "flex",
+										alignItems: "center",
+										justifyContent: "center",
+									}}>
+										<Image src={exp.logo} alt={exp.company} width={72} height={72} style={{ objectFit: "contain", padding: "8px" }} />
+									</div>
+								)}
 							</div>
 
 							<div style={{ flex: 1 }}>
@@ -39,6 +56,7 @@ export default function Experience() {
 							</div>
 
 							<div style={{ fontSize: "18px", color: "var(--text-muted)", opacity: 0.4, flexShrink: 0 }}>→</div>
+
 						</div>
 					</Link>
 				))}
