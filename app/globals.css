@@ -46,3 +46,28 @@ a {
 	0%, 100% { opacity: 1; transform: scale(1); }
 	50% { opacity: 0.5; transform: scale(0.8); }
 }
+
+@media (max-width: 768px) {
+	.mobile-hide {
+		display: none !important;
+	}
+
+	.mobile-stack {
+		display: flex !important;
+		flex-direction: column !important;
+		grid-template-columns: 1fr !important;
+	}
+
+	.mobile-full {
+		width: 100% !important;
+		max-width: 100% !important;
+	}
+
+	.mobile-pad {
+		padding: 100px 24px 80px !important;
+	}
+
+	.mobile-h1 {
+		font-size: 52px !important;
+	}
+}
