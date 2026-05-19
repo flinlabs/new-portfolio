@@ -16,6 +16,7 @@ export type Experience = {
 export const experiences: Experience[] = [
 	{
 		slug: "skydeck",
+		logo: "/skydeck-logo.png",
 		title: "Product & Engineering Intern",
 		company: "Berkeley SkyDeck Funded Startup",
 		tag: "Product · AI · Engineering · Finance · Real Estate",
@@ -34,6 +35,7 @@ export const experiences: Experience[] = [
 	},
 	{
 		slug: "cgp",
+		logo: "/cgp-logo.png",
 		title: "Talent Acquisition & Data Insights Intern",
 		company: "Cornerstone Global Partners (CGP Group)",
 		tag: "AI · Product · Engineering",
@@ -58,6 +60,7 @@ export const experiences: Experience[] = [
 	},
 	{
 		slug: "link-multifamily",
+		logo: "/link-logo.png",
 		title: "Real Estate Acquisition & Portfolio Management Intern",
 		company: "Link Multifamily, LLC",
 		tag: "Finance · Real Estate",
@@ -81,6 +84,7 @@ export const experiences: Experience[] = [
 	},
 	{
 		slug: "loeb",
+		logo: "/loeb-logo.png",
 		title: "NextGen Venture Strategy & Angel Investor Intern",
 		company: "Loeb.nyc",
 		tag: "Finance",
@@ -103,6 +107,7 @@ export const experiences: Experience[] = [
 	},
 	{
 		slug: "doer-marine",
+		logo: "/doer-logo.png",
 		title: "Underwater Robotics, CAD & Dive Coordination Intern",
 		company: "DOER Marine",
 		tag: "Engineering · Environmental · Science",
@@ -125,6 +130,7 @@ export const experiences: Experience[] = [
 	},
 	{
 		slug: "aquameridian",
+		logo: "/aquameridian-logo.png",
 		title: "Founder & Executive Director (U.S. Chapter)",
 		company: "AquaMeridian US",
 		tag: "Environmental · Science",
