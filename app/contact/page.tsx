@@ -25,8 +25,9 @@ export default function Contact() {
 	}
 
 	return (
-		<main style={{ maxWidth: "900px", margin: "0 auto", padding: "144px 48px 120px" }}>
-			<h1 style={{
+		<main className="mobile-pad" style={{ maxWidth: "900px", margin: "0 auto", padding: "144px 48px 120px" }}>
+
+			<h1 className="mobile-h1" style={{
 				fontFamily: "var(--font-cormorant)",
 				fontSize: "68px",
 				fontWeight: 600,
@@ -41,7 +42,7 @@ export default function Contact() {
 				I&apos;m always happy to chat.
 			</p>
 
-			<form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "16px", maxWidth: "480px" }}>
+			<form onSubmit={handleSubmit} className="mobile-full" style={{ display: "flex", flexDirection: "column", gap: "16px", maxWidth: "480px" }}>
 				<div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
 					<label style={{ fontSize: "12px", fontWeight: 500, color: "var(--text-muted)" }}>Name</label>
 					<input
