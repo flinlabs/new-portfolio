@@ -8,6 +8,15 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
 	const exp = experiences.find(e => e.slug === slug)
 	if (!exp) notFound()
 
+	const chip: React.CSSProperties = {
+		fontSize: "12px",
+		padding: "4px 12px",
+		borderRadius: "100px",
+		background: "rgba(155,135,212,0.08)",
+		border: "1px solid rgba(155,135,212,0.2)",
+		color: "var(--text-muted)",
+	}
+
 	return (
 		<main className="mobile-pad" style={{ maxWidth: "760px", margin: "0 auto", padding: "144px 48px 120px" }}>
 
@@ -78,6 +87,17 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
 						))}
 					</ul>
 				</div>
+
+				{exp.skills && exp.skills.length > 0 && (
+					<div>
+						<p style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "16px" }}>Skills</p>
+						<div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
+							{exp.skills.map((s) => (
+								<span key={s} style={chip}>{s}</span>
+							))}
+						</div>
+					</div>
+				)}
 
 			</div>
 

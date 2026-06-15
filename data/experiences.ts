@@ -8,6 +8,7 @@ export type Experience = {
 	overview: string
 	responsibilities: string[]
 	achievements: string[]
+	skills?: string[]
 	website?: string
 	websiteLabel?: string
 	logo?: string
@@ -38,6 +39,7 @@ export const experiences: Experience[] = [
 			"Designed a UI spec and citation system for the lease chat interface, covering edge cases for out-of-scope queries and missing clauses.",
 			"Mapped ESRT's SharePoint folder schema to a structured metadata model enabling pre-retrieval filtering by portfolio, building, and tenant.",
 		],
+		skills: ["RAG / Retrieval Augmented Generation", "Microsoft Azure", "Azure AI Foundry", "Semantic Kernel", "SharePoint / SPFx", "Ollama", "LangChain", "ChromaDB", "AWS Bedrock", "VBA", "Excel", "Python", "Commercial real estate"],
 		website: "https://esrtreit.com",
 		websiteLabel: "ESRT's Website",
 	},
@@ -61,6 +63,7 @@ export const experiences: Experience[] = [
 			"Evaluated four competing voice AI providers to make a data-informed stack selection.",
 			"Delivered a full-stack working prototype spanning pipeline architecture and a polished React frontend.",
 		],
+		skills: ["React", "Tailwind CSS", "TypeScript", "Python", "STT / LLM / TTS pipeline", "ElevenLabs", "Deepgram", "Whisper", "Gemini", "AI product development"],
 	},
 	{
 		slug: "cgp",
@@ -82,6 +85,7 @@ export const experiences: Experience[] = [
 			"Developed the CANDI MVP end-to-end, automating the full post-interview pipeline from transcript to hiring-manager-ready report.",
 			"Reduced hiring-manager report prep time significantly through automated scoring and flag generation.",
 		],
+		skills: ["Chrome Extensions", "JavaScript", "Python", "Prompt engineering", "Glide", "Airtable", "AI product development"],
 		website: "https://www.linkedin.com/company/cornerstone-global-partners/",
 		websiteLabel: "CGP's LinkedIn",
 	},
@@ -105,6 +109,7 @@ export const experiences: Experience[] = [
 			"Identified competitive positioning in two high-growth verticals — IP platforms and Shopify A/B testing — as part of directed research.",
 			"Built foundational skills in venture funding decision-making within a family office investing context.",
 		],
+		skills: ["Venture capital", "Due diligence", "Market research", "Financial modeling", "Competitive analysis"],
 		website: "https://loeb.nyc",
 		websiteLabel: "Loeb.nyc's Website",
 	},
@@ -132,6 +137,7 @@ export const experiences: Experience[] = [
 			"Built a 12-person student leadership pipeline that continued running the organization independently.",
 			"Formed lasting partnerships with local schools, libraries, and organizations to support marine education and habitat restoration.",
 		],
+		skills: ["Program management", "Fundraising", "Community organizing", "STEM education", "Operations"],
 		website: "https://aquameridian-us.org",
 		websiteLabel: "AquaMeridian's Website",
 	},
