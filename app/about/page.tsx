@@ -1,10 +1,11 @@
 const skills: Record<string, string[]> = {
-	"Analysis": ["Financial modeling", "Data visualization", "Market research", "Due diligence", "Process optimization"],
-	"Technical": ["Python", "SQL", "Excel", "SolidWorks", "Glide", "Airtable", "Canva"],
-	"Domain": ["Venture capital", "Program management", "Environmental education", "Operations"],
+	"Languages & Frameworks": ["Python", "Java", "SQL / MySQL", "VBA", "React", "TypeScript", "Tailwind CSS", "Next.js"],
+	"AI & ML": ["RAG / Retrieval Augmented Generation", "Microsoft Azure", "Azure AI Foundry", "Semantic Kernel", "SharePoint / SPFx", "Ollama", "Llama", "LangChain", "AnythingLLM", "AWS Bedrock", "ChromaDB", "Docker"],
+	"Tools & Platforms": ["Git / GitHub", "Excel", "SolidWorks", "Glide", "Airtable"],
+	"Domain": ["Commercial real estate", "Venture capital", "AI product development", "Financial modeling", "Market research", "Due diligence", "Prompt engineering"],
 }
 
-const coursework = ["Data Analysis", "Data Visualization", "Financial Modeling", "Microeconomics", "Macroeconomics"]
+const coursework = ["Data Structures & Algorithms (CS 61B)", "Data Analysis & Modeling", "Linear Algebra", "Probability & Statistics"]
 
 const chip: React.CSSProperties = {
 	fontSize: "12px",
@@ -77,7 +78,7 @@ export default function About() {
 						<p style={{ fontSize: "13px", fontWeight: 600, color: "var(--text)", marginBottom: "6px" }}>Education</p>
 						<p style={{ fontSize: "13px", fontWeight: 600, marginBottom: "4px" }}>UC Berkeley</p>
 						<p style={{ fontSize: "12px", color: "var(--text-muted)", marginBottom: "16px", lineHeight: 1.5 }}>
-							BA Business Economics · BA Data Science · Expected May 2028
+							BA Data Science · BA Economics · Expected May 2028
 						</p>
 						<p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "10px", opacity: 0.7 }}>Relevant Coursework</p>
 						<div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
