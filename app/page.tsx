@@ -4,7 +4,7 @@ import FadeIn from "@/components/FadeIn"
 import TiltCard from "@/components/TiltCard"
 
 const featured = [
-	{ type: "experience", slug: "skydeck", tag: "Product · AI · Engineering", title: "Berkeley SkyDeck", sub: "Product & Engineering Intern", period: "Jan 2025 – Present", logo: "/skydeck-logo.png" },
+	{ type: "experience", slug: "waer", tag: "Product · AI · Engineering", title: "Empire State Realty Trust", sub: "AI Tools Intern", period: "June 2026 – Present", logo: "/esrt-logo.png" },
 	{ type: "projects",   slug: "candi",   tag: "AI · Product · Engineering", title: "CANDI",            sub: "AI Recruiting Platform",      period: "Jun – Aug 2025",    logo: "/candi-logo.png" },
 ]
 
