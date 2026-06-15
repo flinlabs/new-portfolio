@@ -16,6 +16,7 @@ export type Experience = {
 export const experiences: Experience[] = [
 	{
 		slug: "esrt",
+		logo: "/esrt-logo.png",
 		title: "Lease Administration & AI Development Intern",
 		company: "Empire State Realty Trust (ESRT)",
 		tag: "AI · Product · Engineering · Real Estate · Finance",
