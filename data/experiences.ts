@@ -15,6 +15,32 @@ export type Experience = {
 
 export const experiences: Experience[] = [
 	{
+		slug: "esrt",
+		title: "Lease Administration & AI Development Intern",
+		company: "Empire State Realty Trust (ESRT)",
+		tag: "AI · Product · Engineering · Real Estate · Finance",
+		period: "Jun 2026 – Present",
+		summary: "Building an enterprise AI platform that makes ESRT's lease portfolio queryable in plain English, while handling day-to-day lease administration across a multi-building NYC portfolio.",
+		overview: "At Empire State Realty Trust — the owner and operator of the Empire State Building and a broader NYC commercial and residential portfolio — I split my time between hands-on lease administration and building Lease AI, an internal RAG (Retrieval-Augmented Generation) system that lets non-technical staff query SharePoint-stored lease documents in plain English. On the operations side, I work in Yardi, track letters of credit, and reconcile tenant options and termination clauses. On the build side, I'm architecting an Azure-native pipeline: Azure OpenAI with GPT-4o, Azure AI Search for vector retrieval, Azure Cosmos DB for structured lease fields, and Azure Document Intelligence for document chunking, orchestrated with Semantic Kernel and surfaced through a React/SPFx chat interface.",
+		responsibilities: [
+			"Design and build Lease AI, an enterprise RAG platform enabling natural language queries over ESRT's full lease document library.",
+			"Architect an Azure-native ingestion and retrieval pipeline (Azure OpenAI, AI Search, Cosmos DB, Document Intelligence, Semantic Kernel).",
+			"Develop a multi-turn conversational chat UI with inline citations, deployed as an SPFx web part on SharePoint.",
+			"Perform day-to-day lease administration including Yardi data entry, LOC tracking, and critical date reconciliation.",
+			"Build and deploy VBA automation for LOC expiry notifications with Outlook email routing across ESRT's building portfolio.",
+			"Conduct comparative analysis of AI vendors (Harvey AI vs. internal RAG) for senior leadership and IT security review.",
+		],
+		achievements: [
+			"Architected a full enterprise RAG system from scratch, advancing from spec to working demo within the first intern cycle.",
+			"Built an automated LOC expiry notification macro, replacing a manual tracking process across a multi-building portfolio.",
+			"Produced a 14-dimension vendor comparison briefing for CTOs and senior leadership, influencing the platform decision.",
+			"Designed a UI spec and citation system for the lease chat interface, covering edge cases for out-of-scope queries and missing clauses.",
+			"Mapped ESRT's SharePoint folder schema to a structured metadata model enabling pre-retrieval filtering by portfolio, building, and tenant.",
+		],
+		website: "https://esrtreit.com",
+		websiteLabel: "ESRT's Website",
+	},
+	{
 		slug: "skydeck",
 		logo: "/skydeck-logo.png",
 		title: "Product & Engineering Intern",
