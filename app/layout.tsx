@@ -4,6 +4,7 @@ import "./globals.css"
 import Nav from "@/components/Nav"
 import Blob from "@/components/Blob"
 import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const cormorant = Cormorant_Garamond({
 	subsets: ["latin"],
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 					{children}
 				</div>
 				<Analytics />
+				<SpeedInsights />
 			</body>
 		</html>
 	)
