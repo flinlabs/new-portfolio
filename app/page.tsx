@@ -1,144 +1,102 @@
-import Link from "next/link"
-import Image from "next/image"
-import FadeIn from "@/components/FadeIn"
-import TiltCard from "@/components/TiltCard"
+import { projects } from "@/data/projects"
+import { experiences } from "@/data/experiences"
+import Reveal from "@/components/motion/Reveal"
+import HeroVisual from "@/components/three/HeroVisual"
+import WorkList from "@/components/home/WorkList"
+import { TransitionLink } from "@/components/motion/PageTransition"
+import Magnetic from "@/components/motion/Magnetic"
 
-const featured = [
-	{ type: "experience", slug: "waer", tag: "Product · AI · Engineering", title: "Empire State Realty Trust", sub: "AI Tools Intern", period: "June 2026 – Present", logo: "/esrt-logo.png" },
-	{ type: "projects",   slug: "candi",   tag: "AI · Product · Engineering", title: "CANDI",            sub: "AI Recruiting Platform",      period: "Jun – Aug 2025",    logo: "/candi-logo.png" },
-]
+const workItems = projects.map(p => ({
+	slug: p.slug,
+	title: p.title,
+	tag: p.tag,
+	period: p.period,
+	image: p.images?.[0],
+	logo: p.thumbnail,
+}))
 
 export default function Home() {
 	return (
-		<main className="mobile-pad" style={{ maxWidth: "1100px", margin: "0 auto", padding: "144px 48px 120px" }}>
-
-			<div className="mobile-stack" style={{ display: "grid", gridTemplateColumns: "1fr 340px", gap: "64px", alignItems: "center" }}>
-
-				{/* Left — hero */}
-				<div>
-					<FadeIn delay={0}>
-						<p style={{
-							fontSize: "12px",
-							fontWeight: 500,
-							textTransform: "uppercase",
-							letterSpacing: "0.1em",
-							color: "var(--green)",
-							marginBottom: "32px",
-						}}>
-							● Available for Work
+		<main>
+			{/* Hero */}
+			<section className="hero container">
+				<div className="hero-copy">
+					<Reveal delay={0.05}>
+						<p className="label" style={{ marginBottom: 28 }}>
+							AI Tools Intern at Empire State Realty Trust
 						</p>
-					</FadeIn>
-
-					<FadeIn delay={0.08}>
-						<h1 className="mobile-h1" style={{
-							fontFamily: "var(--font-cormorant)",
-							fontSize: "96px",
-							fontWeight: 600,
-							lineHeight: 1,
-							marginBottom: "24px",
-							color: "var(--text)",
-						}}>
-							Faye{" "}
-							<em style={{
-								fontStyle: "italic",
-								background: "linear-gradient(135deg,#9B87D4,#D4A0C0,#87B8D4)",
-								WebkitBackgroundClip: "text",
-								WebkitTextFillColor: "transparent",
-							}}>Lin.</em>
-						</h1>
-					</FadeIn>
-
-					<FadeIn delay={0.14}>
-						<p style={{
-							fontSize: "17px",
-							lineHeight: 1.7,
-							color: "var(--text)",
-							marginBottom: "40px",
-							opacity: 0.75,
-						}}>
-							Builder, researcher, and connector of dots. I work across technical and human
-							problems, from AI tools to marine robots to ocean conservation.
-							Class of &apos;28 studying Economics &amp; Data Science at UC Berkeley.
+					</Reveal>
+					<Reveal as="h1" lines className="display-xl" delay={0.12}>
+						AI products, built <em>end to end.</em>
+					</Reveal>
+					<Reveal delay={0.3}>
+						<p className="body-lg muted" style={{ marginTop: 28, maxWidth: "44ch" }}>
+							I&rsquo;m Faye Lin: Economics &amp; Data Science at UC Berkeley, shipping AI tools inside
+							real companies, from lease intelligence to voice agents.
 						</p>
-					</FadeIn>
-
-					<FadeIn delay={0.2}>
-						<div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-							<a
-								href="https://www.linkedin.com/in/fayelin-aqua"
-								target="_blank"
-								rel="noopener noreferrer"
-								style={{
-									display: "inline-flex",
-									alignItems: "center",
-									borderRadius: "100px",
-									padding: "13px 28px",
-									fontSize: "14px",
-									fontWeight: 500,
-									color: "#fff",
-									textDecoration: "none",
-									background: "linear-gradient(135deg,#8B6FD4,#D4609C)",
-								}}
-							>
-								LinkedIn →
-							</a>
-							<a
-								href="/FayeLin_Resume.pdf"
-								download
-								style={{
-									display: "inline-flex",
-									alignItems: "center",
-									borderRadius: "100px",
-									padding: "13px 28px",
-									fontSize: "14px",
-									fontWeight: 500,
-									color: "var(--text)",
-									textDecoration: "none",
-									border: "1px solid rgba(14,12,26,0.2)",
-									background: "rgba(255,255,255,0.5)",
-								}}
-							>
-								Download Resume ↓
-							</a>
+					</Reveal>
+					<Reveal delay={0.42}>
+						<div style={{ display: "flex", gap: 14, marginTop: 40, flexWrap: "wrap" }}>
+							<Magnetic>
+								<TransitionLink href="/projects" label="Work" className="btn btn-dark">
+									View work
+								</TransitionLink>
+							</Magnetic>
+							<Magnetic>
+								<a href="/FayeLin_Resume.pdf" download className="btn btn-ghost">
+									Resume &#8595;
+								</a>
+							</Magnetic>
 						</div>
-					</FadeIn>
+					</Reveal>
 				</div>
+				<HeroVisual className="hero-visual-panel" />
+			</section>
 
-				{/* Right — featured cards */}
-				<div className="mobile-full" style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-					<FadeIn>
-						<p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "12px" }}>
-							Featured work
-						</p>
-					</FadeIn>
-					{featured.map(({ type, slug, tag, title, sub, period, logo }, i) => (
-						<FadeIn key={slug} delay={i * 0.07}>
-							<TiltCard>
-								<Link href={`/${type}/${slug}`} style={{
-									background: "rgba(255,255,255,0.88)",
-									backdropFilter: "blur(20px)",
-									border: "1px solid rgba(155,135,212,0.3)",
-									borderRadius: "20px",
-									padding: "24px",
-									display: "flex",
-									flexDirection: "column",
-									textDecoration: "none",
-									color: "inherit",
-									boxShadow: "0 4px 24px rgba(0,0,0,0.07)",
-								}}>
-									<Image src={logo} alt={title} width={40} height={40} style={{ objectFit: "contain", marginBottom: "16px", borderRadius: "8px" }} />
-									<p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--lavender)", marginBottom: "8px" }}>{tag}</p>
-									<h3 style={{ fontFamily: "var(--font-cormorant)", fontSize: "22px", fontWeight: 600, marginBottom: "4px" }}>{title}</h3>
-									<p style={{ fontSize: "13px", color: "var(--text-muted)", marginBottom: "12px" }}>{sub}</p>
-									<p style={{ fontSize: "11px", color: "var(--text-muted)", opacity: 0.65 }}>{period}</p>
-								</Link>
-							</TiltCard>
-						</FadeIn>
-					))}
+			{/* Selected work */}
+			<section className="section container" id="work">
+				<div className="section-head">
+					<Reveal as="h2" lines className="display-lg">
+						Selected <em>work</em>
+					</Reveal>
 				</div>
+				<Reveal delay={0.1}>
+					<WorkList items={workItems} />
+				</Reveal>
+			</section>
 
-			</div>
+			{/* Experience */}
+			<section className="section-dark">
+				<div className="section container">
+					<Reveal as="h2" lines className="display-lg" style={{ marginBottom: "clamp(40px, 5vw, 72px)" }}>
+						Experience
+					</Reveal>
+					<div>
+						{experiences.map(exp => (
+							<Reveal key={exp.slug}>
+								<TransitionLink href={`/experience/${exp.slug}`} label={exp.company} className="exp-row" data-cursor="view">
+									<span className="serif exp-row-company">{exp.company}</span>
+									<span className="muted exp-row-role">{exp.title}</span>
+									<span className="muted exp-row-period">{exp.period}</span>
+								</TransitionLink>
+							</Reveal>
+						))}
+					</div>
+				</div>
+			</section>
 
+			{/* About tease */}
+			<section className="section container">
+				<Reveal as="p" lines className="display-md about-tease serif">
+					I learn by shipping: underwater robots field-tested in Monterey Bay, AI tools running inside
+					real companies, and an ocean conservation nonprofit built from zero.
+				</Reveal>
+				<Reveal delay={0.2}>
+					<TransitionLink href="/about" label="About" className="link-underline" style={{ fontSize: 15, marginTop: 32, display: "inline-block" }}>
+						More about me
+					</TransitionLink>
+				</Reveal>
+			</section>
 		</main>
 	)
 }

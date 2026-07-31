@@ -1,176 +1,124 @@
 "use client"
-import Link from "next/link"
-import Image from "next/image"
+import { useEffect, useState } from "react"
 import { usePathname } from "next/navigation"
-import { useState } from "react"
-import SearchDropdown from "@/components/SearchDropdown"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { TransitionLink } from "@/components/motion/PageTransition"
+import Magnetic from "@/components/motion/Magnetic"
+
+gsap.registerPlugin(ScrollTrigger)
 
 const links = [
-	{ href: "/", label: "Home" },
-	{ href: "/about", label: "About" },
+	{ href: "/projects", label: "Work" },
 	{ href: "/experience", label: "Experience" },
-	{ href: "/projects", label: "Projects" },
-	{ href: "/contact", label: "Contact" },
+	{ href: "/about", label: "About" },
 ]
 
 export default function Nav() {
 	const pathname = usePathname()
-	const [menuOpen, setMenuOpen] = useState(false)
+	const [scrolled, setScrolled] = useState(false)
+	const [open, setOpen] = useState(false)
+
+	useEffect(() => {
+		const st = ScrollTrigger.create({
+			start: 60,
+			end: "max",
+			onToggle: self => setScrolled(self.isActive),
+		})
+		return () => st.kill()
+	}, [])
+
+	useEffect(() => {
+		document.documentElement.style.overflow = open ? "hidden" : ""
+		if (open) window.__lenis?.stop()
+		else window.__lenis?.start()
+	}, [open])
+
+	const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`)
 
 	return (
 		<>
-			<nav style={{
-				position: "fixed",
-				top: 0,
-				left: 0,
-				right: 0,
-				zIndex: 50,
-				display: "flex",
-				alignItems: "center",
-				justifyContent: "space-between",
-				padding: "20px 48px",
-				background: "rgba(247,246,250,0.82)",
-				backdropFilter: "blur(14px)",
-				borderBottom: "1px solid rgba(196,181,240,0.2)",
-			}}>
-				<Link href="/" style={{ display: "flex", alignItems: "center" }}>
-					<Image
-						src="/logo.png"
-						alt="Faye Lin"
-						width={40}
-						height={40}
-						style={{ objectFit: "contain", filter: "brightness(0)" }}
-					/>
-				</Link>
+			<header className={`site-nav ${scrolled ? "is-scrolled" : ""}`}>
+				<div className="container site-nav-inner">
+					<TransitionLink href="/" label="Faye Lin" className="serif site-nav-wordmark">
+						Faye Lin
+					</TransitionLink>
 
-				{/* Desktop nav */}
-				<div className="mobile-hide" style={{ display: "flex", alignItems: "center", gap: "24px" }}>
-					<SearchDropdown />
-					<ul style={{ display: "flex", alignItems: "center", gap: "32px", listStyle: "none", margin: 0, padding: 0 }}>
-						{links.map(({ href, label }) => {
-							const active = pathname === href || (href !== "/" && pathname.startsWith(href))
-							return (
-								<li key={href}>
-									<Link href={href} style={{
-										fontSize: "11px",
-										fontWeight: 500,
-										letterSpacing: "0.12em",
-										textTransform: "uppercase",
-										textDecoration: "none",
-										color: active ? "var(--text)" : "var(--text-muted)",
-										transition: "color 0.2s ease",
-									}}>
-										{label}
-									</Link>
-								</li>
-							)
-						})}
-					</ul>
-				</div>
+					<nav className="nav-links" aria-label="Primary">
+						{links.map(({ href, label }) => (
+							<TransitionLink
+								key={href}
+								href={href}
+								label={label}
+								className="label link-underline"
+								aria-current={isActive(href) ? "page" : undefined}
+							>
+								{label}
+							</TransitionLink>
+						))}
+					</nav>
 
-				{/* Hamburger button — mobile only */}
-				<button
-					className="mobile-menu-btn"
-					onClick={() => setMenuOpen(true)}
-					style={{
-						display: "none",
-						background: "none",
-						border: "none",
-						cursor: "pointer",
-						fontSize: "24px",
-						color: "var(--text)",
-						padding: "4px",
-					}}
-				>
-					☰
-				</button>
-			</nav>
-
-			{/* Full screen mobile menu */}
-			{menuOpen && (
-				<div style={{
-					position: "fixed",
-					inset: 0,
-					zIndex: 100,
-					background: "rgba(247,246,250,0.98)",
-					backdropFilter: "blur(20px)",
-					display: "flex",
-					flexDirection: "column",
-					padding: "40px 32px",
-				}}>
-					{/* Top row */}
-					<div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "48px" }}>
-						<Link href="/" onClick={() => setMenuOpen(false)}>
-							<Image src="/logo.png" alt="Faye Lin" width={40} height={40} style={{ objectFit: "contain", filter: "brightness(0)" }} />
-						</Link>
-						<button
-							onClick={() => setMenuOpen(false)}
-							style={{
-								background: "none",
-								border: "none",
-								cursor: "pointer",
-								fontSize: "28px",
-								color: "var(--text)",
-								padding: "4px",
-							}}
-						>
-							✕
-						</button>
+					<div className="nav-cta">
+						<Magnetic>
+							<TransitionLink href="/contact" label="Contact" className="btn btn-dark" style={{ padding: "11px 24px" }}>
+								Let&rsquo;s talk
+							</TransitionLink>
+						</Magnetic>
 					</div>
 
-					{/* Links */}
-					<ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "8px" }}>
-						{links.map(({ href, label }) => {
-							const active = pathname === href || (href !== "/" && pathname.startsWith(href))
-							return (
-								<li key={href}>
-									<Link
-										href={href}
-										onClick={() => setMenuOpen(false)}
-										style={{
-											fontFamily: "var(--font-cormorant)",
-											fontSize: "48px",
-											fontWeight: 600,
-											textDecoration: "none",
-											display: "block",
-											lineHeight: 1.3,
-											...(active ? {
-												background: "linear-gradient(135deg,#9B87D4,#D4A0C0)",
-												WebkitBackgroundClip: "text",
-												WebkitTextFillColor: "transparent",
-											} : {
-												color: "var(--text-muted)",
-												opacity: 0.5,
-											}),
-										}}
-									>
-										{label}
-									</Link>
-								</li>
-							)
-						})}
-					</ul>
-
-					{/* Bottom links */}
-					<div style={{ marginTop: "auto", display: "flex", flexDirection: "column", gap: "12px" }}>
-						<a
-							href="https://www.linkedin.com/in/fayelin-aqua"
-							target="_blank"
-							rel="noopener noreferrer"
-							style={{ fontSize: "13px", color: "var(--text-muted)", textDecoration: "none" }}
-						>
-							LinkedIn →
-						</a>
-						<a
-							href="/FayeLin_Resume.pdf"
-							download
-							style={{ fontSize: "13px", color: "var(--text-muted)", textDecoration: "none" }}
-						>
-							Download Resume ↓
-						</a>
-					</div>
+					<button className="nav-burger" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} onClick={() => setOpen(v => !v)}>
+						<span />
+						<span />
+					</button>
 				</div>
-			)}
+			</header>
+
+			{open && <MobileMenu pathname={pathname} onClose={() => setOpen(false)} />}
 		</>
+	)
+}
+
+function MobileMenu({ pathname, onClose }: { pathname: string; onClose: () => void }) {
+	useEffect(() => {
+		if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
+		const ctx = gsap.context(() => {
+			gsap.fromTo(".mobile-menu", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.35, ease: "power2.out" })
+			gsap.fromTo(
+				".mobile-menu-link",
+				{ yPercent: 110 },
+				{ yPercent: 0, duration: 0.7, stagger: 0.07, delay: 0.1, ease: "power4.out" },
+			)
+		})
+		return () => ctx.revert()
+	}, [])
+
+	const items = [{ href: "/", label: "Home" }, ...links, { href: "/contact", label: "Contact" }]
+
+	return (
+		<div className="mobile-menu">
+			<nav aria-label="Mobile">
+				{items.map(({ href, label }) => (
+					<div key={href} style={{ overflow: "hidden" }}>
+						<TransitionLink
+							href={href}
+							label={label}
+							onNavigate={onClose}
+							className="serif mobile-menu-link"
+							aria-current={pathname === href ? "page" : undefined}
+						>
+							{label}
+						</TransitionLink>
+					</div>
+				))}
+			</nav>
+			<div className="mobile-menu-foot">
+				<a href="https://www.linkedin.com/in/fayelin-aqua" target="_blank" rel="noopener noreferrer">
+					LinkedIn
+				</a>
+				<a href="/FayeLin_Resume.pdf" download>
+					Resume
+				</a>
+			</div>
+		</div>
 	)
 }

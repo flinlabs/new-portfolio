@@ -1,125 +1,118 @@
 import { projects } from "@/data/projects"
 import { notFound } from "next/navigation"
 import Image from "next/image"
-import Link from "next/link"
 import TagChips from "@/components/TagChips"
+import Reveal from "@/components/motion/Reveal"
+import { TransitionLink } from "@/components/motion/PageTransition"
+
+export function generateStaticParams() {
+	return projects.map(p => ({ slug: p.slug }))
+}
 
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
 	const { slug } = await params
-	const project = projects.find(p => p.slug === slug)
-	if (!project) notFound()
+	const index = projects.findIndex(p => p.slug === slug)
+	if (index === -1) notFound()
+	const project = projects[index]
+	const next = projects[(index + 1) % projects.length]
 
 	return (
-		<main className="mobile-pad" style={{ maxWidth: "760px", margin: "0 auto", padding: "144px 48px 120px" }}>
+		<main className="container">
+			<div className="page-head" style={{ maxWidth: 900 }}>
+				<Reveal>
+					<TagChips tag={project.tag} />
+				</Reveal>
+				<Reveal as="h1" lines className="display-lg" delay={0.1} style={{ marginTop: 24 }}>
+					{project.title}
+				</Reveal>
+				{project.subtitle && (
+					<Reveal delay={0.2}>
+						<p className="serif" style={{ fontSize: "clamp(19px, 2vw, 24px)", marginTop: 16, color: "var(--ink-soft)" }}>
+							<em>{project.subtitle}</em>
+						</p>
+					</Reveal>
+				)}
+				<Reveal delay={0.28}>
+					<div className="page-head-meta">
+						<span>{project.period}</span>
+						{project.location && <span>{project.location}</span>}
+					</div>
+					{project.links && (
+						<div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 24 }}>
+							{project.links.map(link => (
+								<a key={link.label} href={link.url} target="_blank" rel="noopener noreferrer" className="chip" style={{ color: "var(--bronze)" }}>
+									{link.label} &#8599;
+								</a>
+							))}
+						</div>
+					)}
+				</Reveal>
+			</div>
 
-			<TagChips tag={project.tag} />
-
-			<h1 className="mobile-h1" style={{
-				fontFamily: "var(--font-cormorant)",
-				fontSize: "52px",
-				fontWeight: 600,
-				lineHeight: 1.1,
-				marginBottom: "8px",
-			}}>
-				{project.title}
-			</h1>
-
-			<p style={{ fontSize: "16px", color: "var(--text-muted)", marginBottom: "4px" }}>{project.subtitle}</p>
-			<p style={{ fontSize: "14px", color: "var(--text-muted)", marginBottom: "48px" }}>{project.period}</p>
-
-			{project.links && (
-				<div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "48px" }}>
-					{project.links.map(link => (
-						<a
-							key={link.label}
-							href={link.url}
-							target="_blank"
-							rel="noopener noreferrer"
-							style={{
-								fontSize: "13px",
-								color: "var(--lavender)",
-								border: "1px solid var(--border)",
-								borderRadius: "100px",
-								padding: "6px 16px",
-								textDecoration: "none",
-							}}
-						>
-							{link.label} ↗
-						</a>
-					))}
-				</div>
-			)}
-
-			<div style={{ height: "1px", background: "var(--border)", marginBottom: "48px" }} />
-
-			<div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
-
-				<div>
-					<p style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "16px" }}>Overview</p>
+			<div className="article">
+				<Reveal className="article-section">
+					<h2>Overview</h2>
 					{project.overview.split("\n\n").map((para, i) => (
-						<p key={i} style={{ fontSize: "15px", lineHeight: 1.8, color: "var(--text)", marginBottom: "16px" }}>{para}</p>
+						<p key={i}>{para}</p>
 					))}
-				</div>
+				</Reveal>
 
-				<div>
-					<p style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "16px" }}>The Problem</p>
-					<p style={{ fontSize: "15px", lineHeight: 1.8, color: "var(--text)" }}>{project.problem}</p>
-				</div>
+				<Reveal className="article-section">
+					<h2>The problem</h2>
+					<p>{project.problem}</p>
+				</Reveal>
 
-				<div>
-					<p style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "16px" }}>Approach</p>
-					<ul style={{ display: "flex", flexDirection: "column", gap: "10px", listStyle: "none", padding: 0 }}>
-						{project.approach.map((a) => (
-							<li key={a} style={{ fontSize: "15px", lineHeight: 1.7, color: "var(--text)", paddingLeft: "16px", borderLeft: "2px solid var(--border)" }}>
-								{a}
-							</li>
+				<Reveal className="article-section">
+					<h2>Approach</h2>
+					<ul className="article-list">
+						{project.approach.map(a => (
+							<li key={a}>{a}</li>
 						))}
 					</ul>
-				</div>
+				</Reveal>
 
-				<div>
-					<p style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "16px" }}>Outcomes</p>
-					<ul style={{ display: "flex", flexDirection: "column", gap: "10px", listStyle: "none", padding: 0 }}>
-						{project.outcomes.map((o) => (
-							<li key={o} style={{ fontSize: "15px", lineHeight: 1.7, color: "var(--text)", paddingLeft: "16px", borderLeft: "2px solid var(--lavender)" }}>
-								{o}
-							</li>
+				<Reveal className="article-section">
+					<h2>Outcomes</h2>
+					<ul className="article-list">
+						{project.outcomes.map(o => (
+							<li key={o}>{o}</li>
 						))}
 					</ul>
-				</div>
+				</Reveal>
 
 				{project.images && (
-					<div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-						{project.images.map((src) => (
-							<div key={src} style={{ position: "relative", width: "100%", aspectRatio: "1/1", borderRadius: "16px", overflow: "hidden" }}>
+					<Reveal className="article-section" style={{ borderTop: "none", paddingTop: 8 }}>
+						{project.images.map(src => (
+							<div key={src} style={{ position: "relative", width: "100%", aspectRatio: "4/3", overflow: "hidden", background: "var(--dark-2)" }}>
 								<Image src={src} alt={project.title} fill style={{ objectFit: "cover" }} />
 							</div>
 						))}
-					</div>
+					</Reveal>
 				)}
 
 				{project.awards && (
-					<div>
-						<p style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "16px" }}>Recognition</p>
-						<p style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--text)" }}>{project.awards}</p>
-					</div>
+					<Reveal className="article-section">
+						<h2>Recognition</h2>
+						<p>{project.awards}</p>
+					</Reveal>
 				)}
 
 				{project.tech && (
-					<div>
-						<p style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "16px" }}>Stack & Tools</p>
-						<p style={{ fontSize: "14px", lineHeight: 1.8, color: "var(--text)" }}>{project.tech}</p>
-					</div>
+					<Reveal className="article-section">
+						<h2>Stack &amp; tools</h2>
+						<p>{project.tech}</p>
+					</Reveal>
 				)}
-
 			</div>
 
-			<div style={{ marginTop: "64px" }}>
-				<Link href="/projects" style={{ fontSize: "13px", color: "var(--text-muted)", textDecoration: "none" }}>
-					← Back to Projects
-				</Link>
-			</div>
-
+			<TransitionLink href={`/projects/${next.slug}`} label={next.title} className="next-link" data-cursor="view">
+				<span className="label" style={{ display: "block", marginBottom: 12 }}>
+					Next project
+				</span>
+				<span className="serif">
+					{next.title} <em>&#8599;</em>
+				</span>
+			</TransitionLink>
 		</main>
 	)
 }
