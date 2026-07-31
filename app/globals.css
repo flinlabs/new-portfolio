@@ -481,6 +481,70 @@ h3 {
 	font-weight: 600;
 	letter-spacing: 0.18em;
 	text-transform: uppercase;
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	color: var(--ink);
+}
+
+/* ————— Brand motif ————— */
+.preloader-mark {
+	position: absolute;
+	top: 32%;
+	left: 50%;
+	transform: translateX(-50%);
+	color: var(--ivory);
+}
+
+.curtain-motif {
+	color: var(--ivory);
+	opacity: 0;
+	margin-bottom: 6px;
+}
+
+.desk-stamp {
+	color: var(--ink);
+	opacity: 0.4;
+}
+
+/* ————— Rotating descriptors ————— */
+.rotator-row {
+	display: flex;
+	align-items: baseline;
+	gap: 12px;
+	margin-top: 22px;
+	font-family: var(--mono);
+	font-size: 13.5px;
+	letter-spacing: 0.02em;
+}
+
+.rotator-prefix {
+	color: var(--ink-soft);
+	text-transform: uppercase;
+	font-size: 11px;
+	letter-spacing: 0.14em;
+}
+
+.rotator {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	vertical-align: bottom;
+	color: var(--lav-ink);
+}
+
+.rotator-sizer {
+	visibility: hidden;
+	white-space: nowrap;
+	display: inline-block;
+}
+
+.rotator-line {
+	position: absolute;
+	left: 0;
+	top: 0;
+	white-space: nowrap;
+	transform: translateY(120%);
 }
 
 .nav-links {

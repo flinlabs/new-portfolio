@@ -4,6 +4,7 @@ import { usePathname, useRouter } from "next/navigation"
 import Link from "next/link"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import Motif from "@/components/Motif"
 import { armNavGate, openNavGate } from "@/lib/gate"
 
 gsap.registerPlugin(ScrollTrigger)
@@ -66,7 +67,7 @@ export function TransitionProvider({ nav, children }: { nav: React.ReactNode; ch
 						window.__lenis?.start()
 					},
 				})
-					.to(metaRef.current, { autoAlpha: 0, duration: 0.2 }, 0)
+					.to([metaRef.current, root.querySelector(".curtain-motif")], { autoAlpha: 0, duration: 0.2 }, 0)
 					.to(titleRef.current, { yPercent: -125, duration: 0.4, ease: "power3.in" }, 0)
 					// ink leaves first, exposing a beat of the accent colour behind it
 					.to(inkRef.current, { yPercent: -110, duration: 0.7, ease: "power4.inOut" }, 0.12)
@@ -101,6 +102,12 @@ export function TransitionProvider({ nav, children }: { nav: React.ReactNode; ch
 				.to(page, { scale: 0.96, y: -18, duration: 0.7, ease: "power3.inOut" }, 0)
 				.fromTo(accentRef.current, { y: 0, yPercent: 110 }, { yPercent: 0, duration: 0.62, ease: "power4.inOut" }, 0)
 				.fromTo(inkRef.current, { y: 0, yPercent: 110 }, { yPercent: 0, duration: 0.62, ease: "power4.inOut" }, 0.12)
+				.fromTo(
+					rootRef.current!.querySelector(".curtain-motif"),
+					{ autoAlpha: 0, scale: 0.6 },
+					{ autoAlpha: 1, scale: 1, duration: 0.45, ease: "back.out(2.5)" },
+					0.45,
+				)
 				.fromTo(titleRef.current, { yPercent: 125 }, { yPercent: 0, duration: 0.55, ease: "power4.out" }, 0.5)
 				.fromTo(metaRef.current, { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "power2.out" }, 0.68)
 				.add(() => {
@@ -124,6 +131,9 @@ export function TransitionProvider({ nav, children }: { nav: React.ReactNode; ch
 				<div ref={accentRef} className="curtain-panel" />
 				<div ref={inkRef} className="curtain-panel curtain-panel-ink" />
 				<div className="curtain-text">
+					<div className="curtain-motif">
+						<Motif size={54} dot="var(--butter)" strokeWidth={2.4} />
+					</div>
 					<div className="curtain-title-mask">
 						<div ref={titleRef} className="curtain-title" />
 					</div>

@@ -2,7 +2,16 @@ import { experiences } from "@/data/experiences"
 import Reveal from "@/components/motion/Reveal"
 import ExperienceIndex from "@/components/home/ExperienceIndex"
 import ProjectsDesk from "@/components/home/ProjectsDesk"
+import RotatingLines from "@/components/home/RotatingLines"
 import { TransitionLink } from "@/components/motion/PageTransition"
+
+const descriptors = [
+	"ships AI tools inside real companies",
+	"founded a nonprofit at fifteen",
+	"put a robot in Monterey Bay seven times",
+	"hunting the best KBBQ in the East Bay",
+	"published in IEEE Xplore before college",
+]
 
 const expItems = experiences.map(({ slug, title, company, period, tag }) => ({ slug, title, company, period, tag }))
 
@@ -14,6 +23,11 @@ export default function Home() {
 				<div>
 					<Reveal as="h1" lines className="display-xl">
 						Faye Lin
+					</Reveal>
+					<Reveal delay={0.12}>
+						<p className="rotator-row">
+							<span className="rotator-prefix">currently:</span> <RotatingLines lines={descriptors} />
+						</p>
 					</Reveal>
 					<Reveal delay={0.18}>
 						<p className="body-lg" style={{ marginTop: 32, maxWidth: "52ch" }}>

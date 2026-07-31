@@ -4,6 +4,7 @@ import Image from "next/image"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { TransitionLink } from "@/components/motion/PageTransition"
+import Motif from "@/components/Motif"
 import { navGate } from "@/lib/gate"
 import { useVelocitySkew } from "@/lib/useVelocitySkew"
 
@@ -28,33 +29,31 @@ export default function ProjectsDesk() {
 		navGate().then(() => {
 			if (cancelled) return
 			ctx.add(() => {
+				// The scroll-standstill scene: the desk pins and scrolling deals the
+				// cards onto it one by one — fully scrubbed, so scrolling back
+				// sweeps them off again.
+				const deal = gsap.timeline({
+					scrollTrigger: {
+						trigger: root,
+						start: "top 20%",
+						end: "+=130%",
+						pin: true,
+						scrub: 1,
+						anticipatePin: 1,
+					},
+				})
+
 				els.forEach((el, i) => {
 					const rot = Number(el.dataset.rot)
 					const motion = el.querySelector<HTMLElement>(".desk-card-motion")!
 					const inner = el.querySelector<HTMLElement>(".desk-card-inner")!
 
-					// scatter in: drop onto the desk, overshooting the resting angle
-					gsap.fromTo(
+					deal.fromTo(
 						motion,
-						{ autoAlpha: 0, y: 110, rotation: rot * 2.8, scale: 0.93 },
-						{
-							autoAlpha: 1,
-							y: 0,
-							rotation: rot,
-							scale: 1,
-							duration: 1,
-							delay: (i % 3) * 0.11,
-							ease: "power4.out",
-							scrollTrigger: { trigger: el, start: "top 92%", once: true },
-						},
+						{ autoAlpha: 0, y: window.innerHeight * 0.55, rotation: rot * 3.4, scale: 0.9 },
+						{ autoAlpha: 1, y: 0, rotation: rot, scale: 1, duration: 1, ease: "power2.out" },
+						i * 0.55,
 					)
-
-					// slow parallax drift at different depths while scrolling past
-					gsap.to(el, {
-						y: Number(el.dataset.drift),
-						ease: "none",
-						scrollTrigger: { trigger: root, start: "top bottom", end: "bottom top", scrub: 1.2 },
-					})
 
 					// cursor-following perspective tilt while over the card
 					const tiltX = gsap.quickTo(inner, "rotationX", { duration: 0.5, ease: "power3.out" })
@@ -109,7 +108,7 @@ export default function ProjectsDesk() {
 						<p>A modular ROV that surveys and vacuums urchins. Four prototypes, seven ocean deployments, one published paper.</p>
 						<span className="desk-card-meta">
 							<span>2021&ndash;24 &middot; Monterey Bay</span>
-							<span>&#8599;</span>
+							<Motif size={26} strokeWidth={3.4} className="desk-stamp" />
 						</span>
 					</span>
 				</span>
@@ -155,7 +154,7 @@ export default function ProjectsDesk() {
 						<p>Eighth grade: an underwater camera rig $2,500 cheaper than the commercial one. 48 hours of continuous footage at 54 feet.</p>
 						<span className="desk-card-meta">
 							<span>2018&ndash;19 &middot; Monterey Bay</span>
-							<span>&#8599;</span>
+							<Motif size={26} strokeWidth={3.4} className="desk-stamp" />
 						</span>
 					</span>
 				</span>

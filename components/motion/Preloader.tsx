@@ -1,6 +1,7 @@
 "use client"
 import { useLayoutEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
+import Motif from "@/components/Motif"
 import { openLoadGate, openNavGate, preloaderWillRun, PRELOAD_KEY } from "@/lib/gate"
 
 export default function Preloader() {
@@ -27,7 +28,20 @@ export default function Preloader() {
 				setGone(true)
 			},
 		})
-		tl.fromTo(wordRef.current, { yPercent: 130 }, { yPercent: 0, duration: 0.7, ease: "power4.out" })
+		// the mark draws itself in, then the dot pops onto the crest
+		const wave = rootRef.current!.querySelector<SVGPathElement>(".motif-wave")
+		const dotEl = rootRef.current!.querySelector<SVGCircleElement>(".motif-dot")
+		if (wave && dotEl) {
+			const len = wave.getTotalLength()
+			gsap.set(wave, { strokeDasharray: len, strokeDashoffset: len })
+			gsap.set(dotEl, { scale: 0, transformOrigin: "center" })
+			tl.to(wave, { strokeDashoffset: 0, duration: 0.9, ease: "power2.inOut" }, 0).to(
+				dotEl,
+				{ scale: 1, duration: 0.45, ease: "back.out(3)" },
+				0.7,
+			)
+		}
+		tl.fromTo(wordRef.current, { yPercent: 130 }, { yPercent: 0, duration: 0.7, ease: "power4.out" }, 0.25)
 			.to(
 				counter,
 				{
@@ -56,6 +70,9 @@ export default function Preloader() {
 
 	return (
 		<div ref={rootRef} className="preloader" aria-hidden="true">
+			<div className="preloader-mark">
+				<Motif size={92} dot="var(--butter)" strokeWidth={2.2} />
+			</div>
 			<div className="preloader-word">
 				<span ref={wordRef}>Faye Lin</span>
 			</div>

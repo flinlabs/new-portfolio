@@ -5,6 +5,7 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { TransitionLink } from "@/components/motion/PageTransition"
 import Magnetic from "@/components/motion/Magnetic"
+import Motif from "@/components/Motif"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -44,6 +45,7 @@ export default function Nav() {
 			<header className={`site-nav ${scrolled ? "is-scrolled" : ""} ${hidden && !open ? "is-hidden" : ""}`}>
 				<div className="container site-nav-inner">
 					<TransitionLink href="/" label="Faye Lin" className="site-nav-wordmark">
+						<Motif size={38} strokeWidth={3} />
 						Faye Lin
 					</TransitionLink>
 
