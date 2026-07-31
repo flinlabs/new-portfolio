@@ -1,8 +1,9 @@
 "use client"
-import { useState } from "react"
+import { useRef, useState } from "react"
 import Image from "next/image"
 import { TransitionLink } from "@/components/motion/PageTransition"
 import { Chip } from "@/components/TagChips"
+import { useVelocitySkew } from "@/lib/useVelocitySkew"
 
 export type ExperienceItem = {
 	slug: string
@@ -29,6 +30,8 @@ function yearOf(period: string) {
 export default function ExperienceIndex({ items }: { items: ExperienceItem[] }) {
 	const [active, setActive] = useState(0)
 	const current = items[active]
+	const previewRef = useRef<HTMLDivElement>(null)
+	useVelocitySkew(previewRef, 3)
 
 	return (
 		<div className="exp-layout">
@@ -62,7 +65,7 @@ export default function ExperienceIndex({ items }: { items: ExperienceItem[] }) 
 				))}
 			</div>
 
-			<div className="exp-preview" aria-hidden="true">
+			<div ref={previewRef} className="exp-preview" aria-hidden="true">
 				<div className="exp-preview-inner">
 					{items.map((exp, i) => (
 						<div

@@ -17,6 +17,7 @@ const links = [
 export default function Nav() {
 	const pathname = usePathname()
 	const [scrolled, setScrolled] = useState(false)
+	const [hidden, setHidden] = useState(false)
 	const [open, setOpen] = useState(false)
 
 	useEffect(() => {
@@ -24,6 +25,8 @@ export default function Nav() {
 			start: 60,
 			end: "max",
 			onToggle: self => setScrolled(self.isActive),
+			// trionn-style: nav ducks away scrolling down, returns scrolling up
+			onUpdate: self => setHidden(self.direction === 1 && self.scroll() > 260),
 		})
 		return () => st.kill()
 	}, [])
@@ -38,7 +41,7 @@ export default function Nav() {
 
 	return (
 		<>
-			<header className={`site-nav ${scrolled ? "is-scrolled" : ""}`}>
+			<header className={`site-nav ${scrolled ? "is-scrolled" : ""} ${hidden && !open ? "is-hidden" : ""}`}>
 				<div className="container site-nav-inner">
 					<TransitionLink href="/" label="Faye Lin" className="site-nav-wordmark">
 						Faye Lin

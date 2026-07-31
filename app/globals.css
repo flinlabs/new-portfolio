@@ -281,18 +281,45 @@ h3 {
 	bottom: -12vh;
 }
 
-.curtain-label {
+.curtain-panel-ink {
+	background: var(--dark);
+}
+
+.curtain-text {
 	position: absolute;
 	inset: 0;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	gap: 18px;
+	color: var(--ivory);
+}
+
+.curtain-title-mask {
+	overflow: hidden;
+	padding: 0.08em 0.2em;
+	max-width: 92vw;
+}
+
+.curtain-title {
+	font-family: var(--grotesk);
+	font-weight: 680;
+	letter-spacing: -0.03em;
+	line-height: 1.05;
+	font-size: clamp(38px, 6.5vw, 96px);
+	white-space: nowrap;
+	text-align: center;
+	/* gsap owns the transform (see curtain-panel note) */
+}
+
+.curtain-meta {
 	font-family: var(--mono);
-	font-size: 13px;
+	font-size: 11.5px;
 	font-weight: 500;
 	letter-spacing: 0.3em;
 	text-transform: uppercase;
-	color: var(--ivory);
+	color: var(--ivory-soft);
 	opacity: 0;
 }
 
@@ -429,6 +456,15 @@ h3 {
 	background: rgba(244, 241, 234, 0.88);
 	backdrop-filter: blur(12px);
 	border-bottom-color: var(--line);
+}
+
+.site-nav.is-hidden {
+	transform: translateY(-100%);
+}
+
+.site-nav {
+	transition: background-color 0.35s, border-color 0.35s, backdrop-filter 0.35s,
+		transform 0.45s var(--ease-out);
 }
 
 .site-nav-inner {
@@ -681,7 +717,7 @@ h3 {
 /* ————— Projects desk (2b) ————— */
 .desk {
 	position: relative;
-	min-height: 720px;
+	min-height: 1080px;
 }
 
 .desk-card {
@@ -690,7 +726,35 @@ h3 {
 	will-change: transform;
 }
 
+.desk-card-motion {
+	display: block;
+}
+
+.desk-note-list {
+	display: flex;
+	flex-direction: column;
+}
+
+.desk-note-row {
+	display: block;
+	font-size: 14px;
+	line-height: 1.55;
+	color: var(--ink);
+	padding: 10px 0;
+	border-top: 1px solid rgba(27, 26, 23, 0.14);
+	transition: transform 0.3s var(--ease-out);
+}
+
+.desk-note-row:hover {
+	transform: translateX(6px);
+}
+
+.desk-note-row span {
+	font-size: 12px;
+}
+
 .desk-card-inner {
+	display: block;
 	background: #fff;
 	padding: 14px;
 	box-shadow: 0 18px 44px -20px rgba(60, 52, 38, 0.4);

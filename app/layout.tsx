@@ -37,8 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 		<html lang="en" className={`${archivo.variable} ${plexMono.variable}`}>
 			<body>
 				<Preloader />
-				<TransitionProvider>
-					<Nav />
+				<TransitionProvider nav={<Nav />}>
 					{children}
 					<Footer />
 				</TransitionProvider>

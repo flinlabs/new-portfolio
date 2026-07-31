@@ -18,13 +18,28 @@ export function useTransition() {
 	return useContext(TransitionContext)
 }
 
-export function TransitionProvider({ children }: { children: React.ReactNode }) {
+const accents = ["var(--lav)", "var(--powder)", "var(--butter)", "var(--mint)", "var(--blush)"]
+
+function kindOf(href: string) {
+	if (href.startsWith("/experience/")) return "Experience"
+	if (href.startsWith("/projects/")) return "Project"
+	if (href === "/experience") return "Index"
+	if (href === "/projects") return "Index"
+	if (href === "/") return "Home"
+	return "Page"
+}
+
+export function TransitionProvider({ nav, children }: { nav: React.ReactNode; children: React.ReactNode }) {
 	const router = useRouter()
 	const pathname = usePathname()
 	const rootRef = useRef<HTMLDivElement>(null)
-	const panelRef = useRef<HTMLDivElement>(null)
-	const labelRef = useRef<HTMLDivElement>(null)
+	const inkRef = useRef<HTMLDivElement>(null)
+	const accentRef = useRef<HTMLDivElement>(null)
+	const titleRef = useRef<HTMLDivElement>(null)
+	const metaRef = useRef<HTMLDivElement>(null)
+	const pageRef = useRef<HTMLDivElement>(null)
 	const covering = useRef(false)
+	const accentIndex = useRef(0)
 	const failsafe = useRef<ReturnType<typeof setTimeout> | null>(null)
 
 	const uncover = useCallback(() => {
@@ -34,27 +49,31 @@ export function TransitionProvider({ children }: { children: React.ReactNode }) 
 			failsafe.current = null
 		}
 		const root = rootRef.current!
-		const panel = panelRef.current!
-		const labelEl = labelRef.current!
-		// Let the new page mount and settle before anything is measured or shown:
-		// two frames for layout + fonts, scroll pinned to top, triggers rebuilt.
+		const page = pageRef.current!
+		// Let the new page mount and settle before anything is measured or
+		// shown: two frames for layout + fonts, scroll pinned to top.
 		requestAnimationFrame(() => {
 			requestAnimationFrame(() => {
 				window.scrollTo(0, 0)
 				window.__lenis?.scrollTo(0, { immediate: true, force: true })
 				ScrollTrigger.refresh()
+				gsap.set(page, { y: 42, scale: 0.985, transformOrigin: `50% ${window.innerHeight / 2}px` })
 				gsap.timeline({
 					onComplete: () => {
+						gsap.set(page, { clearProps: "transform" })
 						root.classList.remove("is-active")
 						covering.current = false
 						window.__lenis?.start()
 					},
 				})
-					.to(labelEl, { autoAlpha: 0, y: -20, duration: 0.25, ease: "power2.in" })
-					.to(panel, { yPercent: -110, duration: 0.7, ease: "power4.inOut" }, "-=0.05")
-					// Open the gate as the curtain clears the top third, so entrance
-					// reveals play in view instead of finishing behind the panel.
-					.add(openNavGate, "-=0.45")
+					.to(metaRef.current, { autoAlpha: 0, duration: 0.2 }, 0)
+					.to(titleRef.current, { yPercent: -125, duration: 0.4, ease: "power3.in" }, 0)
+					// ink leaves first, exposing a beat of the accent colour behind it
+					.to(inkRef.current, { yPercent: -110, duration: 0.7, ease: "power4.inOut" }, 0.12)
+					.to(accentRef.current, { yPercent: -110, duration: 0.7, ease: "power4.inOut" }, 0.26)
+					.to(page, { y: 0, scale: 1, duration: 0.8, ease: "power3.out" }, 0.3)
+					// open the gate as the panels clear, so entrance reveals play in view
+					.add(openNavGate, 0.55)
 			})
 		})
 	}, [])
@@ -70,18 +89,25 @@ export function TransitionProvider({ children }: { children: React.ReactNode }) 
 			covering.current = true
 			armNavGate()
 			window.__lenis?.stop()
-			const panel = panelRef.current!
-			const labelEl = labelRef.current!
-			labelEl.textContent = label ?? ""
+			const page = pageRef.current!
+			const kind = kindOf(href)
+			titleRef.current!.textContent = label ?? kind
+			metaRef.current!.textContent = kind
+			accentRef.current!.style.background = accents[accentIndex.current++ % accents.length]
+			gsap.set(page, { transformOrigin: `50% ${window.scrollY + window.innerHeight / 2}px` })
 			rootRef.current!.classList.add("is-active")
 			gsap.timeline()
-				.fromTo(panel, { y: 0, yPercent: 110 }, { yPercent: 0, duration: 0.65, ease: "power4.inOut" })
-				.fromTo(labelEl, { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "power3.out" }, "-=0.2")
+				// the old page recedes as the panels sweep over it
+				.to(page, { scale: 0.96, y: -18, duration: 0.7, ease: "power3.inOut" }, 0)
+				.fromTo(accentRef.current, { y: 0, yPercent: 110 }, { yPercent: 0, duration: 0.62, ease: "power4.inOut" }, 0)
+				.fromTo(inkRef.current, { y: 0, yPercent: 110 }, { yPercent: 0, duration: 0.62, ease: "power4.inOut" }, 0.12)
+				.fromTo(titleRef.current, { yPercent: 125 }, { yPercent: 0, duration: 0.55, ease: "power4.out" }, 0.5)
+				.fromTo(metaRef.current, { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "power2.out" }, 0.68)
 				.add(() => {
 					router.push(href)
 					// If the route never resolves, don't leave the user behind a black wall.
 					failsafe.current = setTimeout(() => uncover(), 4000)
-				})
+				}, 1.02)
 		},
 		[pathname, router, uncover],
 	)
@@ -92,10 +118,17 @@ export function TransitionProvider({ children }: { children: React.ReactNode }) 
 
 	return (
 		<TransitionContext.Provider value={{ navigate }}>
-			{children}
+			{nav}
+			<div ref={pageRef}>{children}</div>
 			<div ref={rootRef} className="curtain" aria-hidden="true">
-				<div ref={panelRef} className="curtain-panel" />
-				<div ref={labelRef} className="curtain-label" />
+				<div ref={accentRef} className="curtain-panel" />
+				<div ref={inkRef} className="curtain-panel curtain-panel-ink" />
+				<div className="curtain-text">
+					<div className="curtain-title-mask">
+						<div ref={titleRef} className="curtain-title" />
+					</div>
+					<div ref={metaRef} className="curtain-meta" />
+				</div>
 			</div>
 		</TransitionContext.Provider>
 	)
