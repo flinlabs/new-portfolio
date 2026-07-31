@@ -55,11 +55,23 @@ export default function Cursor() {
 			}
 		}
 
+		// Click ripple (from the design notes: small outward ring on click)
+		const onDown = (e: PointerEvent) => {
+			const ripple = document.createElement("span")
+			ripple.className = "click-ripple"
+			ripple.style.left = `${e.clientX}px`
+			ripple.style.top = `${e.clientY}px`
+			document.body.appendChild(ripple)
+			ripple.addEventListener("animationend", () => ripple.remove())
+		}
+
 		window.addEventListener("pointermove", onMove, { passive: true })
+		window.addEventListener("pointerdown", onDown, { passive: true })
 		document.addEventListener("pointerover", onOver)
 		document.addEventListener("pointerout", onOut)
 		return () => {
 			window.removeEventListener("pointermove", onMove)
+			window.removeEventListener("pointerdown", onDown)
 			document.removeEventListener("pointerover", onOver)
 			document.removeEventListener("pointerout", onOut)
 		}

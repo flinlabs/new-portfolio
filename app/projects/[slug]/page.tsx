@@ -27,8 +27,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 				</Reveal>
 				{project.subtitle && (
 					<Reveal delay={0.2}>
-						<p className="serif" style={{ fontSize: "clamp(19px, 2vw, 24px)", marginTop: 16, color: "var(--ink-soft)" }}>
-							<em>{project.subtitle}</em>
+						<p style={{ fontSize: "clamp(17px, 1.8vw, 21px)", fontWeight: 520, marginTop: 16, color: "var(--ink-soft)" }}>
+							{project.subtitle}
 						</p>
 					</Reveal>
 				)}
@@ -40,7 +40,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 					{project.links && (
 						<div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 24 }}>
 							{project.links.map(link => (
-								<a key={link.label} href={link.url} target="_blank" rel="noopener noreferrer" className="chip" style={{ color: "var(--bronze)" }}>
+								<a key={link.label} href={link.url} target="_blank" rel="noopener noreferrer" className="chip" style={{ background: "var(--lav)", color: "var(--lav-ink)" }}>
 									{link.label} &#8599;
 								</a>
 							))}
@@ -109,9 +109,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 				<span className="label" style={{ display: "block", marginBottom: 12 }}>
 					Next project
 				</span>
-				<span className="serif">
-					{next.title} <em>&#8599;</em>
-				</span>
+				<span className="next-link-title">{next.title} &#8599;</span>
 			</TransitionLink>
 		</main>
 	)

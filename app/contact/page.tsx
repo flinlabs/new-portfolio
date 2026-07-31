@@ -33,7 +33,7 @@ export default function Contact() {
 		<main className="container" style={{ minHeight: "70dvh" }}>
 			<div className="page-head">
 				<Reveal as="h1" lines className="display-xl">
-					Let&rsquo;s <em>talk</em>
+					Let&rsquo;s talk
 				</Reveal>
 				<Reveal delay={0.2}>
 					<p className="body-lg muted" style={{ marginTop: 20, maxWidth: "44ch" }}>
@@ -68,7 +68,7 @@ export default function Contact() {
 								{status === "sending" ? "Sending" : "Send message"}
 							</button>
 						</Magnetic>
-						{status === "success" && <p style={{ fontSize: 14, color: "var(--bronze)" }}>Thanks! I&rsquo;ll get back to you soon.</p>}
+						{status === "success" && <p style={{ fontSize: 14, color: "var(--mint-ink)" }}>Thanks! I&rsquo;ll get back to you soon.</p>}
 						{status === "error" && (
 							<p style={{ fontSize: 14, color: "#8d3b2f" }}>
 								Something went wrong. Email me at{" "}

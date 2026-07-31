@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next"
-import { Newsreader, Archivo } from "next/font/google"
+import { Archivo, IBM_Plex_Mono } from "next/font/google"
 import "./globals.css"
 import Nav from "@/components/Nav"
 import Footer from "@/components/Footer"
@@ -9,17 +9,16 @@ import Cursor from "@/components/motion/Cursor"
 import { TransitionProvider } from "@/components/motion/PageTransition"
 import { Analytics } from "@vercel/analytics/next"
 
-const newsreader = Newsreader({
-	subsets: ["latin"],
-	style: ["normal", "italic"],
-	axes: ["opsz"],
-	variable: "--font-newsreader",
-	display: "swap",
-})
-
 const archivo = Archivo({
 	subsets: ["latin"],
 	variable: "--font-archivo",
+	display: "swap",
+})
+
+const plexMono = IBM_Plex_Mono({
+	subsets: ["latin"],
+	weight: ["400", "500", "600"],
+	variable: "--font-plex-mono",
 	display: "swap",
 })
 
@@ -30,12 +29,12 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-	themeColor: "#efece5",
+	themeColor: "#f4f1ea",
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="en" className={`${newsreader.variable} ${archivo.variable}`}>
+		<html lang="en" className={`${archivo.variable} ${plexMono.variable}`}>
 			<body>
 				<Preloader />
 				<TransitionProvider>

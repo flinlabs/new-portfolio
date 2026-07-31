@@ -23,7 +23,7 @@ export default function About() {
 
 			<div className="about-grid">
 				<div>
-					<Reveal as="p" lines className="serif about-lede">
+					<Reveal as="p" lines className="about-lede">
 						My projects range from marine robots that go into the actual ocean, to AI tools that real
 						recruiting teams use, to a conservation nonprofit I started from scratch. What ties them
 						together is that I genuinely needed each one to exist.

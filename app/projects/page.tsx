@@ -1,37 +1,25 @@
 import type { Metadata } from "next"
-import { projects } from "@/data/projects"
 import Reveal from "@/components/motion/Reveal"
-import WorkList from "@/components/home/WorkList"
+import ProjectsDesk from "@/components/home/ProjectsDesk"
 
-export const metadata: Metadata = { title: "Work" }
-
-const items = projects.map(p => ({
-	slug: p.slug,
-	title: p.title,
-	tag: p.tag,
-	period: p.period,
-	image: p.images?.[0],
-	logo: p.thumbnail,
-}))
+export const metadata: Metadata = { title: "Projects" }
 
 export default function ProjectsPage() {
 	return (
 		<main className="container" style={{ minHeight: "70dvh" }}>
 			<div className="page-head">
 				<Reveal as="h1" lines className="display-xl">
-					Work
+					Projects
 				</Reveal>
-				<Reveal delay={0.2}>
+				<Reveal delay={0.15}>
 					<p className="body-lg muted" style={{ marginTop: 20, maxWidth: "48ch" }}>
-						Projects I designed, built, and took into the field, from AI recruiting tools to an
-						urchin-culling underwater robot.
+						Things I designed, built, and took into the field, from AI recruiting tools to an
+						urchin-culling underwater robot. Pick anything up.
 					</p>
 				</Reveal>
 			</div>
-			<Reveal delay={0.1}>
-				<WorkList items={items} />
-			</Reveal>
-			<div style={{ paddingBottom: "clamp(96px, 12vw, 176px)" }} />
+			<ProjectsDesk />
+			<div style={{ paddingBottom: "clamp(88px, 10vw, 150px)" }} />
 		</main>
 	)
 }

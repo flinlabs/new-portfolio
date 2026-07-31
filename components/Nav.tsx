@@ -9,8 +9,8 @@ import Magnetic from "@/components/motion/Magnetic"
 gsap.registerPlugin(ScrollTrigger)
 
 const links = [
-	{ href: "/projects", label: "Work" },
 	{ href: "/experience", label: "Experience" },
+	{ href: "/projects", label: "Projects" },
 	{ href: "/about", label: "About" },
 ]
 
@@ -40,7 +40,7 @@ export default function Nav() {
 		<>
 			<header className={`site-nav ${scrolled ? "is-scrolled" : ""}`}>
 				<div className="container site-nav-inner">
-					<TransitionLink href="/" label="Faye Lin" className="serif site-nav-wordmark">
+					<TransitionLink href="/" label="Faye Lin" className="site-nav-wordmark">
 						Faye Lin
 					</TransitionLink>
 
@@ -103,7 +103,7 @@ function MobileMenu({ pathname, onClose }: { pathname: string; onClose: () => vo
 							href={href}
 							label={label}
 							onNavigate={onClose}
-							className="serif mobile-menu-link"
+							className="mobile-menu-link"
 							aria-current={pathname === href ? "page" : undefined}
 						>
 							{label}

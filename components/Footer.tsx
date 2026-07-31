@@ -1,33 +1,12 @@
 "use client"
 import { TransitionLink } from "@/components/motion/PageTransition"
 
-const honors = [
-	"ISEF Finalist",
-	"Published in IEEE Xplore",
-	"Regeneron STS Top 300",
-	"ACSEF Grand Award",
-	"Broadcom MASTERS Top 300",
-	"NASA & NOAA Special Awards",
-]
-
 export default function Footer() {
 	return (
-		<footer className="section-dark site-footer">
-			<div className="marquee" aria-hidden="true">
-				{[0, 1].map(i => (
-					<div key={i} className="marquee-track serif">
-						{honors.map(h => (
-							<span key={h} className="footer-honor">
-								{h} <span className="footer-dot">·</span>
-							</span>
-						))}
-					</div>
-				))}
-			</div>
-
+		<footer className="site-footer">
 			<div className="container footer-main">
 				<p className="label">Open to internships and builds</p>
-				<TransitionLink href="/contact" label="Contact" className="serif footer-cta" data-cursor="view" data-cursor-label="Say hi">
+				<TransitionLink href="/contact" label="Contact" className="footer-cta" data-cursor="view" data-cursor-label="Say hi">
 					Let&rsquo;s talk <span className="footer-cta-arrow">&#8599;</span>
 				</TransitionLink>
 			</div>

@@ -3,7 +3,7 @@ import { useLayoutEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { SplitText } from "gsap/SplitText"
-import { gatePromise } from "@/lib/gate"
+import { navGate } from "@/lib/gate"
 
 gsap.registerPlugin(ScrollTrigger, SplitText)
 
@@ -29,18 +29,22 @@ export default function Reveal({ children, lines = false, delay = 0, className, 
 		let cancelled = false
 		const ctx = gsap.context(() => {}, el)
 
-		if (!lines) gsap.set(el, { autoAlpha: 0, y: 32 })
+		if (!lines) gsap.set(el, { autoAlpha: 0, y: 28 })
+		else gsap.set(el, { autoAlpha: 0 })
 
 		const build = async () => {
-			await Promise.all([gatePromise, document.fonts.ready])
+			// Hold until the curtain (or preloader) has actually lifted, so
+			// entrance animations never play hidden behind it.
+			await Promise.all([navGate(), document.fonts.ready])
 			if (cancelled) return
 			ctx.add(() => {
 				if (lines) {
+					gsap.set(el, { autoAlpha: 1 })
 					split = SplitText.create(el, { type: "lines", mask: "lines" })
 					gsap.from(split.lines, {
 						yPercent: 115,
-						duration: 1.1,
-						stagger: 0.09,
+						duration: 0.9,
+						stagger: 0.08,
 						delay,
 						ease: "power4.out",
 						scrollTrigger: { trigger: el, start: "top 88%", once: true },
@@ -49,7 +53,7 @@ export default function Reveal({ children, lines = false, delay = 0, className, 
 					gsap.to(el, {
 						autoAlpha: 1,
 						y: 0,
-						duration: 1,
+						duration: 0.85,
 						delay,
 						ease: "power3.out",
 						scrollTrigger: { trigger: el, start: "top 90%", once: true },

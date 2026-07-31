@@ -1,7 +1,7 @@
 "use client"
 import { useLayoutEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
-import { openGate, preloaderWillRun, PRELOAD_KEY } from "@/lib/gate"
+import { openLoadGate, openNavGate, preloaderWillRun, PRELOAD_KEY } from "@/lib/gate"
 
 export default function Preloader() {
 	const [gone, setGone] = useState(false)
@@ -11,7 +11,7 @@ export default function Preloader() {
 
 	useLayoutEffect(() => {
 		if (!preloaderWillRun()) {
-			openGate()
+			openLoadGate()
 			const raf = requestAnimationFrame(() => setGone(true))
 			return () => cancelAnimationFrame(raf)
 		}
@@ -27,7 +27,7 @@ export default function Preloader() {
 				setGone(true)
 			},
 		})
-		tl.fromTo(wordRef.current, { yPercent: 120 }, { yPercent: 0, duration: 0.8, ease: "power4.out" })
+		tl.fromTo(wordRef.current, { yPercent: 130 }, { yPercent: 0, duration: 0.7, ease: "power4.out" })
 			.to(
 				counter,
 				{
@@ -40,9 +40,12 @@ export default function Preloader() {
 				},
 				"<0.1",
 			)
-			.to([wordRef.current, countRef.current], { autoAlpha: 0, duration: 0.35, ease: "power2.in" })
-			.add(openGate)
-			.to(rootRef.current, { yPercent: -100, duration: 0.9, ease: "power4.inOut" }, "<")
+			.to([wordRef.current, countRef.current], { autoAlpha: 0, duration: 0.3, ease: "power2.in" })
+			.add(() => {
+				openLoadGate()
+				openNavGate()
+			})
+			.to(rootRef.current, { yPercent: -100, duration: 0.85, ease: "power4.inOut" }, "<")
 
 		return () => {
 			tl.kill()

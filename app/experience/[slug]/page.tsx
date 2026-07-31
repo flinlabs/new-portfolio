@@ -25,8 +25,8 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
 					{exp.company}
 				</Reveal>
 				<Reveal delay={0.2}>
-					<p className="serif" style={{ fontSize: "clamp(19px, 2vw, 24px)", marginTop: 16, color: "var(--ink-soft)" }}>
-						<em>{exp.title}</em>
+					<p style={{ fontSize: "clamp(17px, 1.8vw, 21px)", fontWeight: 520, marginTop: 16, color: "var(--ink-soft)" }}>
+						{exp.title}
 					</p>
 				</Reveal>
 				<Reveal delay={0.28}>
@@ -35,7 +35,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
 					</div>
 					{exp.website && (
 						<div style={{ marginTop: 24 }}>
-							<a href={exp.website} target="_blank" rel="noopener noreferrer" className="chip" style={{ color: "var(--bronze)" }}>
+							<a href={exp.website} target="_blank" rel="noopener noreferrer" className="chip" style={{ background: "var(--lav)", color: "var(--lav-ink)" }}>
 								{exp.websiteLabel} &#8599;
 							</a>
 						</div>
@@ -85,9 +85,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
 				<span className="label" style={{ display: "block", marginBottom: 12 }}>
 					Next role
 				</span>
-				<span className="serif">
-					{next.company} <em>&#8599;</em>
-				</span>
+				<span className="next-link-title">{next.company} &#8599;</span>
 			</TransitionLink>
 		</main>
 	)

@@ -4,6 +4,7 @@ import { usePathname, useRouter } from "next/navigation"
 import Link from "next/link"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { armNavGate, openNavGate } from "@/lib/gate"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -35,18 +36,27 @@ export function TransitionProvider({ children }: { children: React.ReactNode }) 
 		const root = rootRef.current!
 		const panel = panelRef.current!
 		const labelEl = labelRef.current!
-		window.scrollTo(0, 0)
-		window.__lenis?.scrollTo(0, { immediate: true, force: true })
-		ScrollTrigger.refresh()
-		gsap.timeline({
-			onComplete: () => {
-				root.classList.remove("is-active")
-				covering.current = false
-				window.__lenis?.start()
-			},
+		// Let the new page mount and settle before anything is measured or shown:
+		// two frames for layout + fonts, scroll pinned to top, triggers rebuilt.
+		requestAnimationFrame(() => {
+			requestAnimationFrame(() => {
+				window.scrollTo(0, 0)
+				window.__lenis?.scrollTo(0, { immediate: true, force: true })
+				ScrollTrigger.refresh()
+				gsap.timeline({
+					onComplete: () => {
+						root.classList.remove("is-active")
+						covering.current = false
+						window.__lenis?.start()
+					},
+				})
+					.to(labelEl, { autoAlpha: 0, y: -20, duration: 0.25, ease: "power2.in" })
+					.to(panel, { yPercent: -110, duration: 0.7, ease: "power4.inOut" }, "-=0.05")
+					// Open the gate as the curtain clears the top third, so entrance
+					// reveals play in view instead of finishing behind the panel.
+					.add(openNavGate, "-=0.45")
+			})
 		})
-			.to(labelEl, { autoAlpha: 0, y: -24, duration: 0.3, ease: "power2.in" })
-			.to(panel, { yPercent: -110, duration: 0.75, ease: "power4.inOut" }, "-=0.1")
 	}, [])
 
 	const navigate = useCallback(
@@ -58,15 +68,15 @@ export function TransitionProvider({ children }: { children: React.ReactNode }) 
 				return
 			}
 			covering.current = true
+			armNavGate()
 			window.__lenis?.stop()
-			const root = rootRef.current!
 			const panel = panelRef.current!
 			const labelEl = labelRef.current!
 			labelEl.textContent = label ?? ""
-			root.classList.add("is-active")
+			rootRef.current!.classList.add("is-active")
 			gsap.timeline()
-				.fromTo(panel, { yPercent: 110 }, { yPercent: 0, duration: 0.7, ease: "power4.inOut" })
-				.fromTo(labelEl, { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: "power3.out" }, "-=0.25")
+				.fromTo(panel, { y: 0, yPercent: 110 }, { yPercent: 0, duration: 0.65, ease: "power4.inOut" })
+				.fromTo(labelEl, { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: "power3.out" }, "-=0.2")
 				.add(() => {
 					router.push(href)
 					// If the route never resolves, don't leave the user behind a black wall.
@@ -77,11 +87,7 @@ export function TransitionProvider({ children }: { children: React.ReactNode }) 
 	)
 
 	useEffect(() => {
-		if (covering.current) {
-			// New route content is mounted; lift the curtain on the next frame.
-			const raf = requestAnimationFrame(() => uncover())
-			return () => cancelAnimationFrame(raf)
-		}
+		if (covering.current) uncover()
 	}, [pathname, uncover])
 
 	return (
@@ -89,7 +95,7 @@ export function TransitionProvider({ children }: { children: React.ReactNode }) 
 			{children}
 			<div ref={rootRef} className="curtain" aria-hidden="true">
 				<div ref={panelRef} className="curtain-panel" />
-				<div ref={labelRef} className="curtain-label serif" />
+				<div ref={labelRef} className="curtain-label" />
 			</div>
 		</TransitionContext.Provider>
 	)
@@ -104,6 +110,7 @@ type TransitionLinkProps = {
 	onNavigate?: () => void
 	"aria-current"?: "page" | undefined
 	"data-cursor"?: string
+	"data-cursor-label"?: string
 }
 
 export function TransitionLink({ href, label, children, onNavigate, ...rest }: TransitionLinkProps) {

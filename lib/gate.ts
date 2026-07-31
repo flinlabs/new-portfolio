@@ -1,23 +1,39 @@
-// Resolves once the preloader has finished (or immediately when it's skipped),
-// so above-the-fold intro animations don't play hidden behind it.
-let resolveGate: () => void
-let done = false
+// Two gates keep entrance animations honest:
+// - loadGate: resolves when the preloader finishes (or immediately if skipped)
+// - navGate: re-armed on every curtain cover, resolves as the curtain lifts,
+//   so above-the-fold reveals never play hidden behind it.
+let loadDone = false
+let resolveLoad: () => void
 
-export const gatePromise: Promise<void> =
+export const loadGate: Promise<void> =
 	typeof window === "undefined"
 		? Promise.resolve()
 		: new Promise(res => {
-				resolveGate = res
+				resolveLoad = res
 			})
 
-export function openGate() {
-	if (done) return
-	done = true
-	resolveGate?.()
+export function openLoadGate() {
+	if (loadDone) return
+	loadDone = true
+	resolveLoad?.()
 }
 
-export function gateOpen() {
-	return done
+let navPromise: Promise<void> = typeof window === "undefined" ? Promise.resolve() : loadGate
+let resolveNav: (() => void) | null = null
+
+export function armNavGate() {
+	navPromise = new Promise(res => {
+		resolveNav = res
+	})
+}
+
+export function openNavGate() {
+	resolveNav?.()
+	resolveNav = null
+}
+
+export function navGate(): Promise<void> {
+	return navPromise
 }
 
 export const PRELOAD_KEY = "fl-preloaded"

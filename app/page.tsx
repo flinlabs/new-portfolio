@@ -1,98 +1,107 @@
-import { projects } from "@/data/projects"
 import { experiences } from "@/data/experiences"
 import Reveal from "@/components/motion/Reveal"
-import HeroVisual from "@/components/three/HeroVisual"
-import WorkList from "@/components/home/WorkList"
+import ExperienceIndex from "@/components/home/ExperienceIndex"
+import ProjectsDesk from "@/components/home/ProjectsDesk"
 import { TransitionLink } from "@/components/motion/PageTransition"
-import Magnetic from "@/components/motion/Magnetic"
 
-const workItems = projects.map(p => ({
-	slug: p.slug,
-	title: p.title,
-	tag: p.tag,
-	period: p.period,
-	image: p.images?.[0],
-	logo: p.thumbnail,
-}))
+const expItems = experiences.map(({ slug, title, company, period, tag }) => ({ slug, title, company, period, tag }))
 
 export default function Home() {
 	return (
 		<main>
 			{/* Hero */}
 			<section className="hero container">
-				<div className="hero-copy">
-					<Reveal delay={0.05}>
-						<p className="label" style={{ marginBottom: 28 }}>
-							AI Tools Intern at Empire State Realty Trust
+				<div>
+					<Reveal as="h1" lines className="display-xl">
+						Faye Lin
+					</Reveal>
+					<Reveal delay={0.18}>
+						<p className="body-lg" style={{ marginTop: 32, maxWidth: "52ch" }}>
+							I&rsquo;m a sophomore at Berkeley studying economics and data science. Before that I spent
+							three years building underwater robots in Monterey Bay. Right now I&rsquo;m writing AI tools
+							for a real estate company in New York.
+						</p>
+						<p className="muted" style={{ marginTop: 16, fontSize: 15.5 }}>
+							Everything I&rsquo;ve built is below, most recent first.
 						</p>
 					</Reveal>
-					<Reveal as="h1" lines className="display-xl" delay={0.12}>
-						AI products, built <em>end to end.</em>
-					</Reveal>
-					<Reveal delay={0.3}>
-						<p className="body-lg muted" style={{ marginTop: 28, maxWidth: "44ch" }}>
-							I&rsquo;m Faye Lin: Economics &amp; Data Science at UC Berkeley, shipping AI tools inside
-							real companies, from lease intelligence to voice agents.
-						</p>
-					</Reveal>
-					<Reveal delay={0.42}>
-						<div style={{ display: "flex", gap: 14, marginTop: 40, flexWrap: "wrap" }}>
-							<Magnetic>
-								<TransitionLink href="/projects" label="Work" className="btn btn-dark">
-									View work
-								</TransitionLink>
-							</Magnetic>
-							<Magnetic>
-								<a href="/FayeLin_Resume.pdf" download className="btn btn-ghost">
-									Resume &#8595;
-								</a>
-							</Magnetic>
-						</div>
-					</Reveal>
 				</div>
-				<HeroVisual className="hero-visual-panel" />
-			</section>
 
-			{/* Selected work */}
-			<section className="section container" id="work">
-				<div className="section-head">
-					<Reveal as="h2" lines className="display-lg">
-						Selected <em>work</em>
-					</Reveal>
-				</div>
-				<Reveal delay={0.1}>
-					<WorkList items={workItems} />
-				</Reveal>
-			</section>
-
-			{/* Experience */}
-			<section className="section-dark">
-				<div className="section container">
-					<Reveal as="h2" lines className="display-lg" style={{ marginBottom: "clamp(40px, 5vw, 72px)" }}>
-						Experience
-					</Reveal>
-					<div>
-						{experiences.map(exp => (
-							<Reveal key={exp.slug}>
-								<TransitionLink href={`/experience/${exp.slug}`} label={exp.company} className="exp-row" data-cursor="view">
-									<span className="serif exp-row-company">{exp.company}</span>
-									<span className="muted exp-row-role">{exp.title}</span>
-									<span className="muted exp-row-period">{exp.period}</span>
-								</TransitionLink>
-							</Reveal>
-						))}
+				<Reveal delay={0.3} className="hero-facts">
+					<div className="hero-fact">
+						<p className="label">Based</p>
+						<p>Berkeley, California</p>
 					</div>
-				</div>
+					<div className="hero-fact">
+						<p className="label">Studying</p>
+						<p>
+							BA Economics, BA Data Science
+							<br />
+							Expected May 2028
+						</p>
+					</div>
+					<div className="hero-fact">
+						<p className="label">Currently</p>
+						<p>
+							AI Tools Intern
+							<br />
+							Empire State Realty Trust
+						</p>
+					</div>
+					<div className="hero-fact">
+						<p className="label">Elsewhere</p>
+						<div className="hero-fact-links">
+							<a href="https://www.linkedin.com/in/fayelin-aqua" target="_blank" rel="noopener noreferrer" className="link-underline">
+								LinkedIn &#8599;
+							</a>
+							<a href="https://github.com/flinlabs" target="_blank" rel="noopener noreferrer" className="link-underline">
+								GitHub &#8599;
+							</a>
+							<a href="/FayeLin_Resume.pdf" download className="link-underline">
+								Resume &#8595;
+							</a>
+						</div>
+					</div>
+				</Reveal>
 			</section>
 
-			{/* About tease */}
-			<section className="section container">
-				<Reveal as="p" lines className="display-md about-tease serif">
-					I learn by shipping: underwater robots field-tested in Monterey Bay, AI tools running inside
-					real companies, and an ocean conservation nonprofit built from zero.
+			{/* Experience — first, most recent first */}
+			<section className="section container" id="experience" style={{ paddingTop: "clamp(48px, 6vw, 80px)" }}>
+				<div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 28 }}>
+					<Reveal>
+						<p className="label">Experience &mdash; most recent first</p>
+					</Reveal>
+					<Reveal delay={0.1}>
+						<span className="label">2022 &rarr; 2026</span>
+					</Reveal>
+				</div>
+				<Reveal delay={0.05}>
+					<ExperienceIndex items={expItems} />
 				</Reveal>
-				<Reveal delay={0.2}>
-					<TransitionLink href="/about" label="About" className="link-underline" style={{ fontSize: 15, marginTop: 32, display: "inline-block" }}>
+			</section>
+
+			{/* Projects — the desk */}
+			<section className="section container" id="projects">
+				<div style={{ marginBottom: "clamp(36px, 5vw, 64px)" }}>
+					<Reveal>
+						<p className="label" style={{ marginBottom: 16 }}>
+							Projects &mdash; on the desk
+						</p>
+					</Reveal>
+					<Reveal as="h2" lines className="display-lg">
+						Pick anything up
+					</Reveal>
+				</div>
+				<ProjectsDesk />
+			</section>
+
+			{/* Pull quote */}
+			<section className="section container">
+				<Reveal as="p" lines className="display-md pull-quote">
+					My best work happens when there&rsquo;s a spreadsheet and a real conversation in the same room.
+				</Reveal>
+				<Reveal delay={0.15}>
+					<TransitionLink href="/about" label="About" className="link-underline" style={{ fontSize: 15, marginTop: 28, display: "inline-block" }}>
 						More about me
 					</TransitionLink>
 				</Reveal>
