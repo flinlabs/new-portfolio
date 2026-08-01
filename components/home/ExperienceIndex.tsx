@@ -42,7 +42,6 @@ export default function ExperienceIndex({ items }: { items: ExperienceItem[] }) 
 						href={`/experience/${exp.slug}`}
 						label={exp.company}
 						className="exp-row"
-						data-cursor="view"
 						onNavigate={() => setActive(i)}
 					>
 						<span className="exp-row-flood" style={{ background: pastels[i % pastels.length][0] }} aria-hidden="true" />
