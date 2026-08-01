@@ -35,7 +35,7 @@ export default function ProjectsDesk() {
 				const deal = gsap.timeline({
 					scrollTrigger: {
 						trigger: root,
-						start: "top 20%",
+						start: "top 12%",
 						end: "+=130%",
 						pin: true,
 						scrub: 1,
@@ -96,7 +96,7 @@ export default function ProjectsDesk() {
 				href="/projects/walsea"
 				label="WAL-SEA"
 				className="desk-card"
-				style={{ left: "1%", top: 40, width: "min(430px, 40%)", zIndex: 2 }}
+				style={{ left: "2%", top: 30, width: "min(400px, 37%)", zIndex: 2 }}
 				data-rot={-3.2}
 				data-drift={-42}
 			>
@@ -118,7 +118,7 @@ export default function ProjectsDesk() {
 				href="/projects/candi"
 				label="CANDI"
 				className="desk-card desk-card-tint"
-				style={{ right: "4%", top: 0, width: "min(360px, 32%)" }}
+				style={{ right: "6%", top: 10, width: "min(340px, 30%)" }}
 				data-rot={1.8}
 				data-drift={26}
 			>
@@ -140,7 +140,7 @@ export default function ProjectsDesk() {
 				href="/projects/urchin-camera"
 				label="The PVC camera rig"
 				className="desk-card"
-				style={{ left: "38%", top: 330, width: "min(380px, 34%)", zIndex: 3 }}
+				style={{ left: "34%", top: 190, width: "min(360px, 33%)", zIndex: 3 }}
 				data-rot={2.6}
 				data-drift={-16}
 			>
@@ -162,7 +162,7 @@ export default function ProjectsDesk() {
 				href="/experience/aquameridian"
 				label="AquaMeridian US"
 				className="desk-card desk-card-tint"
-				style={{ right: "0%", top: 470, width: "min(330px, 30%)" }}
+				style={{ right: "0%", top: 310, width: "min(320px, 29%)", zIndex: 2 }}
 				data-rot={-2.2}
 				data-drift={38}
 			>
@@ -180,7 +180,7 @@ export default function ProjectsDesk() {
 			</TransitionLink>
 
 			{/* Also on the pile: butter note with two smaller things */}
-			<div className="desk-card desk-card-tint" style={{ left: "6%", top: 640, width: "min(350px, 31%)" }} data-rot={1.4} data-drift={-30}>
+			<div className="desk-card desk-card-tint" style={{ left: "8%", top: 410, width: "min(330px, 30%)", zIndex: 4 }} data-rot={1.4} data-drift={-30}>
 				<span className="desk-card-motion">
 					<span className="desk-card-inner" style={{ background: "var(--butter)" }}>
 						<span className="label" style={{ color: "var(--butter-ink)", display: "block", marginBottom: 14 }}>
@@ -199,7 +199,7 @@ export default function ProjectsDesk() {
 			</div>
 
 			{/* Recognition sticker */}
-			<div className="desk-card desk-card-tint" style={{ left: "46%", top: 790, width: "min(300px, 27%)", zIndex: 2 }} data-rot={-1.6} data-drift={14}>
+			<div className="desk-card desk-card-tint" style={{ left: "44%", top: 480, width: "min(300px, 27%)", zIndex: 5 }} data-rot={-1.6} data-drift={14}>
 				<span className="desk-card-motion">
 					<span className="desk-card-inner" style={{ background: "var(--mint)" }}>
 						<span className="label" style={{ color: "var(--mint-ink)", display: "block", marginBottom: 12 }}>

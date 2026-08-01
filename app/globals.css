@@ -757,7 +757,7 @@ h3 {
 /* ————— Projects desk (2b) ————— */
 .desk {
 	position: relative;
-	min-height: 1080px;
+	min-height: 720px;
 }
 
 .desk-card {
