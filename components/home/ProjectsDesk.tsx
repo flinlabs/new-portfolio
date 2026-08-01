@@ -97,7 +97,6 @@ export default function ProjectsDesk() {
 				label="WAL-SEA"
 				className="desk-card"
 				style={{ left: "1%", top: 40, width: "min(430px, 40%)", zIndex: 2 }}
-				data-cursor="view"
 				data-rot={-3.2}
 				data-drift={-42}
 			>
@@ -120,7 +119,6 @@ export default function ProjectsDesk() {
 				label="CANDI"
 				className="desk-card desk-card-tint"
 				style={{ right: "4%", top: 0, width: "min(360px, 32%)" }}
-				data-cursor="view"
 				data-rot={1.8}
 				data-drift={26}
 			>
@@ -143,7 +141,6 @@ export default function ProjectsDesk() {
 				label="The PVC camera rig"
 				className="desk-card"
 				style={{ left: "38%", top: 330, width: "min(380px, 34%)", zIndex: 3 }}
-				data-cursor="view"
 				data-rot={2.6}
 				data-drift={-16}
 			>
@@ -166,7 +163,6 @@ export default function ProjectsDesk() {
 				label="AquaMeridian US"
 				className="desk-card desk-card-tint"
 				style={{ right: "0%", top: 470, width: "min(330px, 30%)" }}
-				data-cursor="view"
 				data-rot={-2.2}
 				data-drift={38}
 			>
@@ -191,10 +187,10 @@ export default function ProjectsDesk() {
 							Also on the pile
 						</span>
 						<span className="desk-note-list">
-							<TransitionLink href="/experience/skydeck" label="Skyline" className="desk-note-row" data-cursor="view">
+							<TransitionLink href="/experience/skydeck" label="Skyline" className="desk-note-row">
 								A voice agent that runs first qualification calls for CRE brokers <span>&#8599;</span>
 							</TransitionLink>
-							<TransitionLink href="/experience/esrt" label="Empire State Realty Trust" className="desk-note-row" data-cursor="view">
+							<TransitionLink href="/experience/esrt" label="Empire State Realty Trust" className="desk-note-row">
 								Letter-of-credit expiry alerts in Excel and VBA, deployed team-wide <span>&#8599;</span>
 							</TransitionLink>
 						</span>

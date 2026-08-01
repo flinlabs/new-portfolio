@@ -5,7 +5,6 @@ import { gsap } from "gsap"
 export default function Cursor() {
 	const dotRef = useRef<HTMLDivElement>(null)
 	const ringRef = useRef<HTMLDivElement>(null)
-	const labelRef = useRef<HTMLSpanElement>(null)
 
 	useEffect(() => {
 		const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches
@@ -34,24 +33,15 @@ export default function Cursor() {
 
 		const onOver = (e: PointerEvent) => {
 			const t = e.target as HTMLElement
-			const view = t.closest?.("[data-cursor='view']")
-			const interactive = t.closest?.("a, button, [data-cursor]")
-			if (view) {
-				ring.classList.add("is-view")
-				if (labelRef.current) labelRef.current.textContent = (view as HTMLElement).dataset.cursorLabel ?? "View"
-				gsap.to(ring, { scale: 1.9, duration: 0.35, ease: "power3.out" })
-				gsap.to(dot, { scale: 0, duration: 0.25 })
-			} else if (interactive) {
+			if (t.closest?.("a, button")) {
 				gsap.to(ring, { scale: 1.4, duration: 0.35, ease: "power3.out" })
 			}
 		}
 
 		const onOut = (e: PointerEvent) => {
 			const t = e.target as HTMLElement
-			if (t.closest?.("a, button, [data-cursor]")) {
-				ring.classList.remove("is-view")
+			if (t.closest?.("a, button")) {
 				gsap.to(ring, { scale: 1, duration: 0.35, ease: "power3.out" })
-				gsap.to(dot, { scale: 1, duration: 0.25 })
 			}
 		}
 
@@ -80,9 +70,7 @@ export default function Cursor() {
 	return (
 		<>
 			<div ref={dotRef} className="cursor-dot" aria-hidden="true" />
-			<div ref={ringRef} className="cursor-ring" aria-hidden="true">
-				<span ref={labelRef}>View</span>
-			</div>
+			<div ref={ringRef} className="cursor-ring" aria-hidden="true" />
 		</>
 	)
 }

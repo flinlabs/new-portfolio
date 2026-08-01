@@ -105,7 +105,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 				)}
 			</div>
 
-			<TransitionLink href={`/projects/${next.slug}`} label={next.title} className="next-link" data-cursor="view">
+			<TransitionLink href={`/projects/${next.slug}`} label={next.title} className="next-link">
 				<span className="label" style={{ display: "block", marginBottom: 12 }}>
 					Next project
 				</span>

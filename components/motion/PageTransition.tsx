@@ -152,8 +152,6 @@ type TransitionLinkProps = {
 	style?: React.CSSProperties
 	onNavigate?: () => void
 	"aria-current"?: "page" | undefined
-	"data-cursor"?: string
-	"data-cursor-label"?: string
 }
 
 export function TransitionLink({ href, label, children, onNavigate, ...rest }: TransitionLinkProps) {

@@ -6,7 +6,7 @@ export default function Footer() {
 		<footer className="site-footer">
 			<div className="container footer-main">
 				<p className="label">Open to internships and builds</p>
-				<TransitionLink href="/contact" label="Contact" className="footer-cta" data-cursor="view" data-cursor-label="Say hi">
+				<TransitionLink href="/contact" label="Contact" className="footer-cta">
 					Let&rsquo;s talk <span className="footer-cta-arrow">&#8599;</span>
 				</TransitionLink>
 			</div>

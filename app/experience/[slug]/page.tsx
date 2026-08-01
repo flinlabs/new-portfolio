@@ -81,7 +81,7 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
 				)}
 			</div>
 
-			<TransitionLink href={`/experience/${next.slug}`} label={next.company} className="next-link" data-cursor="view">
+			<TransitionLink href={`/experience/${next.slug}`} label={next.company} className="next-link">
 				<span className="label" style={{ display: "block", marginBottom: 12 }}>
 					Next role
 				</span>
