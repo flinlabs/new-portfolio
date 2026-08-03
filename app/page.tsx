@@ -6,11 +6,12 @@ import RotatingLines from "@/components/home/RotatingLines"
 import { TransitionLink } from "@/components/motion/PageTransition"
 
 const descriptors = [
-	"ships AI tools inside real companies",
-	"founded a nonprofit at fifteen",
-	"put a robot in Monterey Bay seven times",
+	"teaching 880 leases to answer questions",
+	"building CompLens: address in, comps out",
+	"studying econ + data science at Berkeley",
+	"interning at the Empire State Building",
+	"running a 300-member ocean nonprofit",
 	"hunting the best KBBQ in the East Bay",
-	"published in IEEE Xplore before college",
 ]
 
 const expItems = experiences.map(({ slug, title, company, period, tag }) => ({ slug, title, company, period, tag }))
