@@ -11,10 +11,17 @@ export default function RotatingLines({ lines }: { lines: string[] }) {
 	useLayoutEffect(() => {
 		const el = ref.current
 		if (!el) return
-		if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
+		if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+			const first = el.querySelector<HTMLElement>(".rotator-line")
+			if (first) first.style.transform = "none"
+			return
+		}
 
 		const items = Array.from(el.querySelectorAll<HTMLElement>(".rotator-line"))
-		gsap.set(items, { yPercent: 120 })
+		// y: 0 zeroes out the CSS translateY base, which gsap would otherwise
+		// parse as a pixel offset that yPercent stacks onto (lines would pile
+		// up half-visible instead of exiting).
+		gsap.set(items, { y: 0, yPercent: 120 })
 		let cancelled = false
 		let tl: gsap.core.Timeline | undefined
 
@@ -23,7 +30,7 @@ export default function RotatingLines({ lines }: { lines: string[] }) {
 			tl = gsap.timeline({ repeat: -1 })
 			items.forEach(item => {
 				tl!
-					.fromTo(item, { yPercent: 120 }, { yPercent: 0, duration: 0.6, ease: "power4.out" })
+					.fromTo(item, { y: 0, yPercent: 120 }, { yPercent: 0, duration: 0.6, ease: "power4.out" })
 					.to(item, { yPercent: -120, duration: 0.55, ease: "power3.in" }, `+=${HOLD}`)
 			})
 		})

@@ -27,14 +27,14 @@ function yearOf(period: string) {
 	return period.includes("Present") ? `${period.match(/20\d\d/)?.[0]} —` : year
 }
 
-export default function ExperienceIndex({ items }: { items: ExperienceItem[] }) {
+export default function ExperienceIndex({ items, compact = false }: { items: ExperienceItem[]; compact?: boolean }) {
 	const [active, setActive] = useState(0)
 	const current = items[active]
 	const previewRef = useRef<HTMLDivElement>(null)
 	useVelocitySkew(previewRef, 3)
 
 	return (
-		<div className="exp-layout">
+		<div className={compact ? undefined : "exp-layout"}>
 			<div className="exp-list">
 				{items.map((exp, i) => (
 					<TransitionLink
@@ -64,6 +64,7 @@ export default function ExperienceIndex({ items }: { items: ExperienceItem[] }) 
 				))}
 			</div>
 
+			{!compact && (
 			<div ref={previewRef} className="exp-preview" aria-hidden="true">
 				<div className="exp-preview-inner">
 					{items.map((exp, i) => (
@@ -85,6 +86,7 @@ export default function ExperienceIndex({ items }: { items: ExperienceItem[] }) 
 					</span>
 				</div>
 			</div>
+			)}
 		</div>
 	)
 }

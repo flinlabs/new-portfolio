@@ -718,7 +718,7 @@ h3 {
 .exp-preview-inner {
 	position: relative;
 	width: 100%;
-	height: calc(100% - 34px);
+	height: calc(100% - 54px);
 	overflow: hidden;
 }
 
@@ -743,15 +743,33 @@ h3 {
 }
 
 .exp-preview-caption {
-	height: 34px;
+	min-height: 54px;
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
+	gap: 14px;
+	padding-top: 9px;
+	line-height: 1.45;
 	justify-content: space-between;
 	font-family: var(--mono);
 	font-size: 10.5px;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
 	color: var(--ink-soft);
+}
+
+.exp-preview-caption span:last-child {
+	white-space: nowrap;
+}
+
+/* ————— Project & experience index grids ————— */
+.project-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: clamp(20px, 2.6vw, 32px);
+}
+
+.project-card {
+	display: block;
 }
 
 /* ————— Projects desk (2b) ————— */
@@ -886,7 +904,7 @@ h3 {
 }
 
 .footer-cta {
-	font-size: clamp(48px, 8vw, 118px);
+	font-size: clamp(34px, 4.8vw, 68px);
 	font-weight: 680;
 	letter-spacing: -0.035em;
 	line-height: 1;

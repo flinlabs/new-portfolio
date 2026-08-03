@@ -104,3 +104,35 @@ export const projects: Project[] = [
 		images: ["/urchin-camera.jpg"],
 	},
 ]
+
+/* ——— TO ADD (needs your details) ————————————————————————————————
+Templates for the projects you mentioned. Copy into the array above
+(most recent first). Add /public/<slug> images or a thumbnail logo.
+
+	{
+		slug: "complens",
+		title: "Complens",
+		subtitle: "ONE-LINE DESCRIPTION",
+		tag: "AI · Product",
+		period: "2026",
+		summary: "Card-length summary for the desk and the projects grid.",
+		overview: "Full overview paragraph(s). Separate paragraphs with \n\n.",
+		problem: "What problem it solves.",
+		approach: ["How you built it, one bullet per step."],
+		outcomes: ["What it achieved."],
+		tech: "Stack, tools.",
+	},
+	{
+		slug: "lease-intelligence",
+		title: "Lease Intelligence",
+		subtitle: "Conversational AI over commercial lease data",
+		tag: "AI · Product · Real Estate",
+		period: "2026",
+		summary: "Card-length summary.",
+		overview: "Built at ESRT; pull the story out of the ESRT experience entry into its own project page here.",
+		problem: "…",
+		approach: ["…"],
+		outcomes: ["…"],
+		tech: "Claude (Anthropic API), Harvey-managed retrieval, FastAPI, React, Azure.",
+	},
+——————————————————————————————————————————————————————————————— */

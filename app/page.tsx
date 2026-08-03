@@ -43,7 +43,7 @@ export default function Home() {
 
 				<Reveal delay={0.3} className="hero-facts">
 					<div className="hero-fact">
-						<p className="label">Based</p>
+						<p className="label">Located</p>
 						<p>Berkeley, California</p>
 					</div>
 					<div className="hero-fact">
@@ -63,7 +63,7 @@ export default function Home() {
 						</p>
 					</div>
 					<div className="hero-fact">
-						<p className="label">Elsewhere</p>
+						<p className="label">Find me</p>
 						<div className="hero-fact-links">
 							<a href="https://www.linkedin.com/in/fayelin-aqua" target="_blank" rel="noopener noreferrer" className="link-underline">
 								LinkedIn &#8599;

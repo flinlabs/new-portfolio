@@ -11,18 +11,17 @@ export default function ExperienceIndexPage() {
 	return (
 		<main className="container" style={{ minHeight: "70dvh" }}>
 			<div className="page-head">
-				<Reveal as="h1" lines className="display-xl">
+				<Reveal as="h1" lines className="display-lg">
 					Experience
 				</Reveal>
 				<Reveal delay={0.15}>
-					<p className="body-lg muted" style={{ marginTop: 20, maxWidth: "48ch" }}>
-						Internships and organizations across AI product work, venture, and conservation. Most recent
-						first; every row opens the full story.
+					<p className="body-lg muted" style={{ marginTop: 18, maxWidth: "48ch" }}>
+						The complete record, most recent first. Every row opens the full story.
 					</p>
 				</Reveal>
 			</div>
 			<Reveal delay={0.05}>
-				<ExperienceIndex items={items} />
+				<ExperienceIndex items={items} compact />
 			</Reveal>
 			<div style={{ paddingBottom: "clamp(88px, 10vw, 150px)" }} />
 		</main>

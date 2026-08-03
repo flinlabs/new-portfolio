@@ -139,3 +139,21 @@ export const experiences: Experience[] = [
 		websiteLabel: "AquaMeridian's Website",
 	},
 ]
+
+/* ——— TO ADD (needs your details) ————————————————————————————————
+Copy this template into the array above at the right chronological spot.
+The homepage preview card looks for /public/<slug>-logo.png — add one, or
+it will render without an image.
+
+	{
+		slug: "link-multifamily",
+		title: "ROLE TITLE HERE",
+		company: "Link Multifamily",
+		tag: "AI · Real Estate",            // pick from: AI, Product, Engineering, Finance, Real Estate, Science, Environmental
+		period: "MMM – MMM 2026",
+		overview: "One paragraph on what the role was and what you built.",
+		responsibilities: ["What you did, one bullet per line."],
+		achievements: ["Outcomes with real numbers where you have them."],
+		skills: ["Skill", "Skill"],
+	},
+——————————————————————————————————————————————————————————————— */

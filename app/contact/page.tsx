@@ -32,7 +32,7 @@ export default function Contact() {
 	return (
 		<main className="container" style={{ minHeight: "70dvh" }}>
 			<div className="page-head">
-				<Reveal as="h1" lines className="display-xl">
+				<Reveal as="h1" lines className="display-lg">
 					Let&rsquo;s talk
 				</Reveal>
 				<Reveal delay={0.2}>
