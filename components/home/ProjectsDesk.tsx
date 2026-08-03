@@ -135,6 +135,27 @@ export default function ProjectsDesk() {
 				</span>
 			</TransitionLink>
 
+			{/* CompLens: blush panel, the newest thing on the desk */}
+			<TransitionLink
+				href="/projects/complens"
+				label="CompLens"
+				className="desk-card desk-card-tint"
+				style={{ left: "38%", top: 0, width: "min(310px, 28%)", zIndex: 2 }}
+				data-rot={1.2}
+				data-drift={18}
+			>
+				<span className="desk-card-motion">
+					<span className="desk-card-inner" style={{ background: "var(--blush)" }}>
+						<h3>CompLens</h3>
+						<p>Type an address, get a rent comp memo: nearby multifamily ranked by rent per square foot, with demographics and a map. Building it solo right now.</p>
+						<span className="desk-card-meta">
+							<span>2026 &middot; Berkeley &middot; In progress</span>
+							<span>&#8599;</span>
+						</span>
+					</span>
+				</span>
+			</TransitionLink>
+
 			{/* Urchin camera rig: photo */}
 			<TransitionLink
 				href="/projects/urchin-camera"
@@ -190,8 +211,8 @@ export default function ProjectsDesk() {
 							<TransitionLink href="/experience/skydeck" label="Skyline" className="desk-note-row">
 								A voice agent that runs first qualification calls for CRE brokers <span>&#8599;</span>
 							</TransitionLink>
-							<TransitionLink href="/experience/esrt" label="Empire State Realty Trust" className="desk-note-row">
-								Letter-of-credit expiry alerts in Excel and VBA, deployed team-wide <span>&#8599;</span>
+							<TransitionLink href="/projects/lease-intelligence" label="Lease Intelligence" className="desk-note-row">
+								Ask 880 leases a question, get a cited answer &mdash; sandbox demo inside <span>&#8599;</span>
 							</TransitionLink>
 						</span>
 					</span>

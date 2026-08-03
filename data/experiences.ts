@@ -31,9 +31,10 @@ export const experiences: Experience[] = [
 			"Layered a Claude (Anthropic API) synthesis engine over Harvey-managed retrieval, on a FastAPI + React stack deployed to Azure App Service and Static Web Apps, secured via Entra ID and Managed Identity.",
 		],
 		achievements: [
+			"Delivered a working Lease Intelligence prototype covering all 880 leases in the portfolio, and presented it to company leadership.",
+			"Modeled an 86% licensing-cost reduction versus per-seat Harvey licenses ($227.3K vs $4.9–32.8K per year).",
+			"Cut lease abstraction time by roughly 50% with Harvey Agents and Playbooks producing dual-format abstracts for semantic retrieval and Yardi Voyager entry.",
 			"Deployed an automated LOC expiry notification system team-wide, cutting up to 2 hours of manual review weekly.",
-			"Built Harvey AI workflows producing dual-format lease abstracts purpose-built for both semantic retrieval and Yardi Voyager entry.",
-			"Delivered a working Lease Intelligence prototype, addressing a lease-data access gap affecting ~300 employees across Asset Management, Legal, Finance, and AR.",
 			"Secured the Lease Intelligence platform end-to-end within ESRT's Microsoft tenant using Entra ID and Managed Identity.",
 		],
 		skills: ["Harvey AI", "Claude / Anthropic API", "RAG / Retrieval Augmented Generation", "FastAPI", "React", "Microsoft Azure", "Entra ID", "Yardi Voyager", "VBA", "Excel", "Python"],

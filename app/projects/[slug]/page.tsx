@@ -4,6 +4,7 @@ import Image from "next/image"
 import TagChips from "@/components/TagChips"
 import Reveal from "@/components/motion/Reveal"
 import { TransitionLink } from "@/components/motion/PageTransition"
+import LeaseIntelligenceDemo from "@/components/demo/LeaseIntelligenceDemo"
 
 export function generateStaticParams() {
 	return projects.map(p => ({ slug: p.slug }))
@@ -56,6 +57,19 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 						<p key={i}>{para}</p>
 					))}
 				</Reveal>
+
+				{slug === "lease-intelligence" && (
+					<Reveal className="article-section">
+						<h2>Sandbox demo</h2>
+						<p>
+							A hands-on slice of the real product, running entirely in your browser on three fictional
+							leases. Ask a question and get a cited answer, or open the dashboard and browse the abstracts.
+						</p>
+						<div style={{ marginTop: 22 }}>
+							<LeaseIntelligenceDemo />
+						</div>
+					</Reveal>
+				)}
 
 				<Reveal className="article-section">
 					<h2>The problem</h2>
