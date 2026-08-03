@@ -43,6 +43,7 @@ export const projects: Project[] = [
 		links: [
 			{ label: "complens-ai.vercel.app", url: "https://complens-ai.vercel.app/" },
 		],
+		thumbnail: "/complens-logo.png",
 	},
 	{
 		slug: "lease-intelligence",
@@ -67,6 +68,8 @@ export const projects: Project[] = [
 			"Presented the prototype and rollout plan to company leadership.",
 		],
 		tech: "Claude (Anthropic API), Harvey Agents + Playbooks, FastAPI, React, Azure App Service, Entra ID, Yardi.",
+		thumbnail: "/lease-intelligence-logo.png",
+		images: ["/lease-intelligence-app.png"],
 	},
 	{
 		slug: "candi",
