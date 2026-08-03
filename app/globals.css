@@ -648,10 +648,17 @@ h3 {
 	border-top: 1px solid var(--line);
 }
 
+.exp-list {
+	perspective: 1100px;
+}
+
 .exp-row {
 	position: relative;
 	display: grid;
-	grid-template-columns: 74px 1fr auto;
+	grid-template-columns: 106px 1fr auto;
+	transform-style: preserve-3d;
+	transition: box-shadow 0.4s var(--ease-out);
+	will-change: transform;
 	gap: clamp(16px, 2.4vw, 40px);
 	align-items: baseline;
 	padding: clamp(22px, 2.6vw, 32px) 16px;
@@ -670,6 +677,10 @@ h3 {
 
 .exp-row:hover .exp-row-flood {
 	transform: scaleX(1);
+}
+
+.exp-row:hover {
+	box-shadow: 0 22px 44px -26px rgba(60, 52, 38, 0.4);
 }
 
 .exp-row > *:not(.exp-row-flood) {
@@ -1186,7 +1197,7 @@ h3 {
 	}
 
 	.exp-row {
-		grid-template-columns: 58px 1fr;
+		grid-template-columns: 88px 1fr;
 	}
 
 	.exp-row-tags {

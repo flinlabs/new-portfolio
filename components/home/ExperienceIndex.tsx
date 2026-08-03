@@ -1,5 +1,6 @@
 "use client"
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
+import { gsap } from "gsap"
 import Image from "next/image"
 import { TransitionLink } from "@/components/motion/PageTransition"
 import { Chip } from "@/components/TagChips"
@@ -21,21 +22,71 @@ const pastels = [
 	["var(--blush)", "var(--blush-ink)"],
 ]
 
-function yearOf(period: string) {
-	const years = period.match(/20\d\d/g)
-	const year = years ? years[years.length - 1] : ""
-	return period.includes("Present") ? `${period.match(/20\d\d/)?.[0]} —` : year
+const seasons: Record<string, string> = {
+	Dec: "Winter", Jan: "Winter", Feb: "Winter",
+	Mar: "Spring", Apr: "Spring", May: "Spring",
+	Jun: "Summer", Jul: "Summer", Aug: "Summer",
+	Sep: "Fall", Oct: "Fall", Nov: "Fall",
+}
+
+function seasonOf(period: string) {
+	const month = period.match(/Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec/)?.[0]
+	const year = period.match(/20\d\d/)?.[0] ?? ""
+	const season = month ? seasons[month] : ""
+	return `${season} ${year}${period.includes("Present") ? " —" : ""}`.trim()
 }
 
 export default function ExperienceIndex({ items, compact = false }: { items: ExperienceItem[]; compact?: boolean }) {
 	const [active, setActive] = useState(0)
 	const current = items[active]
 	const previewRef = useRef<HTMLDivElement>(null)
+	const listRef = useRef<HTMLDivElement>(null)
 	useVelocitySkew(previewRef, 3)
+
+	// cursor-following 3D tilt on each row, same physics family as the desk
+	useEffect(() => {
+		const list = listRef.current
+		if (!list) return
+		if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return
+		if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
+
+		const cleanups: (() => void)[] = []
+		list.querySelectorAll<HTMLElement>(".exp-row").forEach(row => {
+			gsap.set(row, { transformPerspective: 900 })
+			const rx = gsap.quickTo(row, "rotationX", { duration: 0.45, ease: "power3.out" })
+			const ry = gsap.quickTo(row, "rotationY", { duration: 0.45, ease: "power3.out" })
+			const yTo = gsap.quickTo(row, "y", { duration: 0.35, ease: "power3.out" })
+			const zTo = gsap.quickTo(row, "z", { duration: 0.35, ease: "power3.out" })
+			const move = (e: PointerEvent) => {
+				const r = row.getBoundingClientRect()
+				rx(((e.clientY - r.top) / r.height - 0.5) * -5)
+				ry(((e.clientX - r.left) / r.width - 0.5) * 2.5)
+			}
+			const enter = () => {
+				yTo(-3)
+				zTo(14)
+			}
+			const leave = () => {
+				rx(0)
+				ry(0)
+				yTo(0)
+				zTo(0)
+			}
+			row.addEventListener("pointermove", move)
+			row.addEventListener("pointerenter", enter)
+			row.addEventListener("pointerleave", leave)
+			cleanups.push(() => {
+				row.removeEventListener("pointermove", move)
+				row.removeEventListener("pointerenter", enter)
+				row.removeEventListener("pointerleave", leave)
+			})
+		})
+		return () => cleanups.forEach(fn => fn())
+	}, [items])
 
 	return (
 		<div className={compact ? undefined : "exp-layout"}>
-			<div className="exp-list">
+			<div ref={listRef} className="exp-list">
 				{items.map((exp, i) => (
 					<TransitionLink
 						key={exp.slug}
@@ -46,7 +97,7 @@ export default function ExperienceIndex({ items, compact = false }: { items: Exp
 					>
 						<span className="exp-row-flood" style={{ background: pastels[i % pastels.length][0] }} aria-hidden="true" />
 						<span className="exp-row-year" onPointerEnter={() => setActive(i)}>
-							{yearOf(exp.period)}
+							{seasonOf(exp.period)}
 						</span>
 						<span onPointerEnter={() => setActive(i)}>
 							<span className="exp-row-role">{exp.title}</span>
