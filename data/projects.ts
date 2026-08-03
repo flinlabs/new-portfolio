@@ -44,6 +44,7 @@ export const projects: Project[] = [
 			{ label: "complens-ai.vercel.app", url: "https://complens-ai.vercel.app/" },
 		],
 		thumbnail: "/complens-logo.png",
+		images: ["/complens-app.png"],
 	},
 	{
 		slug: "lease-intelligence",
@@ -98,6 +99,7 @@ export const projects: Project[] = [
 			{ label: "Chrome Extension (GitHub)", url: "https://github.com/flinlabs/candi-recruitment-extension" },
 		],
 		thumbnail: "/candi-logo.png",
+		images: ["/candi-app.png"],
 	},
 	{
 		slug: "walsea",
