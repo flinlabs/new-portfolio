@@ -1,7 +1,7 @@
 # Lease Intelligence — sandbox demo
 
 The real Lease Intelligence frontend, running in static mode on a fully
-fabricated three-lease dataset (`src/staticData.js`). No real portfolio
+fabricated seven-lease portfolio (`src/staticData.js`). No real portfolio
 data, no backend, no API keys — the live-synthesis path was removed for
 the public build.
 

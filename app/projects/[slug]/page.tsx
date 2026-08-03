@@ -61,7 +61,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 					<Reveal className="article-section">
 						<h2>Sandbox demo</h2>
 						<p>
-							The actual app, running entirely in your browser on a fabricated three-lease dataset — every
+							The actual app, running entirely in your browser on a small fabricated portfolio — every
 							tenant, address, and figure is invented. Ask a question and get a cited answer, or open the
 							dashboard and click into a lease for its full abstract.
 						</p>

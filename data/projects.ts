@@ -41,8 +41,7 @@ export const projects: Project[] = [
 		],
 		tech: "React, Vite, Vercel, Supabase (auth + Postgres), Google Maps APIs, Claude (two-model pipeline).",
 		links: [
-			{ label: "Try CompLens", url: "https://complens-ai.vercel.app/analyze" },
-			{ label: "GitHub", url: "https://github.com/flinlabs/complens" },
+			{ label: "complens-ai.vercel.app", url: "https://complens-ai.vercel.app/analyze" },
 		],
 	},
 	{
