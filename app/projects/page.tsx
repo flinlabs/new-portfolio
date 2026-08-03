@@ -8,6 +8,16 @@ export const metadata: Metadata = { title: "Projects" }
 
 const pastels = ["var(--lav)", "var(--powder)", "var(--butter)", "var(--mint)", "var(--blush)"]
 
+// pinned per project so colors survive reordering; ESRT work reads mint
+// (matching its experience row) and the sea robot reads powder blue
+const slugWash: Record<string, string> = {
+	complens: "var(--lav)",
+	"lease-intelligence": "var(--mint)",
+	candi: "var(--butter)",
+	walsea: "var(--powder)",
+	"urchin-camera": "var(--blush)",
+}
+
 export default function ProjectsPage() {
 	return (
 		<main className="container" style={{ minHeight: "70dvh" }}>
@@ -28,7 +38,7 @@ export default function ProjectsPage() {
 							href={`/projects/${p.slug}`}
 							label={p.title}
 							className="project-card"
-							style={{ "--wash": pastels[i % pastels.length] } as React.CSSProperties}
+							style={{ "--wash": slugWash[p.slug] ?? pastels[i % pastels.length] } as React.CSSProperties}
 						>
 							<span className="desk-card-inner" style={{ display: "block", background: "#fff" }}>
 								<span className="card-wash" aria-hidden="true" />
