@@ -6,6 +6,8 @@ import { TransitionLink } from "@/components/motion/PageTransition"
 
 export const metadata: Metadata = { title: "Projects" }
 
+const pastels = ["var(--lav)", "var(--powder)", "var(--butter)", "var(--mint)", "var(--blush)"]
+
 export default function ProjectsPage() {
 	return (
 		<main className="container" style={{ minHeight: "70dvh" }}>
@@ -22,8 +24,14 @@ export default function ProjectsPage() {
 			<div className="project-grid">
 				{projects.map((p, i) => (
 					<Reveal key={p.slug} delay={i * 0.06}>
-						<TransitionLink href={`/projects/${p.slug}`} label={p.title} className="project-card">
+						<TransitionLink
+							href={`/projects/${p.slug}`}
+							label={p.title}
+							className="project-card"
+							style={{ "--wash": pastels[i % pastels.length] } as React.CSSProperties}
+						>
 							<span className="desk-card-inner" style={{ display: "block", background: "#fff" }}>
+								<span className="card-wash" aria-hidden="true" />
 								{p.images?.[0] ? (
 									<Image src={p.images[0]} alt={p.title} width={800} height={600} className="desk-card-photo" />
 								) : (

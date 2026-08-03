@@ -772,6 +772,46 @@ h3 {
 	display: block;
 }
 
+.project-card .desk-card-inner {
+	position: relative;
+	overflow: hidden;
+	transition: transform 0.45s var(--ease-out), box-shadow 0.45s var(--ease-out);
+}
+
+.project-card:hover .desk-card-inner {
+	transform: translateY(-8px) scale(1.02);
+	box-shadow: 0 30px 60px -24px rgba(60, 52, 38, 0.5);
+}
+
+/* pastel wash rises from the bottom on hover */
+.project-card .card-wash {
+	position: absolute;
+	inset: 0;
+	background: var(--wash, var(--lav));
+	transform: scaleY(0);
+	transform-origin: bottom;
+	transition: transform 0.5s var(--ease-out);
+	pointer-events: none;
+}
+
+.project-card:hover .card-wash {
+	transform: scaleY(1);
+}
+
+.project-card .desk-card-inner > *:not(.card-wash) {
+	position: relative;
+	z-index: 1;
+}
+
+.project-card .desk-card-meta span:last-child {
+	display: inline-block;
+	transition: transform 0.35s var(--ease-out);
+}
+
+.project-card:hover .desk-card-meta span:last-child {
+	transform: translate(3px, -3px);
+}
+
 /* ————— Projects desk (2b) ————— */
 .desk {
 	position: relative;
