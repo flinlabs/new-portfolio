@@ -1,144 +1,125 @@
-import Link from "next/link"
-import Image from "next/image"
-import FadeIn from "@/components/FadeIn"
-import TiltCard from "@/components/TiltCard"
+import { experiences } from "@/data/experiences"
+import Reveal from "@/components/motion/Reveal"
+import ExperienceIndex from "@/components/home/ExperienceIndex"
+import ProjectsDesk from "@/components/home/ProjectsDesk"
+import RotatingLines from "@/components/home/RotatingLines"
+import { TransitionLink } from "@/components/motion/PageTransition"
 
-const featured = [
-	{ type: "experience", slug: "waer", tag: "Product · AI · Engineering", title: "Empire State Realty Trust", sub: "AI Tools Intern", period: "June 2026 – Present", logo: "/esrt-logo.png" },
-	{ type: "projects",   slug: "candi",   tag: "AI · Product · Engineering", title: "CANDI",            sub: "AI Recruiting Platform",      period: "Jun – Aug 2025",    logo: "/candi-logo.png" },
+const descriptors = [
+	"ships AI tools inside real companies",
+	"founded a nonprofit at fifteen",
+	"put a robot in Monterey Bay seven times",
+	"hunting the best KBBQ in the East Bay",
+	"published in IEEE Xplore before college",
 ]
+
+const expItems = experiences.map(({ slug, title, company, period, tag }) => ({ slug, title, company, period, tag }))
 
 export default function Home() {
 	return (
-		<main className="mobile-pad" style={{ maxWidth: "1100px", margin: "0 auto", padding: "144px 48px 120px" }}>
-
-			<div className="mobile-stack" style={{ display: "grid", gridTemplateColumns: "1fr 340px", gap: "64px", alignItems: "center" }}>
-
-				{/* Left — hero */}
+		<main>
+			{/* Hero */}
+			<section className="hero container">
 				<div>
-					<FadeIn delay={0}>
-						<p style={{
-							fontSize: "12px",
-							fontWeight: 500,
-							textTransform: "uppercase",
-							letterSpacing: "0.1em",
-							color: "var(--green)",
-							marginBottom: "32px",
-						}}>
-							● Available for Work
+					<Reveal as="h1" lines className="display-xl">
+						Faye Lin
+					</Reveal>
+					<Reveal delay={0.12}>
+						<p className="rotator-row">
+							<span className="rotator-prefix">currently:</span> <RotatingLines lines={descriptors} />
 						</p>
-					</FadeIn>
-
-					<FadeIn delay={0.08}>
-						<h1 className="mobile-h1" style={{
-							fontFamily: "var(--font-cormorant)",
-							fontSize: "96px",
-							fontWeight: 600,
-							lineHeight: 1,
-							marginBottom: "24px",
-							color: "var(--text)",
-						}}>
-							Faye{" "}
-							<em style={{
-								fontStyle: "italic",
-								background: "linear-gradient(135deg,#9B87D4,#D4A0C0,#87B8D4)",
-								WebkitBackgroundClip: "text",
-								WebkitTextFillColor: "transparent",
-							}}>Lin.</em>
-						</h1>
-					</FadeIn>
-
-					<FadeIn delay={0.14}>
-						<p style={{
-							fontSize: "17px",
-							lineHeight: 1.7,
-							color: "var(--text)",
-							marginBottom: "40px",
-							opacity: 0.75,
-						}}>
-							Builder, researcher, and connector of dots. I work across technical and human
-							problems, from AI tools to marine robots to ocean conservation.
-							Class of &apos;28 studying Economics &amp; Data Science at UC Berkeley.
+					</Reveal>
+					<Reveal delay={0.18}>
+						<p className="body-lg" style={{ marginTop: 32, maxWidth: "52ch" }}>
+							I&rsquo;m a sophomore at Berkeley studying economics and data science. Before that I spent
+							three years building underwater robots in Monterey Bay. Right now I&rsquo;m writing AI tools
+							for a real estate company in New York.
 						</p>
-					</FadeIn>
+						<p className="muted" style={{ marginTop: 16, fontSize: 15.5 }}>
+							Everything I&rsquo;ve built is below, most recent first.
+						</p>
+					</Reveal>
+				</div>
 
-					<FadeIn delay={0.2}>
-						<div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-							<a
-								href="https://www.linkedin.com/in/fayelin-aqua"
-								target="_blank"
-								rel="noopener noreferrer"
-								style={{
-									display: "inline-flex",
-									alignItems: "center",
-									borderRadius: "100px",
-									padding: "13px 28px",
-									fontSize: "14px",
-									fontWeight: 500,
-									color: "#fff",
-									textDecoration: "none",
-									background: "linear-gradient(135deg,#8B6FD4,#D4609C)",
-								}}
-							>
-								LinkedIn →
+				<Reveal delay={0.3} className="hero-facts">
+					<div className="hero-fact">
+						<p className="label">Located</p>
+						<p>Berkeley, California</p>
+					</div>
+					<div className="hero-fact">
+						<p className="label">Studying</p>
+						<p>
+							BA Economics, BA Data Science
+							<br />
+							Expected May 2028
+						</p>
+					</div>
+					<div className="hero-fact">
+						<p className="label">Currently</p>
+						<p>
+							AI Tools Intern
+							<br />
+							Empire State Realty Trust
+						</p>
+					</div>
+					<div className="hero-fact">
+						<p className="label">Find me</p>
+						<div className="hero-fact-links">
+							<a href="https://www.linkedin.com/in/fayelin-aqua" target="_blank" rel="noopener noreferrer" className="link-underline">
+								LinkedIn &#8599;
 							</a>
-							<a
-								href="/FayeLin_Resume.pdf"
-								download
-								style={{
-									display: "inline-flex",
-									alignItems: "center",
-									borderRadius: "100px",
-									padding: "13px 28px",
-									fontSize: "14px",
-									fontWeight: 500,
-									color: "var(--text)",
-									textDecoration: "none",
-									border: "1px solid rgba(14,12,26,0.2)",
-									background: "rgba(255,255,255,0.5)",
-								}}
-							>
-								Download Resume ↓
+							<a href="https://github.com/flinlabs" target="_blank" rel="noopener noreferrer" className="link-underline">
+								GitHub &#8599;
+							</a>
+							<a href="/FayeLin_Resume.pdf" download className="link-underline">
+								Resume &#8595;
 							</a>
 						</div>
-					</FadeIn>
-				</div>
+					</div>
+				</Reveal>
+			</section>
 
-				{/* Right — featured cards */}
-				<div className="mobile-full" style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-					<FadeIn>
-						<p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "12px" }}>
-							Featured work
+			{/* Experience — first, most recent first */}
+			<section className="section container" id="experience" style={{ paddingTop: "clamp(48px, 6vw, 80px)" }}>
+				<div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 28 }}>
+					<Reveal>
+						<p className="label">Experience &mdash; most recent first</p>
+					</Reveal>
+					<Reveal delay={0.1}>
+						<span className="label">2022 &rarr; 2026</span>
+					</Reveal>
+				</div>
+				<Reveal delay={0.05}>
+					<ExperienceIndex items={expItems} />
+				</Reveal>
+			</section>
+
+			{/* Projects — the desk */}
+			<section className="section container" id="projects">
+				<div style={{ marginBottom: "clamp(36px, 5vw, 64px)" }}>
+					<Reveal>
+						<p className="label" style={{ marginBottom: 16 }}>
+							Projects &mdash; on the desk
 						</p>
-					</FadeIn>
-					{featured.map(({ type, slug, tag, title, sub, period, logo }, i) => (
-						<FadeIn key={slug} delay={i * 0.07}>
-							<TiltCard>
-								<Link href={`/${type}/${slug}`} style={{
-									background: "rgba(255,255,255,0.88)",
-									backdropFilter: "blur(20px)",
-									border: "1px solid rgba(155,135,212,0.3)",
-									borderRadius: "20px",
-									padding: "24px",
-									display: "flex",
-									flexDirection: "column",
-									textDecoration: "none",
-									color: "inherit",
-									boxShadow: "0 4px 24px rgba(0,0,0,0.07)",
-								}}>
-									<Image src={logo} alt={title} width={40} height={40} style={{ objectFit: "contain", marginBottom: "16px", borderRadius: "8px" }} />
-									<p style={{ fontSize: "11px", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--lavender)", marginBottom: "8px" }}>{tag}</p>
-									<h3 style={{ fontFamily: "var(--font-cormorant)", fontSize: "22px", fontWeight: 600, marginBottom: "4px" }}>{title}</h3>
-									<p style={{ fontSize: "13px", color: "var(--text-muted)", marginBottom: "12px" }}>{sub}</p>
-									<p style={{ fontSize: "11px", color: "var(--text-muted)", opacity: 0.65 }}>{period}</p>
-								</Link>
-							</TiltCard>
-						</FadeIn>
-					))}
+					</Reveal>
+					<Reveal as="h2" lines className="display-lg">
+						Pick anything up
+					</Reveal>
 				</div>
+				<ProjectsDesk />
+			</section>
 
-			</div>
-
+			{/* Pull quote */}
+			<section className="section container">
+				<Reveal as="p" lines className="display-md pull-quote">
+					My best work happens when there&rsquo;s a spreadsheet and a real conversation in the same room.
+				</Reveal>
+				<Reveal delay={0.15}>
+					<TransitionLink href="/about" label="About" className="link-underline" style={{ fontSize: 15, marginTop: 28, display: "inline-block" }}>
+						More about me
+					</TransitionLink>
+				</Reveal>
+			</section>
 		</main>
 	)
 }

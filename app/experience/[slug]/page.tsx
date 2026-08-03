@@ -1,112 +1,92 @@
 import { experiences } from "@/data/experiences"
 import { notFound } from "next/navigation"
-import Link from "next/link"
 import TagChips from "@/components/TagChips"
+import Reveal from "@/components/motion/Reveal"
+import { TransitionLink } from "@/components/motion/PageTransition"
+
+export function generateStaticParams() {
+	return experiences.map(e => ({ slug: e.slug }))
+}
 
 export default async function ExperiencePage({ params }: { params: Promise<{ slug: string }> }) {
 	const { slug } = await params
-	const exp = experiences.find(e => e.slug === slug)
-	if (!exp) notFound()
-
-	const chip: React.CSSProperties = {
-		fontSize: "12px",
-		padding: "4px 12px",
-		borderRadius: "100px",
-		background: "rgba(155,135,212,0.08)",
-		border: "1px solid rgba(155,135,212,0.2)",
-		color: "var(--text-muted)",
-	}
+	const index = experiences.findIndex(e => e.slug === slug)
+	if (index === -1) notFound()
+	const exp = experiences[index]
+	const next = experiences[(index + 1) % experiences.length]
 
 	return (
-		<main className="mobile-pad" style={{ maxWidth: "760px", margin: "0 auto", padding: "144px 48px 120px" }}>
+		<main className="container">
+			<div className="page-head" style={{ maxWidth: 900 }}>
+				<Reveal>
+					<TagChips tag={exp.tag} />
+				</Reveal>
+				<Reveal as="h1" lines className="display-lg" delay={0.1} style={{ marginTop: 24 }}>
+					{exp.company}
+				</Reveal>
+				<Reveal delay={0.2}>
+					<p style={{ fontSize: "clamp(17px, 1.8vw, 21px)", fontWeight: 520, marginTop: 16, color: "var(--ink-soft)" }}>
+						{exp.title}
+					</p>
+				</Reveal>
+				<Reveal delay={0.28}>
+					<div className="page-head-meta">
+						<span>{exp.period}</span>
+					</div>
+					{exp.website && (
+						<div style={{ marginTop: 24 }}>
+							<a href={exp.website} target="_blank" rel="noopener noreferrer" className="chip" style={{ background: "var(--lav)", color: "var(--lav-ink)" }}>
+								{exp.websiteLabel} &#8599;
+							</a>
+						</div>
+					)}
+				</Reveal>
+			</div>
 
-			<TagChips tag={exp.tag} />
+			<div className="article">
+				<Reveal className="article-section">
+					<h2>Overview</h2>
+					<p>{exp.overview}</p>
+				</Reveal>
 
-			<h1 className="mobile-h1" style={{
-				fontFamily: "var(--font-cormorant)",
-				fontSize: "52px",
-				fontWeight: 600,
-				lineHeight: 1.1,
-				marginBottom: "8px",
-			}}>
-				{exp.title}
-			</h1>
-
-			<p style={{ fontSize: "18px", color: "var(--lavender)", marginBottom: "4px" }}>{exp.company}</p>
-			<p style={{ fontSize: "14px", color: "var(--text-muted)", marginBottom: "48px" }}>{exp.period}</p>
-
-			{exp.website && (
-				<a
-					href={exp.website}
-					target="_blank"
-					rel="noopener noreferrer"
-					style={{
-						display: "inline-flex",
-						alignItems: "center",
-						gap: "6px",
-						fontSize: "13px",
-						color: "var(--lavender)",
-						border: "1px solid var(--border)",
-						borderRadius: "100px",
-						padding: "6px 16px",
-						marginBottom: "48px",
-						textDecoration: "none",
-					}}
-				>
-					{exp.websiteLabel} ↗
-				</a>
-			)}
-
-			<div style={{ height: "1px", background: "var(--border)", marginBottom: "48px" }} />
-
-			<div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
-
-				<div>
-					<p style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "16px" }}>Overview</p>
-					<p style={{ fontSize: "15px", lineHeight: 1.8, color: "var(--text)" }}>{exp.overview}</p>
-				</div>
-
-				<div>
-					<p style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "16px" }}>Responsibilities</p>
-					<ul style={{ display: "flex", flexDirection: "column", gap: "10px", paddingLeft: "0", listStyle: "none" }}>
-						{exp.responsibilities.map((r) => (
-							<li key={r} style={{ fontSize: "15px", lineHeight: 1.7, color: "var(--text)", paddingLeft: "16px", borderLeft: "2px solid var(--border)" }}>
-								{r}
-							</li>
+				<Reveal className="article-section">
+					<h2>What I did</h2>
+					<ul className="article-list">
+						{exp.responsibilities.map(r => (
+							<li key={r}>{r}</li>
 						))}
 					</ul>
-				</div>
+				</Reveal>
 
-				<div>
-					<p style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "16px" }}>Achievements</p>
-					<ul style={{ display: "flex", flexDirection: "column", gap: "10px", paddingLeft: "0", listStyle: "none" }}>
-						{exp.achievements.map((a) => (
-							<li key={a} style={{ fontSize: "15px", lineHeight: 1.7, color: "var(--text)", paddingLeft: "16px", borderLeft: "2px solid var(--lavender)" }}>
-								{a}
-							</li>
+				<Reveal className="article-section">
+					<h2>Highlights</h2>
+					<ul className="article-list">
+						{exp.achievements.map(a => (
+							<li key={a}>{a}</li>
 						))}
 					</ul>
-				</div>
+				</Reveal>
 
 				{exp.skills && exp.skills.length > 0 && (
-					<div>
-						<p style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-muted)", marginBottom: "16px" }}>Skills</p>
-						<div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
-							{exp.skills.map((s) => (
-								<span key={s} style={chip}>{s}</span>
+					<Reveal className="article-section">
+						<h2>Skills</h2>
+						<div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+							{exp.skills.map(s => (
+								<span key={s} className="chip">
+									{s}
+								</span>
 							))}
 						</div>
-					</div>
+					</Reveal>
 				)}
-
 			</div>
 
-			<div style={{ marginTop: "64px" }}>
-				<Link href="/experience" style={{ fontSize: "13px", color: "var(--text-muted)", textDecoration: "none" }}>
-					← Back to Experience
-				</Link>
-			</div>
-
+			<TransitionLink href={`/experience/${next.slug}`} label={next.company} className="next-link">
+				<span className="label" style={{ display: "block", marginBottom: 12 }}>
+					Next role
+				</span>
+				<span className="next-link-title">{next.company} &#8599;</span>
+			</TransitionLink>
 		</main>
 	)
 }

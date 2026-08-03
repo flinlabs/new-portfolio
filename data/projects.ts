@@ -19,6 +19,56 @@ export type Project = {
 
 export const projects: Project[] = [
 	{
+		slug: "complens",
+		title: "CompLens",
+		subtitle: "Address in, rent comp memo out",
+		location: "Berkeley, CA",
+		tag: "AI · Product · Real Estate",
+		period: "Jul 2026 – Present",
+		summary: "A rent comp tool I'm building solo: type any address and get a structured comp memo — nearby multifamily properties ranked by rent per square foot, Census demographics, and a map view.",
+		overview: "CompLens turns the slowest part of underwriting a multifamily deal (pulling comps by hand) into a single search. You type an address, and it returns a structured comp memo: nearby multifamily properties ranked by rent per square foot, demographic context from the Census, and everything plotted on a map.\n\nI'm building it solo, full stack, end to end. The interesting part is the data: instead of leaning on listing aggregators, a two-model Claude pipeline sources asking rents from official property leasing sites first, so the comps reflect what landlords are actually quoting.",
+		problem: "Pulling rent comps is manual and scattered: aggregator data is stale or padded with fees, official leasing sites all present pricing differently, and analysts end up stitching together screenshots and spreadsheets for every address they underwrite.",
+		approach: [
+			"Built the product solo, full stack: React + Vite frontend deployed on Vercel, Supabase for auth and Postgres.",
+			"Integrated Google Maps APIs for geocoding, nearby-property discovery, and the map view.",
+			"Designed a two-model Claude pipeline that prioritizes official property leasing sites over aggregators when sourcing asking rents.",
+			"Layered in Census demographics so each memo carries neighborhood context, not just rent figures.",
+		],
+		outcomes: [
+			"One search produces a structured comp memo that used to take an afternoon of manual pulls.",
+			"Comps ranked by rent per square foot with source-aware provenance for each figure.",
+			"Live and iterating — currently expanding coverage and memo depth.",
+		],
+		tech: "React, Vite, Vercel, Supabase (auth + Postgres), Google Maps APIs, Claude (two-model pipeline).",
+		links: [
+			{ label: "complens-ai.vercel.app", url: "https://complens-ai.vercel.app/" },
+		],
+	},
+	{
+		slug: "lease-intelligence",
+		title: "Lease Intelligence",
+		subtitle: "Self-serve Q&A over 880 commercial leases",
+		location: "Empire State Realty Trust, New York, NY",
+		tag: "AI · Product · Real Estate",
+		period: "Jun – Aug 2026",
+		summary: "An internal lease Q&A platform prototyped at ESRT: ask a question about any lease and get a cited answer, plus a dashboard for LOC expirations, rent steps, and renewals. Try the sandbox demo below.",
+		overview: "Lease teams at ESRT answered lease questions the slow way: find the lease, read the lease, ask legal to confirm. Lease Intelligence is the prototype I built to make that self-serve — ask a question in plain English about any of 880 leases and get an answer with citations back to the source document.\n\nIt has two halves. Ask is the conversational side: Claude synthesizes cited answers over abstracts produced by Harvey-managed retrieval. Dashboard is the structured side: letter-of-credit expirations, rent steps, renewal windows, and options surfaced across the portfolio, with a browsable abstract for every lease.\n\nI presented the prototype and its cost case to company leadership at the end of the summer.",
+		problem: "Two manual workflows ate the team's time: producing lease abstracts (reading and summarizing every executed lease) and answering one-off lease questions that each required pulling the underlying document. Neither scaled across an 880-lease portfolio.",
+		approach: [
+			"Automated abstraction with Harvey Agents and Playbooks: RAG-based narrative abstracts plus tabular abstracts verified against Yardi, cutting abstraction time roughly in half.",
+			"Built Ask: a conversational interface where Claude synthesizes answers over Harvey retrieval, with citations back to the exact lease language.",
+			"Built Dashboard: portfolio-wide views of LOC expirations, rent steps, renewals, and options, plus a per-lease abstract browser.",
+			"Shipped the prototype as a FastAPI + React app on Azure App Service behind Entra ID single sign-on.",
+		],
+		outcomes: [
+			"Modeled an 86% licensing-cost reduction versus per-seat Harvey licenses ($227.3K vs $4.9–32.8K per year).",
+			"Cut lease abstraction time by roughly 50% with Harvey automations.",
+			"Covered all 880 leases in the portfolio with searchable, cited abstracts.",
+			"Presented the prototype and rollout plan to company leadership.",
+		],
+		tech: "Claude (Anthropic API), Harvey Agents + Playbooks, FastAPI, React, Azure App Service, Entra ID, Yardi.",
+	},
+	{
 		slug: "candi",
 		title: "CANDI",
 		subtitle: "Candidate Analysis & Discovery Intelligence",

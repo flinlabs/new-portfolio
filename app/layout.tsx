@@ -1,39 +1,49 @@
-import type { Metadata } from "next"
-import { Cormorant_Garamond, Inter } from "next/font/google"
+import type { Metadata, Viewport } from "next"
+import { Archivo, IBM_Plex_Mono } from "next/font/google"
 import "./globals.css"
 import Nav from "@/components/Nav"
-import Blob from "@/components/Blob"
+import Footer from "@/components/Footer"
+import Preloader from "@/components/motion/Preloader"
+import SmoothScroll from "@/components/motion/SmoothScroll"
+import Cursor from "@/components/motion/Cursor"
+import { TransitionProvider } from "@/components/motion/PageTransition"
 import { Analytics } from "@vercel/analytics/next"
 
-const cormorant = Cormorant_Garamond({
+const archivo = Archivo({
 	subsets: ["latin"],
-	weight: ["400", "500", "600"],
-	style: ["normal", "italic"],
-	variable: "--font-cormorant",
+	variable: "--font-archivo",
 	display: "swap",
 })
 
-const inter = Inter({
+const plexMono = IBM_Plex_Mono({
 	subsets: ["latin"],
-	weight: ["400", "500"],
-	variable: "--font-inter",
+	weight: ["400", "500", "600"],
+	variable: "--font-plex-mono",
 	display: "swap",
 })
 
 export const metadata: Metadata = {
-	title: "Faye Lin",
-	description: "Builder, researcher, and connector of dots. Economics & Data Science at UC Berkeley.",
+	title: { default: "Faye Lin", template: "%s · Faye Lin" },
+	description:
+		"AI product builder studying Economics & Data Science at UC Berkeley. AI tools shipped inside real companies, marine robots field-tested in Monterey Bay.",
+}
+
+export const viewport: Viewport = {
+	themeColor: "#f4f1ea",
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
-			<body style={{ backgroundColor: "var(--bg)", minHeight: "100vh", position: "relative" }}>
-				<Blob />
-				<Nav />
-				<div style={{ position: "relative", zIndex: 10 }}>
+		<html lang="en" className={`${archivo.variable} ${plexMono.variable}`}>
+			<body>
+				<Preloader />
+				<TransitionProvider nav={<Nav />}>
 					{children}
-				</div>
+					<Footer />
+				</TransitionProvider>
+				<SmoothScroll />
+				<Cursor />
+				<div className="grain" aria-hidden="true" />
 				<Analytics />
 			</body>
 		</html>

@@ -1,68 +1,54 @@
-import Link from "next/link"
+import type { Metadata } from "next"
 import Image from "next/image"
 import { projects } from "@/data/projects"
-import TagChips from "@/components/TagChips"
-import TiltCard from "@/components/TiltCard"
+import Reveal from "@/components/motion/Reveal"
+import { TransitionLink } from "@/components/motion/PageTransition"
 
-export default function Projects() {
+export const metadata: Metadata = { title: "Projects" }
+
+const pastels = ["var(--lav)", "var(--powder)", "var(--butter)", "var(--mint)", "var(--blush)"]
+
+export default function ProjectsPage() {
 	return (
-		<main className="mobile-pad" style={{ maxWidth: "960px", margin: "0 auto", padding: "144px 48px 120px" }}>
-
-			<h1 className="mobile-h1" style={{
-				fontFamily: "var(--font-cormorant)",
-				fontSize: "68px",
-				fontWeight: 600,
-				lineHeight: 1.05,
-				marginBottom: "64px",
-			}}>
-				My <em style={{ fontStyle: "italic", background: "linear-gradient(135deg,#9B87D4,#D4A0C0)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Projects</em>
-			</h1>
-
-			<div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-				{projects.map((project) => (
-					<Link key={project.slug} href={`/projects/${project.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
-						<TiltCard>
-							<div className="mobile-stack" style={{
-								background: "var(--bg-card)",
-								border: "1px solid var(--border)",
-								borderRadius: "20px",
-								padding: "28px 32px",
-								display: "flex",
-								alignItems: "center",
-								gap: "32px",
-								transition: "box-shadow 0.2s ease",
-							}}>
-
-								{(project.thumbnail ?? project.images?.[0]) && (
-									<div className="mobile-hide" style={{ position: "relative", width: "160px", height: "160px", borderRadius: "12px", overflow: "hidden", flexShrink: 0 }}>
-										<Image
-											src={project.thumbnail ?? project.images![0]}
-											alt={project.title}
-											fill
-											style={{ objectFit: "cover" }}
-										/>
-									</div>
+		<main className="container" style={{ minHeight: "70dvh" }}>
+			<div className="page-head">
+				<Reveal as="h1" lines className="display-lg">
+					Projects
+				</Reveal>
+				<Reveal delay={0.15}>
+					<p className="body-lg muted" style={{ marginTop: 18, maxWidth: "48ch" }}>
+						Everything built and shipped, in one place. The desk on the home page keeps the highlights.
+					</p>
+				</Reveal>
+			</div>
+			<div className="project-grid">
+				{projects.map((p, i) => (
+					<Reveal key={p.slug} delay={i * 0.06}>
+						<TransitionLink
+							href={`/projects/${p.slug}`}
+							label={p.title}
+							className="project-card"
+							style={{ "--wash": pastels[i % pastels.length] } as React.CSSProperties}
+						>
+							<span className="desk-card-inner" style={{ display: "block", background: "#fff" }}>
+								<span className="card-wash" aria-hidden="true" />
+								{p.images?.[0] ? (
+									<Image src={p.images[0]} alt={p.title} width={800} height={600} className="desk-card-photo" />
+								) : (
+									p.thumbnail && <Image src={p.thumbnail} alt="" width={40} height={40} className="desk-card-logo" />
 								)}
-
-								<div style={{ flex: 1 }}>
-									<TagChips tag={project.tag} />
-									<h2 style={{ fontSize: "17px", fontWeight: 600, color: "var(--text)", marginBottom: "2px" }}>{project.title}</h2>
-									<p style={{ fontSize: "14px", color: "var(--text-muted)", marginBottom: "10px" }}>{project.subtitle}</p>
-									<p style={{ fontSize: "12px", color: "var(--text-muted)", marginBottom: "8px" }}>{project.period}</p>
-									<p style={{ fontSize: "14px", lineHeight: 1.7, color: "var(--text-muted)" }}>{project.summary}</p>
-								</div>
-
-								<div className="mobile-hide" style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "12px", flexShrink: 0 }}>
-									<p style={{ fontSize: "12px", color: "var(--text-muted)" }}>{project.period}</p>
-									<span style={{ fontSize: "18px", color: "var(--text-muted)", opacity: 0.4 }}>→</span>
-								</div>
-
-							</div>
-						</TiltCard>
-					</Link>
+								<h3>{p.title}</h3>
+								<p>{p.summary}</p>
+								<span className="desk-card-meta">
+									<span>{p.period}</span>
+									<span>&#8599;</span>
+								</span>
+							</span>
+						</TransitionLink>
+					</Reveal>
 				))}
 			</div>
-
+			<div style={{ paddingBottom: "clamp(88px, 10vw, 150px)" }} />
 		</main>
 	)
 }
