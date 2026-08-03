@@ -22,6 +22,17 @@ const pastels = [
 	["var(--blush)", "var(--blush-ink)"],
 ]
 
+// pinned per company so colors survive reordering; new slugs fall back to the cycle
+const slugColor: Record<string, string> = {
+	esrt: "var(--mint)",
+	skydeck: "var(--powder)",
+	cgp: "var(--blush)",
+	loeb: "var(--lav)",
+	aquameridian: "var(--butter)",
+}
+
+const colorFor = (slug: string, i: number) => slugColor[slug] ?? pastels[i % pastels.length][0]
+
 const seasons: Record<string, string> = {
 	Dec: "Winter", Jan: "Winter", Feb: "Winter",
 	Mar: "Spring", Apr: "Spring", May: "Spring",
@@ -95,7 +106,7 @@ export default function ExperienceIndex({ items, compact = false }: { items: Exp
 						className="exp-row"
 						onNavigate={() => setActive(i)}
 					>
-						<span className="exp-row-flood" style={{ background: pastels[i % pastels.length][0] }} aria-hidden="true" />
+						<span className="exp-row-flood" style={{ background: colorFor(exp.slug, i) }} aria-hidden="true" />
 						<span className="exp-row-year" onPointerEnter={() => setActive(i)}>
 							{seasonOf(exp.period)}
 						</span>
@@ -122,7 +133,7 @@ export default function ExperienceIndex({ items, compact = false }: { items: Exp
 						<div
 							key={exp.slug}
 							className={`exp-preview-slide ${i === active ? "is-active" : ""}`}
-							style={{ background: pastels[i % pastels.length][0] }}
+							style={{ background: colorFor(exp.slug, i) }}
 						>
 							<Image src={`/${exp.slug}-logo.png`} alt="" width={96} height={96} />
 						</div>
