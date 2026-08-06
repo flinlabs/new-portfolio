@@ -814,6 +814,18 @@ h3 {
 	z-index: 1;
 }
 
+.project-card .desk-card-meta {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 12px;
+	font-family: var(--mono);
+	font-size: 10.5px;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: rgba(27, 26, 23, 0.45);
+}
+
 .project-card .desk-card-meta span:last-child {
 	display: inline-block;
 	transition: transform 0.35s var(--ease-out);
@@ -942,7 +954,7 @@ h3 {
 	font-size: 10.5px;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
-	color: var(--ink-soft);
+	color: rgba(27, 26, 23, 0.45);
 }
 
 .desk-card-logo {

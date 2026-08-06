@@ -239,6 +239,9 @@ export default function ProjectsDesk() {
 							<TransitionLink href="/experience/loeb" label="Loeb.nyc" className="desk-note-row">
 								Due diligence on seven startups at a NYC family office <span>&#8599;</span>
 							</TransitionLink>
+							<TransitionLink href="/projects/morimens-team-builder" label="Morimens Team Builder" className="desk-note-row">
+								A deterministic team optimizer for a gacha RPG I play <span>&#8599;</span>
+							</TransitionLink>
 						</span>
 					</span>
 				</span>

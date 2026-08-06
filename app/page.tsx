@@ -6,10 +6,9 @@ import RotatingLines from "@/components/home/RotatingLines"
 import { TransitionLink } from "@/components/motion/PageTransition"
 
 const descriptors = [
-	"teaching 880 leases to answer questions",
 	"building CompLens: address in, comps out",
 	"studying econ + data science at Berkeley",
-	"interning at the Empire State Building",
+	"optimizing gacha teams for Morimens",
 	"running a 300-member ocean nonprofit",
 	"designing my own narrative puzzle videogame",
 ]
@@ -33,8 +32,8 @@ export default function Home() {
 					<Reveal delay={0.18}>
 						<p className="body-lg" style={{ marginTop: 32, maxWidth: "52ch" }}>
 							I&rsquo;m a sophomore at Berkeley studying economics and data science. Before that I spent
-							three years building underwater robots in Monterey Bay. Right now I&rsquo;m writing AI tools
-							for a real estate company in New York.
+							three years building underwater robots in Monterey Bay. This past summer I built AI tools
+							for the Empire State Building&rsquo;s landlord; right now I&rsquo;m building CompLens.
 						</p>
 						<p className="muted" style={{ marginTop: 16, fontSize: 15.5 }}>
 							Everything I&rsquo;ve built is below, most recent first.
@@ -58,9 +57,9 @@ export default function Home() {
 					<div className="hero-fact">
 						<p className="label">Currently</p>
 						<p>
-							AI Tools Intern
+							Founder
 							<br />
-							Empire State Realty Trust
+							CompLens
 						</p>
 					</div>
 					<div className="hero-fact">

@@ -106,10 +106,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 				</Reveal>
 
 				{project.images && slug !== "lease-intelligence" && (
-					<Reveal className="article-section" style={{ borderTop: "none", paddingTop: 8 }}>
+					<Reveal className="article-section" style={{ borderTop: "none", paddingTop: 8, display: "flex", flexDirection: "column", gap: 18 }}>
 						{project.images.map(src => (
-							<div key={src} style={{ position: "relative", width: "100%", aspectRatio: "4/3", overflow: "hidden", background: "var(--dark-2)" }}>
-								<Image src={src} alt={project.title} fill style={{ objectFit: "cover" }} />
+							<div key={src} style={{ width: "100%", overflow: "hidden", border: "1px solid var(--line)", background: "#fff" }}>
+								<Image src={src} alt={project.title} width={1600} height={1200} style={{ width: "100%", height: "auto", display: "block" }} />
 							</div>
 						))}
 					</Reveal>
