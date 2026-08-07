@@ -113,6 +113,26 @@ export const experiences: Experience[] = [
 		websiteLabel: "Loeb.nyc's Website",
 	},
 	{
+		slug: "link-multifamily",
+		logo: "/link-multifamily-logo.png",
+		title: "Real Estate Acquisition & Portfolio Management Intern",
+		company: "Link Multifamily",
+		tag: "Real Estate · Finance",
+		period: "Jun – Aug 2024",
+		summary: "Underwrote multifamily acquisitions and ran monthly financial audits across a $100M+ portfolio at a Dallas multifamily investment firm.",
+		overview: "At Link Multifamily, a Dallas-based multifamily investment and management firm, I worked both sides of the deal lifecycle: evaluating new acquisitions and keeping the existing portfolio honest. On the acquisitions side I underwrote deals through financial analysis of T12 statements, rent rolls, debt terms, renovation budgets, CapEx schedules, and pro-forma models. On the portfolio side I conducted monthly financial audits across a $100M+ portfolio, reconciling ledger data against bank statements and tracing variance drivers to support asset management decisions.",
+		responsibilities: [
+			"Underwrote multifamily acquisitions through financial analysis of T12 statements, rent rolls, debt terms, renovation budgets, CapEx schedules, and pro-forma models.",
+			"Conducted monthly financial audits across a $100M+ portfolio, reconciling ledger data with bank statements.",
+			"Identified variance drivers behind ledger-to-bank discrepancies to support asset management decisions and reporting accuracy.",
+		],
+		achievements: [
+			"Built core skills in investment evaluation and asset-level due diligence across live multifamily deals.",
+			"Kept monthly reporting accurate across a $100M+ portfolio through recurring reconciliation and variance analysis.",
+		],
+		skills: ["Underwriting", "Pro-forma modeling", "T12 / rent roll analysis", "CapEx budgeting", "Financial auditing", "Variance analysis", "Excel"],
+	},
+	{
 		slug: "aquameridian",
 		logo: "/aquameridian-logo.png",
 		title: "Founder & Executive Director (U.S. Chapter)",
@@ -142,20 +162,3 @@ export const experiences: Experience[] = [
 	},
 ]
 
-/* ——— TO ADD (needs your details) ————————————————————————————————
-Copy this template into the array above at the right chronological spot.
-The homepage preview card looks for /public/<slug>-logo.png — add one, or
-it will render without an image.
-
-	{
-		slug: "link-multifamily",
-		title: "ROLE TITLE HERE",
-		company: "Link Multifamily",
-		tag: "AI · Real Estate",            // pick from: AI, Product, Engineering, Finance, Real Estate, Science, Environmental
-		period: "MMM – MMM 2026",
-		overview: "One paragraph on what the role was and what you built.",
-		responsibilities: ["What you did, one bullet per line."],
-		achievements: ["Outcomes with real numbers where you have them."],
-		skills: ["Skill", "Skill"],
-	},
-——————————————————————————————————————————————————————————————— */
