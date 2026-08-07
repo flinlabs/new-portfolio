@@ -36,8 +36,8 @@ export default function About() {
 								real things and figuring out what I got wrong.
 							</p>
 							<p>
-								I love connecting people and ideas. My best work tends to happen when there&rsquo;s a
-								spreadsheet and a real conversation happening in the same room.
+								I love connecting people and ideas. My best work happens when there&rsquo;s a
+								spreadsheet and a real conversation in the same room.
 							</p>
 							<p>
 								On AI: I use it to move faster and go deeper. It handles the repetitive work so I can

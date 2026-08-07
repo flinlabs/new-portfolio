@@ -23,7 +23,7 @@ export const experiences: Experience[] = [
 		tag: "AI · Product · Engineering · Real Estate · Finance",
 		period: "Jun – Aug 2026",
 		summary: "Built AI tooling for ESRT's lease operations, including Lease Intelligence, a conversational AI tool for querying ESRT's commercial lease terms in plain English.",
-		overview: "At Empire State Realty Trust — the owner and operator of the Empire State Building and a broader NYC commercial and residential portfolio — I built AI tools spanning lease administration and natural-language lease search. I built an Excel/VBA Letter of Credit expiry notification system with deduplication logic and automated, building-routed Outlook alerts, and used Harvey AI to generate two types of lease abstracts — RAG-optimized abstracts for semantic retrieval and verbatim abstracts structured for Yardi Voyager data entry. I also designed and built a working prototype of Lease Intelligence, a conversational AI tool giving non-specialist teams across Asset Management, Legal, Finance, and AR direct plain-English access to commercial lease data, layering a Claude (Anthropic API) synthesis engine over Harvey-managed retrieval on a FastAPI + React stack, deployed on Azure App Service and Static Web Apps and secured via Entra ID and Managed Identity within ESRT's Microsoft tenant.",
+		overview: "At Empire State Realty Trust, the owner and operator of the Empire State Building and a broader NYC commercial and residential portfolio, I built AI tools for lease administration and natural-language lease search. I built an Excel/VBA Letter of Credit expiry notification system with deduplication logic and automated, building-routed Outlook alerts, and used Harvey AI to generate two types of lease abstracts: RAG-optimized for semantic retrieval, and verbatim for Yardi Voyager data entry. I also designed and built a working prototype of Lease Intelligence, a conversational AI tool giving non-specialist teams across Asset Management, Legal, Finance, and AR direct plain-English access to commercial lease data, layering a Claude (Anthropic API) synthesis engine over Harvey-managed retrieval on a FastAPI + React stack, deployed on Azure App Service and Static Web Apps and secured via Entra ID and Managed Identity within ESRT's Microsoft tenant.",
 		responsibilities: [
 			"Built an Excel/VBA Letter of Credit expiry notification system with deduplication logic and automated Outlook alerts, deployed team-wide with building-to-email routing and user documentation.",
 			"Built Harvey AI Agents and Playbooks generating two abstract types from lease documents: RAG abstracts optimized for semantic retrieval and verbatim abstracts structured for Yardi Voyager data entry.",
@@ -60,7 +60,7 @@ export const experiences: Experience[] = [
 		achievements: [
 			"Designed a voice agent system targeting up to 1.5 hours of saved call time per broker per day.",
 			"Evaluated four competing voice AI providers to make a data-informed stack selection.",
-			"Delivered a full-stack working prototype spanning pipeline architecture and a polished React frontend.",
+			"Delivered a working prototype, from pipeline architecture through the React frontend.",
 		],
 		skills: ["React", "Tailwind CSS", "TypeScript", "Python", "STT / LLM / TTS pipeline", "ElevenLabs", "Deepgram", "Whisper", "Gemini", "AI product development"],
 	},
@@ -71,8 +71,8 @@ export const experiences: Experience[] = [
 		company: "Cornerstone Global Partners (CGP Group)",
 		tag: "AI · Product · Engineering",
 		period: "Jun – Aug 2025",
-		summary: "Built CANDI, an AI-powered candidate insights platform, and a browser extension for real-time job-candidate matching — cutting manual screening overhead for a global recruiting firm.",
-		overview: "As part of CGP Group's GLINT Summer Global Internship in Shanghai, I focused on building AI tooling to improve the recruiting and candidate screening process. I built two major products: an AI-powered browser extension that generates real-time match scores between candidates and job descriptions with explanation breakdowns, and CANDI, a full candidate insights platform that automates transcript parsing, objection tracking, candidate scoring, and interview prep generation. Both tools were designed to eliminate the manual, time-intensive parts of the recruiting pipeline.",
+		summary: "Built CANDI, a candidate insights platform, and a browser extension for real-time job-candidate matching, cutting manual screening overhead for a global recruiting firm.",
+		overview: "As part of CGP Group's GLINT Summer Global Internship in Shanghai, I focused on building AI tooling to improve the recruiting and candidate screening process. I built two major products: an AI-powered browser extension that generates real-time match scores between candidates and job descriptions with explanation breakdowns, and CANDI, a full candidate insights platform that automates transcript parsing, objection tracking, candidate scoring, and interview prep generation. Both take the manual, repetitive parts out of the recruiting pipeline.",
 		responsibilities: [
 			"Programmed an AI-powered browser extension that matches candidates to job descriptions, generating real-time match scores with explanation breakdowns to quickly sort through candidates without manually parsing resumes.",
 			"Developed the MVP of CANDI, an AI-powered candidate insights platform for transcript parsing, objection tracking, and report generation.",
@@ -96,7 +96,7 @@ export const experiences: Experience[] = [
 		tag: "Finance",
 		period: "Dec 2024 – Jan 2025",
 		summary: "Conducted structured due diligence on seven early-stage startups and researched emerging venture opportunities in IP platforms and Shopify A/B testing.",
-		overview: "I was selected for Loeb.NYC's NextGen Angel Investor Apprentice program, a hands-on experience covering angel investing, venture capital, and startup funding dynamics within a family office ecosystem. I engaged directly with founders, VCs, and Loeb.NYC leadership to evaluate early-stage startups across consumer, AI, and tech sectors — analyzing unit economics, market sizing, and valuation benchmarks, and researching specific verticals to identify competitive positioning and investment opportunity.",
+		overview: "I was selected for Loeb.NYC's NextGen Angel Investor Apprentice program, a hands-on program covering angel investing, venture capital, and startup funding inside a family office. I worked directly with founders, VCs, and Loeb.NYC leadership to evaluate early-stage startups across consumer, AI, and tech: unit economics, market sizing, valuation benchmarks, and vertical research to find competitive positioning and investment opportunity.",
 		responsibilities: [
 			"Conducted due diligence on seven early-stage startups, analyzing unit economics, market sizing, and valuation benchmarks to inform investment decisions.",
 			"Researched emerging ventures in the Intellectual Property platform and Shopify A/B testing spaces, identifying market opportunities and competitive positioning for potential investment.",
@@ -105,7 +105,7 @@ export const experiences: Experience[] = [
 		],
 		achievements: [
 			"Completed rigorous due diligence on seven startups, developing a repeatable framework for evaluating early-stage investment opportunities.",
-			"Identified competitive positioning in two high-growth verticals — IP platforms and Shopify A/B testing — as part of directed research.",
+			"Identified competitive positioning in two high-growth verticals (IP platforms and Shopify A/B testing) as part of directed research.",
 			"Built foundational skills in venture funding decision-making within a family office investing context.",
 		],
 		skills: ["Venture capital", "Due diligence", "Market research", "Financial modeling", "Competitive analysis"],
@@ -140,7 +140,7 @@ export const experiences: Experience[] = [
 		tag: "Environmental · Science",
 		period: "Jun 2022 – Present",
 		summary: "Founded and scaled the U.S. chapter of an international ocean conservation nonprofit over 4 years, leading a 12-person student team across coastal cleanups, STEM workshops, and community partnerships engaging 300+ members.",
-		overview: "I established the U.S. chapter of AquaMeridian, an international marine conservation initiative, building it from the ground up into a sustained, student-led organization over four years. I designed and ran programs spanning large-scale coastal cleanups, STEM education workshops, and community partnerships — engaging over 300 members across the chapter's lifetime. Beyond programming, I built the organization's funding infrastructure from scratch, developed a student leadership pipeline that continued operations independently, and established institutional partnerships with schools, libraries, and local organizations to extend our reach into marine education and habitat restoration.",
+		overview: "I established the U.S. chapter of AquaMeridian, an international marine conservation initiative, and built it into a sustained, student-led organization over four years. I designed and ran programs spanning large-scale coastal cleanups, STEM education workshops, and community partnerships, engaging over 300 members across the chapter's lifetime. I also built the funding from scratch, trained a leadership pipeline that kept the chapter running without me, and set up partnerships with schools, libraries, and local groups around marine education and habitat restoration.",
 		responsibilities: [
 			"Founded and scaled the U.S. chapter of AquaMeridian, growing it into a sustained operation over 4 years.",
 			"Led a 12-person student leadership team across coastal cleanups, STEM workshops, and community partnerships.",

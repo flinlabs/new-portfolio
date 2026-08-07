@@ -83,7 +83,7 @@ export default function Home() {
 			<section className="section container" id="experience" style={{ paddingTop: "clamp(48px, 6vw, 80px)" }}>
 				<div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 28 }}>
 					<Reveal>
-						<p className="label">Experience &mdash; most recent first</p>
+						<p className="label">Experience &middot; most recent first</p>
 					</Reveal>
 					<Reveal delay={0.1}>
 						<span className="label">2022 &rarr; 2026</span>
@@ -99,7 +99,7 @@ export default function Home() {
 				<div style={{ marginBottom: "clamp(36px, 5vw, 64px)" }}>
 					<Reveal>
 						<p className="label" style={{ marginBottom: 16 }}>
-							Projects &mdash; on the desk
+							Projects &middot; on the desk
 						</p>
 					</Reveal>
 					<Reveal as="h2" lines className="display-lg">
