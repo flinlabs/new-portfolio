@@ -28,6 +28,7 @@ const slugColor: Record<string, string> = {
 	skydeck: "var(--powder)",
 	cgp: "var(--blush)",
 	loeb: "var(--lav)",
+	"link-multifamily": "var(--sand)",
 	aquameridian: "var(--butter)",
 }
 

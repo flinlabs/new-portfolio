@@ -21,7 +21,7 @@ export const experiences: Experience[] = [
 		title: "AI Tools Intern",
 		company: "Empire State Realty Trust (ESRT)",
 		tag: "AI · Product · Engineering · Real Estate · Finance",
-		period: "Jun 2026 – Present",
+		period: "Jun – Aug 2026",
 		summary: "Built AI tooling for ESRT's lease operations, including Lease Intelligence, a conversational AI tool for querying ESRT's commercial lease terms in plain English.",
 		overview: "At Empire State Realty Trust — the owner and operator of the Empire State Building and a broader NYC commercial and residential portfolio — I built AI tools spanning lease administration and natural-language lease search. I built an Excel/VBA Letter of Credit expiry notification system with deduplication logic and automated, building-routed Outlook alerts, and used Harvey AI to generate two types of lease abstracts — RAG-optimized abstracts for semantic retrieval and verbatim abstracts structured for Yardi Voyager data entry. I also designed and built a working prototype of Lease Intelligence, a conversational AI tool giving non-specialist teams across Asset Management, Legal, Finance, and AR direct plain-English access to commercial lease data, layering a Claude (Anthropic API) synthesis engine over Harvey-managed retrieval on a FastAPI + React stack, deployed on Azure App Service and Static Web Apps and secured via Entra ID and Managed Identity within ESRT's Microsoft tenant.",
 		responsibilities: [
@@ -31,7 +31,8 @@ export const experiences: Experience[] = [
 			"Layered a Claude (Anthropic API) synthesis engine over Harvey-managed retrieval, on a FastAPI + React stack deployed to Azure App Service and Static Web Apps, secured via Entra ID and Managed Identity.",
 		],
 		achievements: [
-			"Delivered a working Lease Intelligence prototype covering all 880 leases in the portfolio, and presented it to company leadership.",
+			"Delivered a working Lease Intelligence prototype giving 50+ employees self-serve access to lease data previously gated behind Lease Administration, covering all 880 leases.",
+			"Presented the production architecture (Harvey exports, Informatica ingestion, Azure storage with field-level protection, FastAPI retrieval) and rollout plan to ESRT leadership.",
 			"Modeled an 86% licensing-cost reduction versus per-seat Harvey licenses ($227.3K vs $4.9–32.8K per year).",
 			"Cut lease abstraction time by roughly 50% with Harvey Agents and Playbooks producing dual-format abstracts for semantic retrieval and Yardi Voyager entry.",
 			"Deployed an automated LOC expiry notification system team-wide, cutting up to 2 hours of manual review weekly.",
@@ -93,7 +94,7 @@ export const experiences: Experience[] = [
 		title: "NextGen Angel Investor Apprentice",
 		company: "Loeb.nyc",
 		tag: "Finance",
-		period: "Dec 2024",
+		period: "Dec 2024 – Jan 2025",
 		summary: "Conducted structured due diligence on seven early-stage startups and researched emerging venture opportunities in IP platforms and Shopify A/B testing.",
 		overview: "I was selected for Loeb.NYC's NextGen Angel Investor Apprentice program, a hands-on experience covering angel investing, venture capital, and startup funding dynamics within a family office ecosystem. I engaged directly with founders, VCs, and Loeb.NYC leadership to evaluate early-stage startups across consumer, AI, and tech sectors — analyzing unit economics, market sizing, and valuation benchmarks, and researching specific verticals to identify competitive positioning and investment opportunity.",
 		responsibilities: [
@@ -110,6 +111,26 @@ export const experiences: Experience[] = [
 		skills: ["Venture capital", "Due diligence", "Market research", "Financial modeling", "Competitive analysis"],
 		website: "https://loeb.nyc",
 		websiteLabel: "Loeb.nyc's Website",
+	},
+	{
+		slug: "link-multifamily",
+		logo: "/link-multifamily-logo.png",
+		title: "Real Estate Acquisition & Portfolio Management Intern",
+		company: "Link Multifamily",
+		tag: "Real Estate · Finance",
+		period: "Jun – Aug 2024",
+		summary: "Underwrote multifamily acquisitions and ran monthly financial audits across a $100M+ portfolio at a Dallas multifamily investment firm.",
+		overview: "At Link Multifamily, a Dallas-based multifamily investment and management firm, I worked both sides of the deal lifecycle: evaluating new acquisitions and keeping the existing portfolio honest. On the acquisitions side I underwrote deals through financial analysis of T12 statements, rent rolls, debt terms, renovation budgets, CapEx schedules, and pro-forma models. On the portfolio side I conducted monthly financial audits across a $100M+ portfolio, reconciling ledger data against bank statements and tracing variance drivers to support asset management decisions.",
+		responsibilities: [
+			"Underwrote multifamily acquisitions through financial analysis of T12 statements, rent rolls, debt terms, renovation budgets, CapEx schedules, and pro-forma models.",
+			"Conducted monthly financial audits across a $100M+ portfolio, reconciling ledger data with bank statements.",
+			"Identified variance drivers behind ledger-to-bank discrepancies to support asset management decisions and reporting accuracy.",
+		],
+		achievements: [
+			"Built core skills in investment evaluation and asset-level due diligence across live multifamily deals.",
+			"Kept monthly reporting accurate across a $100M+ portfolio through recurring reconciliation and variance analysis.",
+		],
+		skills: ["Underwriting", "Pro-forma modeling", "T12 / rent roll analysis", "CapEx budgeting", "Financial auditing", "Variance analysis", "Excel"],
 	},
 	{
 		slug: "aquameridian",
@@ -141,20 +162,3 @@ export const experiences: Experience[] = [
 	},
 ]
 
-/* ——— TO ADD (needs your details) ————————————————————————————————
-Copy this template into the array above at the right chronological spot.
-The homepage preview card looks for /public/<slug>-logo.png — add one, or
-it will render without an image.
-
-	{
-		slug: "link-multifamily",
-		title: "ROLE TITLE HERE",
-		company: "Link Multifamily",
-		tag: "AI · Real Estate",            // pick from: AI, Product, Engineering, Finance, Real Estate, Science, Environmental
-		period: "MMM – MMM 2026",
-		overview: "One paragraph on what the role was and what you built.",
-		responsibilities: ["What you did, one bullet per line."],
-		achievements: ["Outcomes with real numbers where you have them."],
-		skills: ["Skill", "Skill"],
-	},
-——————————————————————————————————————————————————————————————— */

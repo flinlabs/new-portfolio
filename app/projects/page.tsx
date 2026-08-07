@@ -13,6 +13,7 @@ const pastels = ["var(--lav)", "var(--powder)", "var(--butter)", "var(--mint)", 
 const slugWash: Record<string, string> = {
 	complens: "var(--lav)",
 	"lease-intelligence": "var(--mint)",
+	"morimens-team-builder": "var(--sand)",
 	candi: "var(--butter)",
 	walsea: "var(--powder)",
 	"urchin-camera": "var(--blush)",

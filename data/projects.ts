@@ -44,7 +44,7 @@ export const projects: Project[] = [
 			{ label: "complens-ai.vercel.app", url: "https://complens-ai.vercel.app/" },
 		],
 		thumbnail: "/complens-logo.png",
-		images: ["/complens-app.png"],
+		images: ["/complens-app.png", "/complens-comps.png", "/complens-neighborhood.png"],
 	},
 	{
 		slug: "lease-intelligence",
@@ -71,6 +71,33 @@ export const projects: Project[] = [
 		tech: "Claude (Anthropic API), Harvey Agents + Playbooks, FastAPI, React, Azure App Service, Entra ID, Yardi.",
 		thumbnail: "/lease-intelligence-logo.png",
 		images: ["/lease-intelligence-app.png"],
+	},
+	{
+		slug: "morimens-team-builder",
+		title: "Morimens Team Builder",
+		subtitle: "A fan-made team optimizer for a gacha deck-building RPG",
+		tag: "Engineering · Product · Games",
+		period: "2026",
+		summary: "An unofficial team builder for Morimens: record your roster and a deterministic engine generates optimized, fully-geared teams — including five-team D-Tide lineups that share no units.",
+		overview: "Morimens Team Builder is a fan project for the gacha deck-building RPG Morimens. You record what you own — Awakeners, Wheels of Destiny, Covenants, Posses, your Keeper level, down to enlighten and skill levels — and the app builds optimized, fully-geared teams from your actual roster, then lets you fine-tune them on an in-game-style lineup board.\n\nThe generation is deliberately AI-free: a deterministic engine ranks and gears every team, so the same roster always produces the same answer. Skill cards show real command-card values resolved against character level from the game's own data tables, and gear picks come from the community's best-in-slot tables with role-aware variants — the same unit slotted as a carry pulls its DPS set, as a support pulls its support set.",
+		problem: "Assembling one geared team is easy; assembling five D-Tide teams that share no units or wheels, from what you actually own, is a combinatorial headache players solve with spreadsheets and guesswork.",
+		approach: [
+			"Built full inventory management with real investment detail: enlighten levels, skill and talent levels, wheel stars and stacks, covenant completion, Keeper level.",
+			"Wrote a deterministic generation engine with two modes: Single Team (a working lineup plus alternates) and D-Tide ×5 (five teams with zero shared units or wheels).",
+			"Added build-around-pins: place and pin characters by hand, and generation builds the rest of the team around them.",
+			"Computed real in-game numbers from the game-data tables, and sourced wheel and covenant picks from the community Mythag Compendium best-in-slot tables with role-aware build variants.",
+		],
+		outcomes: [
+			"Every slot is editable on an in-game-style lineup board, backed by your owned inventory.",
+			"Same roster in, same optimized answer out — no LLM in the loop, fully reproducible.",
+			"Data and assets sync from community databases via Node scripts.",
+		],
+		tech: "Next.js 14 (App Router), React, TypeScript, Tailwind CSS, Zustand (persisted to localStorage), Node data-sync scripts.",
+		links: [
+			{ label: "morimens-team-builder.vercel.app", url: "https://morimens-team-builder.vercel.app" },
+			{ label: "GitHub", url: "https://github.com/flinlabs/morimens-team-builder" },
+		],
+		images: ["/morimens-team.png", "/morimens-inventory.png"],
 	},
 	{
 		slug: "candi",
