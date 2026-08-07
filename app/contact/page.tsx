@@ -37,7 +37,7 @@ export default function Contact() {
 				</Reveal>
 				<Reveal delay={0.2}>
 					<p className="body-lg muted" style={{ marginTop: 20, maxWidth: "44ch" }}>
-						Whether you have a role, a project, or just want to connect, I&rsquo;m always happy to chat.
+						If you have a role, a project, or a question, I&rsquo;d love to hear it.
 						Or email me directly at{" "}
 						<a href="mailto:f.lin@berkeley.edu" className="link-underline" style={{ color: "var(--ink)" }}>
 							f.lin@berkeley.edu

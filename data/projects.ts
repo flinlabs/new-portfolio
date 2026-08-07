@@ -25,7 +25,7 @@ export const projects: Project[] = [
 		location: "Berkeley, CA",
 		tag: "AI · Product · Real Estate",
 		period: "Jul 2026 – Present",
-		summary: "A rent comp tool I'm building solo: type any address and get a structured comp memo — nearby multifamily properties ranked by rent per square foot, Census demographics, and a map view.",
+		summary: "A rent comp tool I'm building solo. Type any address and get a structured comp memo: nearby multifamily properties ranked by rent per square foot, Census demographics, and a map view.",
 		overview: "CompLens turns the slowest part of underwriting a multifamily deal (pulling comps by hand) into a single search. You type an address, and it returns a structured comp memo: nearby multifamily properties ranked by rent per square foot, demographic context from the Census, and everything plotted on a map.\n\nI'm building it solo, full stack, end to end. The interesting part is the data: instead of leaning on listing aggregators, a two-model Claude pipeline sources asking rents from official property leasing sites first, so the comps reflect what landlords are actually quoting.",
 		problem: "Pulling rent comps is manual and scattered: aggregator data is stale or padded with fees, official leasing sites all present pricing differently, and analysts end up stitching together screenshots and spreadsheets for every address they underwrite.",
 		approach: [
@@ -37,7 +37,7 @@ export const projects: Project[] = [
 		outcomes: [
 			"One search produces a structured comp memo that used to take an afternoon of manual pulls.",
 			"Comps ranked by rent per square foot with source-aware provenance for each figure.",
-			"Live and iterating — currently expanding coverage and memo depth.",
+			"Live now, with coverage and memo depth still growing.",
 		],
 		tech: "React, Vite, Vercel, Supabase (auth + Postgres), Google Maps APIs, Claude (two-model pipeline).",
 		links: [
@@ -47,6 +47,33 @@ export const projects: Project[] = [
 		images: ["/complens-app.png", "/complens-comps.png", "/complens-neighborhood.png"],
 	},
 	{
+		slug: "morimens-team-builder",
+		title: "Morimens Team Builder",
+		subtitle: "A fan-made team optimizer for a gacha deck-building RPG",
+		tag: "Engineering · Product · Games",
+		period: "Jun 2026 – Present",
+		summary: "An unofficial team builder for Morimens: record your roster and a deterministic engine generates optimized, fully-geared teams, including five-team D-Tide lineups that share no units.",
+		overview: "Morimens Team Builder is a fan project for the gacha deck-building RPG Morimens. You record what you own (Awakeners, Wheels of Destiny, Covenants, Posses, your Keeper level, down to enlighten and skill levels) and the app builds optimized, fully-geared teams from your actual roster, then lets you fine-tune them on an in-game-style lineup board.\n\nThe generation is deliberately AI-free: a deterministic engine ranks and gears every team, so the same roster always produces the same answer. Skill cards show real command-card values resolved against character level from the game's own data tables, and gear picks come from the community's best-in-slot tables with role-aware variants. Slotted as a carry, a unit pulls its DPS set; as a support, its support set.",
+		problem: "Assembling one geared team is easy; assembling five D-Tide teams that share no units or wheels, from what you actually own, is a combinatorial headache players solve with spreadsheets and guesswork.",
+		approach: [
+			"Built full inventory management with real investment detail: enlighten levels, skill and talent levels, wheel stars and stacks, covenant completion, Keeper level.",
+			"Wrote a deterministic generation engine with two modes: Single Team (a working lineup plus alternates) and D-Tide ×5 (five teams with zero shared units or wheels).",
+			"Added build-around-pins: place and pin characters by hand, and generation builds the rest of the team around them.",
+			"Computed real in-game numbers from the game-data tables, and sourced wheel and covenant picks from the community Mythag Compendium best-in-slot tables with role-aware build variants.",
+		],
+		outcomes: [
+			"Every slot is editable on an in-game-style lineup board, backed by your owned inventory.",
+			"Same roster in, same optimized answer out. No LLM in the loop, fully reproducible.",
+			"Data and assets sync from community databases via Node scripts.",
+		],
+		tech: "Next.js 14 (App Router), React, TypeScript, Tailwind CSS, Zustand (persisted to localStorage), Node data-sync scripts.",
+		links: [
+			{ label: "morimens-team-builder.vercel.app", url: "https://morimens-team-builder.vercel.app" },
+			{ label: "GitHub", url: "https://github.com/flinlabs/morimens-team-builder" },
+		],
+		images: ["/morimens-team.png", "/morimens-inventory.png"],
+	},
+	{
 		slug: "lease-intelligence",
 		title: "Lease Intelligence",
 		subtitle: "Self-serve Q&A over 880 commercial leases",
@@ -54,7 +81,7 @@ export const projects: Project[] = [
 		tag: "AI · Product · Real Estate",
 		period: "Jun – Aug 2026",
 		summary: "An internal lease Q&A platform prototyped at ESRT: ask a question about any lease and get a cited answer, plus a dashboard for LOC expirations, rent steps, and renewals. Try the sandbox demo below.",
-		overview: "Lease teams at ESRT answered lease questions the slow way: find the lease, read the lease, ask legal to confirm. Lease Intelligence is the prototype I built to make that self-serve — ask a question in plain English about any of 880 leases and get an answer with citations back to the source document.\n\nIt has two halves. Ask is the conversational side: Claude synthesizes cited answers over abstracts produced by Harvey-managed retrieval. Dashboard is the structured side: letter-of-credit expirations, rent steps, renewal windows, and options surfaced across the portfolio, with a browsable abstract for every lease.\n\nI presented the prototype and its cost case to company leadership at the end of the summer.",
+		overview: "Lease teams at ESRT answered lease questions the slow way: find the lease, read the lease, ask legal to confirm. Lease Intelligence is the prototype I built to make that self-serve: ask a question in plain English about any of 880 leases and get an answer with citations back to the source document.\n\nIt has two halves. Ask is the conversational side: Claude synthesizes cited answers over abstracts produced by Harvey-managed retrieval. Dashboard is the structured side: letter-of-credit expirations, rent steps, renewal windows, and options surfaced across the portfolio, with a browsable abstract for every lease.\n\nI presented the prototype and its cost case to company leadership at the end of the summer.",
 		problem: "Two manual workflows ate the team's time: producing lease abstracts (reading and summarizing every executed lease) and answering one-off lease questions that each required pulling the underlying document. Neither scaled across an 880-lease portfolio.",
 		approach: [
 			"Automated abstraction with Harvey Agents and Playbooks: RAG-based narrative abstracts plus tabular abstracts verified against Yardi, cutting abstraction time roughly in half.",
@@ -73,40 +100,13 @@ export const projects: Project[] = [
 		images: ["/lease-intelligence-app.png"],
 	},
 	{
-		slug: "morimens-team-builder",
-		title: "Morimens Team Builder",
-		subtitle: "A fan-made team optimizer for a gacha deck-building RPG",
-		tag: "Engineering · Product · Games",
-		period: "2026",
-		summary: "An unofficial team builder for Morimens: record your roster and a deterministic engine generates optimized, fully-geared teams — including five-team D-Tide lineups that share no units.",
-		overview: "Morimens Team Builder is a fan project for the gacha deck-building RPG Morimens. You record what you own — Awakeners, Wheels of Destiny, Covenants, Posses, your Keeper level, down to enlighten and skill levels — and the app builds optimized, fully-geared teams from your actual roster, then lets you fine-tune them on an in-game-style lineup board.\n\nThe generation is deliberately AI-free: a deterministic engine ranks and gears every team, so the same roster always produces the same answer. Skill cards show real command-card values resolved against character level from the game's own data tables, and gear picks come from the community's best-in-slot tables with role-aware variants — the same unit slotted as a carry pulls its DPS set, as a support pulls its support set.",
-		problem: "Assembling one geared team is easy; assembling five D-Tide teams that share no units or wheels, from what you actually own, is a combinatorial headache players solve with spreadsheets and guesswork.",
-		approach: [
-			"Built full inventory management with real investment detail: enlighten levels, skill and talent levels, wheel stars and stacks, covenant completion, Keeper level.",
-			"Wrote a deterministic generation engine with two modes: Single Team (a working lineup plus alternates) and D-Tide ×5 (five teams with zero shared units or wheels).",
-			"Added build-around-pins: place and pin characters by hand, and generation builds the rest of the team around them.",
-			"Computed real in-game numbers from the game-data tables, and sourced wheel and covenant picks from the community Mythag Compendium best-in-slot tables with role-aware build variants.",
-		],
-		outcomes: [
-			"Every slot is editable on an in-game-style lineup board, backed by your owned inventory.",
-			"Same roster in, same optimized answer out — no LLM in the loop, fully reproducible.",
-			"Data and assets sync from community databases via Node scripts.",
-		],
-		tech: "Next.js 14 (App Router), React, TypeScript, Tailwind CSS, Zustand (persisted to localStorage), Node data-sync scripts.",
-		links: [
-			{ label: "morimens-team-builder.vercel.app", url: "https://morimens-team-builder.vercel.app" },
-			{ label: "GitHub", url: "https://github.com/flinlabs/morimens-team-builder" },
-		],
-		images: ["/morimens-team.png", "/morimens-inventory.png"],
-	},
-	{
 		slug: "candi",
 		title: "CANDI",
 		subtitle: "Candidate Analysis & Discovery Intelligence",
 		location: "Shanghai, China",
 		tag: "AI · Product · Engineering",
 		period: "Jun – Aug 2025",
-		summary: "An AI-powered recruiting toolkit: a low-code recruiter workspace built at CGP Group, plus a Chrome extension that scores any LinkedIn profile against a job description in real time.",
+		summary: "A recruiting toolkit built at CGP Group: a low-code recruiter workspace, plus a Chrome extension that scores any LinkedIn profile against a job description in real time.",
 		overview: "CANDI started as an internal recruiter workspace built during my CGP Group internship in Shanghai, and grew into a two-part toolkit for smarter hiring.\n\nThe first part is a Glide + Airtable app that compresses the most time-consuming recruiting tasks (requirements capture, candidate scoring, interview insights, and report generation) into a single workflow. The second part is a Chrome extension I built afterward that lets anyone paste a job description, open a LinkedIn profile, and instantly get an AI-generated match score with a plain-English explanation of fit and gaps.",
 		problem: "Recruiters were drowning in fragmented tools: requirements captured inconsistently, screening notes built manually in Sheets, data entered redundantly into the ATS, and status updates scattered across chats and emails.",
 		approach: [
