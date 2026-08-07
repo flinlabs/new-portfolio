@@ -94,8 +94,10 @@ export const projects: Project[] = [
 		],
 		tech: "Next.js 14 (App Router), React, TypeScript, Tailwind CSS, Zustand (persisted to localStorage), Node data-sync scripts.",
 		links: [
+			{ label: "morimens-team-builder.vercel.app", url: "https://morimens-team-builder.vercel.app" },
 			{ label: "GitHub", url: "https://github.com/flinlabs/morimens-team-builder" },
 		],
+		images: ["/morimens-team.png", "/morimens-inventory.png"],
 	},
 	{
 		slug: "candi",
