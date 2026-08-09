@@ -12,6 +12,7 @@ export type Experience = {
 	website?: string
 	websiteLabel?: string
 	related?: { label: string; href: string }
+	challenges?: string[]
 	logo?: string
 }
 
@@ -38,6 +39,11 @@ export const experiences: Experience[] = [
 			"Cut lease abstraction time by roughly 50% with Harvey Agents and Playbooks producing dual-format abstracts for semantic retrieval and Yardi Voyager entry.",
 			"Deployed an automated LOC expiry notification system team-wide, cutting up to 2 hours of manual review weekly.",
 			"Secured the Lease Intelligence platform end-to-end within ESRT's Microsoft tenant using Entra ID and Managed Identity.",
+		],
+		challenges: [
+			"A live production deployment was out of scope: cybersecurity review and system dependencies could not clear within one summer. I scoped the prototype to a sandbox with production-shaped architecture instead, and documented a clear path to future implementation.",
+			"My direct manager left unexpectedly partway through the internship. I kept the work moving and the quality up without day-to-day guidance.",
+			"The abstraction bottleneck was mundane but real: OCR'd PDFs, formatting cleanup, and field-by-field Yardi entry. Getting Harvey to produce verbatim, Yardi-shaped tables from messy source documents took careful playbook design, with human review kept in the loop.",
 		],
 		skills: ["Harvey AI", "Claude / Anthropic API", "RAG / Retrieval Augmented Generation", "FastAPI", "React", "Microsoft Azure", "Entra ID", "Yardi Voyager", "VBA", "Excel", "Python"],
 		related: { label: "Lease Intelligence", href: "/projects/lease-intelligence" },

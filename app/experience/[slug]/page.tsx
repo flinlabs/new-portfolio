@@ -16,7 +16,13 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
 	const next = experiences[(index + 1) % experiences.length]
 
 	return (
-		<main className="container">
+		<main className="container" style={{ position: "relative" }}>
+			<div className="exp-snapshot" aria-hidden="true">
+				<span className="snap-tape snap-tape-l" />
+				<span className="snap-tape snap-tape-r" />
+				{/* eslint-disable-next-line @next/next/no-img-element */}
+				<img src={`/${exp.slug}-photo.jpg`} alt="" />
+			</div>
 			<div className="page-head" style={{ maxWidth: 900 }}>
 				<Reveal>
 					<TagChips tag={exp.tag} />
@@ -73,6 +79,17 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
 						))}
 					</ul>
 				</Reveal>
+
+				{exp.challenges && exp.challenges.length > 0 && (
+					<Reveal className="article-section">
+						<h2>What was hard</h2>
+						<ul className="article-list">
+							{exp.challenges.map(c => (
+								<li key={c}>{c}</li>
+							))}
+						</ul>
+					</Reveal>
+				)}
 
 				{exp.skills && exp.skills.length > 0 && (
 					<Reveal className="article-section">
