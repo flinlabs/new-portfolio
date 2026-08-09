@@ -6,13 +6,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { TransitionLink } from "@/components/motion/PageTransition"
 import Motif from "@/components/Motif"
 import { navGate } from "@/lib/gate"
-import { useVelocitySkew } from "@/lib/useVelocitySkew"
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default function ProjectsDesk() {
 	const rootRef = useRef<HTMLDivElement>(null)
-	useVelocitySkew(rootRef, 2.5)
 
 	useLayoutEffect(() => {
 		const root = rootRef.current
@@ -91,14 +89,35 @@ export default function ProjectsDesk() {
 
 	return (
 		<div ref={rootRef} className="desk">
-			{/* WAL-SEA: polaroid */}
+			{/* CompLens: the big polaroid */}
+			<TransitionLink
+				href="/projects/complens"
+				label="CompLens"
+				className="desk-card desk-card-polaroid"
+				style={{ left: "1%", top: 30, width: "min(360px, 33%)", zIndex: 2 }}
+				data-rot={-3.4}
+			>
+				<span className="desk-card-motion">
+					<span className="desk-card-inner" style={{ background: "#fff" }}>
+						<span className="desk-tape" aria-hidden="true" />
+						<Image src="/complens-app.png" alt="CompLens comp map view" width={1116} height={555} className="desk-card-photo" />
+						<h3>CompLens</h3>
+						<p>Type an address, get a rent comp memo: nearby multifamily ranked by rent per square foot, with demographics and a map. Building it solo right now.</p>
+						<span className="desk-card-meta">
+							<span>2026 &middot; Berkeley</span>
+							<Motif size={26} strokeWidth={3.4} className="desk-stamp" />
+						</span>
+					</span>
+				</span>
+			</TransitionLink>
+
+			{/* WAL-SEA: small polaroid */}
 			<TransitionLink
 				href="/projects/walsea"
 				label="WAL-SEA"
 				className="desk-card desk-card-polaroid"
-				style={{ left: "1%", top: 30, width: "min(360px, 33%)", zIndex: 2 }}
-				data-rot={-3.4}
-				data-drift={-42}
+				style={{ left: "40%", top: 0, width: "min(290px, 26%)" }}
+				data-rot={1.8}
 			>
 				<span className="desk-card-motion">
 					<span className="desk-card-inner" style={{ background: "#fff" }}>
@@ -114,28 +133,6 @@ export default function ProjectsDesk() {
 				</span>
 			</TransitionLink>
 
-			{/* CompLens: blush sticky */}
-			<TransitionLink
-				href="/projects/complens"
-				label="CompLens"
-				className="desk-card desk-card-tint"
-				style={{ left: "40%", top: 0, width: "min(290px, 26%)" }}
-				data-rot={1.8}
-				data-drift={18}
-			>
-				<span className="desk-card-motion">
-					<span className="desk-card-inner" style={{ background: "var(--blush)" }}>
-						<Image src="/complens-logo.png" alt="" width={40} height={40} className="desk-card-logo" />
-						<h3>CompLens</h3>
-						<p>Type an address, get a rent comp memo: nearby multifamily ranked by rent per square foot, with demographics and a map. Building it solo right now.</p>
-						<span className="desk-card-meta">
-							<span>2026 &middot; Berkeley</span>
-							<span>&#8599;</span>
-						</span>
-					</span>
-				</span>
-			</TransitionLink>
-
 			{/* CANDI: lavender sticky */}
 			<TransitionLink
 				href="/projects/candi"
@@ -143,7 +140,6 @@ export default function ProjectsDesk() {
 				className="desk-card desk-card-tint"
 				style={{ right: "2%", top: 40, width: "min(300px, 27%)" }}
 				data-rot={-2.4}
-				data-drift={26}
 			>
 				<span className="desk-card-motion">
 					<span className="desk-card-inner" style={{ background: "var(--lav)" }}>
@@ -158,46 +154,45 @@ export default function ProjectsDesk() {
 				</span>
 			</TransitionLink>
 
-			{/* Urchin camera rig: polaroid */}
+			{/* Lease Intelligence: polaroid with the dashboard shot */}
 			<TransitionLink
-				href="/projects/urchin-camera"
-				label="The PVC camera rig"
+				href="/projects/lease-intelligence"
+				label="Lease Intelligence"
 				className="desk-card desk-card-polaroid"
 				style={{ left: "37%", top: 290, width: "min(340px, 31%)", zIndex: 3 }}
 				data-rot={2.8}
-				data-drift={-16}
 			>
 				<span className="desk-card-motion">
 					<span className="desk-card-inner" style={{ background: "#fff" }}>
 						<span className="desk-tape" aria-hidden="true" />
-						<Image src="/urchin-camera.jpg" alt="The PVC underwater camera rig" width={800} height={600} className="desk-card-photo" />
-						<h3>The PVC camera rig</h3>
-						<p>Eighth grade: an underwater camera rig $2,500 cheaper than the commercial one. 48 hours of continuous footage at 54 feet.</p>
+						<Image src="/lease-intelligence-app.png" alt="Lease Intelligence dashboard" width={1600} height={1200} className="desk-card-photo" />
+						<h3>Lease Intelligence</h3>
+						<p>Ask 880 leases a question, get a cited answer back. Its page runs the real app as a sandbox demo on dummy data.</p>
 						<span className="desk-card-meta">
-							<span>2018&ndash;19 &middot; Monterey Bay</span>
+							<span>2026 &middot; ESRT, New York</span>
 							<Motif size={26} strokeWidth={3.4} className="desk-stamp" />
 						</span>
 					</span>
 				</span>
 			</TransitionLink>
 
-			{/* Lease Intelligence: powder sticky */}
+			{/* Morimens: polaroid with the lineup board */}
 			<TransitionLink
-				href="/projects/lease-intelligence"
-				label="Lease Intelligence"
-				className="desk-card desk-card-tint"
+				href="/projects/morimens-team-builder"
+				label="Morimens Team Builder"
+				className="desk-card desk-card-polaroid"
 				style={{ right: "0%", top: 380, width: "min(300px, 27%)", zIndex: 2 }}
 				data-rot={2}
-				data-drift={38}
 			>
 				<span className="desk-card-motion">
-					<span className="desk-card-inner" style={{ background: "var(--powder)" }}>
-						<Image src="/lease-intelligence-logo.png" alt="" width={40} height={40} className="desk-card-logo" />
-						<h3>Lease Intelligence</h3>
-						<p>Ask 880 leases a question, get a cited answer back. Its page runs the real app as a sandbox demo on dummy data.</p>
+					<span className="desk-card-inner" style={{ background: "#fff" }}>
+						<span className="desk-tape" aria-hidden="true" />
+						<Image src="/morimens-team.png" alt="Morimens Team Builder lineup board" width={1600} height={1000} className="desk-card-photo" />
+						<h3>Morimens Team Builder</h3>
+						<p>A deterministic team optimizer for the gacha RPG I play: five D-Tide teams, zero shared units, from what you actually own.</p>
 						<span className="desk-card-meta">
-							<span>2026 &middot; ESRT, New York</span>
-							<span>&#8599;</span>
+							<span>2026 &middot; Ongoing</span>
+							<Motif size={26} strokeWidth={3.4} className="desk-stamp" />
 						</span>
 					</span>
 				</span>
@@ -210,7 +205,6 @@ export default function ProjectsDesk() {
 				className="desk-card desk-card-tint"
 				style={{ left: "3%", top: 590, width: "min(310px, 28%)", zIndex: 2 }}
 				data-rot={-1.8}
-				data-drift={-30}
 			>
 				<span className="desk-card-motion">
 					<span className="desk-card-inner" style={{ background: "var(--butter)" }}>
@@ -226,7 +220,7 @@ export default function ProjectsDesk() {
 			</TransitionLink>
 
 			{/* Also on the pile: sand note */}
-			<div className="desk-card desk-card-tint" style={{ right: "4%", top: 700, width: "min(300px, 27%)", zIndex: 4 }} data-rot={1.6} data-drift={14}>
+			<div className="desk-card desk-card-tint" style={{ right: "4%", top: 860, width: "min(300px, 27%)", zIndex: 4 }} data-rot={1.6}>
 				<span className="desk-card-motion">
 					<span className="desk-card-inner" style={{ background: "var(--sand)" }}>
 						<span className="label" style={{ color: "var(--sand-ink)", display: "block", marginBottom: 14 }}>
@@ -239,8 +233,8 @@ export default function ProjectsDesk() {
 							<TransitionLink href="/experience/loeb" label="Loeb.nyc" className="desk-note-row">
 								Due diligence on seven startups at a NYC family office <span>&#8599;</span>
 							</TransitionLink>
-							<TransitionLink href="/projects/morimens-team-builder" label="Morimens Team Builder" className="desk-note-row">
-								A deterministic team optimizer for a gacha RPG I play <span>&#8599;</span>
+							<TransitionLink href="/projects/urchin-camera" label="The PVC camera rig" className="desk-note-row">
+								An underwater camera rig built in eighth grade <span>&#8599;</span>
 							</TransitionLink>
 						</span>
 					</span>
@@ -248,7 +242,7 @@ export default function ProjectsDesk() {
 			</div>
 
 			{/* Recognition sticker */}
-			<div className="desk-card desk-card-tint" style={{ left: "38%", top: 800, width: "min(310px, 28%)", zIndex: 5 }} data-rot={-1.4} data-drift={-12}>
+			<div className="desk-card desk-card-tint" style={{ left: "38%", top: 810, width: "min(310px, 28%)", zIndex: 5 }} data-rot={-1.4}>
 				<span className="desk-card-motion">
 					<span className="desk-card-inner" style={{ background: "var(--mint)" }}>
 						<span className="label" style={{ color: "var(--mint-ink)", display: "block", marginBottom: 12 }}>

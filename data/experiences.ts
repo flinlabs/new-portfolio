@@ -11,6 +11,7 @@ export type Experience = {
 	skills?: string[]
 	website?: string
 	websiteLabel?: string
+	related?: { label: string; href: string }
 	logo?: string
 }
 
@@ -39,6 +40,7 @@ export const experiences: Experience[] = [
 			"Secured the Lease Intelligence platform end-to-end within ESRT's Microsoft tenant using Entra ID and Managed Identity.",
 		],
 		skills: ["Harvey AI", "Claude / Anthropic API", "RAG / Retrieval Augmented Generation", "FastAPI", "React", "Microsoft Azure", "Entra ID", "Yardi Voyager", "VBA", "Excel", "Python"],
+		related: { label: "Lease Intelligence", href: "/projects/lease-intelligence" },
 		website: "https://www.esrtreit.com/",
 		websiteLabel: "ESRT's Website",
 	},
@@ -85,6 +87,7 @@ export const experiences: Experience[] = [
 			"Reduced hiring-manager report prep time significantly through automated scoring and flag generation.",
 		],
 		skills: ["Chrome Extensions", "JavaScript", "Python", "Prompt engineering", "Glide", "Airtable", "AI product development"],
+		related: { label: "CANDI", href: "/projects/candi" },
 		website: "https://www.linkedin.com/company/cornerstone-global-partners/",
 		websiteLabel: "CGP's LinkedIn",
 	},

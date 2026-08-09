@@ -33,11 +33,18 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
 					<div className="page-head-meta">
 						<span>{exp.period}</span>
 					</div>
-					{exp.website && (
-						<div style={{ marginTop: 24 }}>
-							<a href={exp.website} target="_blank" rel="noopener noreferrer" className="chip" style={{ background: "var(--lav)", color: "var(--lav-ink)" }}>
-								{exp.websiteLabel} &#8599;
-							</a>
+					{(exp.website || exp.related) && (
+						<div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 24 }}>
+							{exp.related && (
+								<TransitionLink href={exp.related.href} label={exp.related.label} className="chip" style={{ background: "var(--mint)", color: "var(--mint-ink)" }}>
+									Project: {exp.related.label} &#8599;
+								</TransitionLink>
+							)}
+							{exp.website && (
+								<a href={exp.website} target="_blank" rel="noopener noreferrer" className="chip" style={{ background: "var(--lav)", color: "var(--lav-ink)" }}>
+									{exp.websiteLabel} &#8599;
+								</a>
+							)}
 						</div>
 					)}
 				</Reveal>
