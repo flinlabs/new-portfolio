@@ -748,9 +748,9 @@ h3 {
 }
 
 .exp-preview-slide img {
-	width: 96px;
-	height: 96px;
-	object-fit: contain;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .exp-preview-caption {
