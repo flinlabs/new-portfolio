@@ -4,7 +4,6 @@ import { gsap } from "gsap"
 import Image from "next/image"
 import { TransitionLink } from "@/components/motion/PageTransition"
 import { Chip } from "@/components/TagChips"
-import { useVelocitySkew } from "@/lib/useVelocitySkew"
 
 export type ExperienceItem = {
 	slug: string
@@ -53,7 +52,6 @@ export default function ExperienceIndex({ items, compact = false }: { items: Exp
 	const current = items[active]
 	const previewRef = useRef<HTMLDivElement>(null)
 	const listRef = useRef<HTMLDivElement>(null)
-	useVelocitySkew(previewRef, 3)
 
 	// cursor-following 3D tilt on each row, same physics family as the desk
 	useEffect(() => {
@@ -136,7 +134,7 @@ export default function ExperienceIndex({ items, compact = false }: { items: Exp
 							className={`exp-preview-slide ${i === active ? "is-active" : ""}`}
 							style={{ background: colorFor(exp.slug, i) }}
 						>
-							<Image src={`/${exp.slug}-logo.png`} alt="" width={96} height={96} />
+							<Image src={`/${exp.slug}-photo.jpg`} alt="" fill sizes="(max-width: 900px) 92vw, 480px" style={{ objectFit: "cover" }} />
 						</div>
 					))}
 				</div>
