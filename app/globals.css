@@ -1266,9 +1266,12 @@ h3 {
 /* ————— Lease Intelligence sandbox demo embed ————— */
 
 .demo-breakout {
-	width: min(1120px, calc(100vw - 2 * clamp(20px, 4vw, 64px)));
-	margin-left: 50%;
-	transform: translateX(-50%);
+	/* the article column is left-aligned inside the centered container, so
+	   center this against the container's content width, not the viewport */
+	--cw: calc(min(1440px, 100vw) - 2 * clamp(20px, 4vw, 64px));
+	--bw: min(1120px, var(--cw));
+	width: var(--bw);
+	margin-left: calc((var(--cw) - var(--bw)) / 2);
 	margin-top: 26px;
 }
 
