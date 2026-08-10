@@ -59,11 +59,47 @@ export default function Cursor() {
 		window.addEventListener("pointerdown", onDown, { passive: true })
 		document.addEventListener("pointerover", onOver)
 		document.addEventListener("pointerout", onOut)
+
+		// Same-origin iframes (the Lease Intelligence demo) swallow pointer
+		// events, freezing the cursor at the frame edge. Forward their moves,
+		// mapped into page coordinates, so the dot keeps tracking on top.
+		const boundFrames = new WeakSet<HTMLIFrameElement>()
+		const frameCleanups: (() => void)[] = []
+		const bindFrames = () => {
+			document.querySelectorAll("iframe").forEach(frame => {
+				if (boundFrames.has(frame)) return
+				const attach = () => {
+					let doc: Document | null = null
+					try {
+						doc = frame.contentDocument
+					} catch {
+						return // cross-origin: leave it alone
+					}
+					if (!doc || boundFrames.has(frame)) return
+					boundFrames.add(frame)
+					const forward = (e: PointerEvent) => {
+						const r = frame.getBoundingClientRect()
+						onMove({ clientX: r.left + e.clientX, clientY: r.top + e.clientY } as PointerEvent)
+					}
+					doc.addEventListener("pointermove", forward, { passive: true })
+					frameCleanups.push(() => doc?.removeEventListener("pointermove", forward))
+				}
+				if (frame.contentDocument?.readyState === "complete") attach()
+				frame.addEventListener("load", attach)
+				frameCleanups.push(() => frame.removeEventListener("load", attach))
+			})
+		}
+		bindFrames()
+		const mo = new MutationObserver(bindFrames)
+		mo.observe(document.body, { childList: true, subtree: true })
+
 		return () => {
 			window.removeEventListener("pointermove", onMove)
 			window.removeEventListener("pointerdown", onDown)
 			document.removeEventListener("pointerover", onOver)
 			document.removeEventListener("pointerout", onOut)
+			mo.disconnect()
+			frameCleanups.forEach(fn => fn())
 		}
 	}, [])
 
