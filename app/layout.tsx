@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next"
 import { Archivo, IBM_Plex_Mono } from "next/font/google"
 import "./globals.css"
 import Nav from "@/components/Nav"
+import BackToTop from "@/components/BackToTop"
 import Footer from "@/components/Footer"
 import Preloader from "@/components/motion/Preloader"
 import SmoothScroll from "@/components/motion/SmoothScroll"
@@ -37,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 		<html lang="en" className={`${archivo.variable} ${plexMono.variable}`}>
 			<body>
 				<Preloader />
-				<TransitionProvider nav={<Nav />}>
+				<TransitionProvider nav={<><Nav /><BackToTop /></>}>
 					{children}
 					<Footer />
 				</TransitionProvider>
