@@ -1358,3 +1358,29 @@ h3 {
 		display: none;
 	}
 }
+
+/* ————— Back to top ————— */
+.back-to-top {
+	position: fixed;
+	right: clamp(18px, 3vw, 40px);
+	bottom: clamp(18px, 3vw, 40px);
+	z-index: 45;
+	width: 52px;
+	height: 52px;
+	border-radius: 50%; /* unslop-ignore */
+	background: var(--ink);
+	color: var(--ivory);
+	font-size: 19px;
+	line-height: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	visibility: hidden;
+	box-shadow: 0 16px 32px -14px rgba(27, 26, 23, 0.5);
+	transition: background-color 0.3s;
+}
+
+.back-to-top:hover {
+	background: #33312c;
+}
