@@ -23,6 +23,13 @@
       .lai-dots.open { opacity:1; }
       .lai-hover-row:hover { background:#faf9f6; }
       @media (prefers-reduced-motion: reduce) { * { animation:none !important; transition:none !important; } }
+      /* narrow screens (portfolio embed on phones): drop the history sidebar, loosen the grids */
+      @media (max-width: 700px) {
+        [data-tour="sidebar"] { display:none !important; }
+        [data-tour="kpis"] { grid-template-columns:repeat(2, 1fr) !important; }
+        [data-tour="suggestions"] { grid-template-columns:1fr !important; max-width:100% !important; }
+        button[title*="tour"] + span { display:none !important; }
+      }
     </style>
     <!--
       Lease Intelligence — Public Sandbox Demo
