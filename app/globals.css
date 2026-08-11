@@ -1387,3 +1387,30 @@ h3 {
 .back-to-top:hover {
 	background: #33312c;
 }
+
+/* ————— Back link on detail pages ————— */
+.back-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 26px;
+	font-family: var(--mono);
+	font-size: 11px;
+	font-weight: 500;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--ink-soft);
+	transition: color 0.25s;
+}
+
+.back-link:hover {
+	color: var(--ink);
+}
+
+.back-link span {
+	transition: transform 0.3s var(--ease-out);
+}
+
+.back-link:hover span {
+	transform: translateX(-4px);
+}
