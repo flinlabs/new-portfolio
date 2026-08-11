@@ -25,6 +25,11 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
 			</div>
 			<div className="page-head" style={{ maxWidth: 900 }}>
 				<Reveal>
+					<TransitionLink href="/experience" label="Experience" className="back-link">
+						<span aria-hidden="true">&larr;</span> Back to experiences
+					</TransitionLink>
+				</Reveal>
+				<Reveal delay={0.05}>
 					<TagChips tag={exp.tag} />
 				</Reveal>
 				<Reveal as="h1" lines className="display-lg" delay={0.1} style={{ marginTop: 24 }}>

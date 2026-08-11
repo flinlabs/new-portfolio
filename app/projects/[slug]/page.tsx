@@ -20,6 +20,11 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 		<main className="container">
 			<div className="page-head" style={{ maxWidth: 900 }}>
 				<Reveal>
+					<TransitionLink href="/projects" label="Projects" className="back-link">
+						<span aria-hidden="true">&larr;</span> Back to projects
+					</TransitionLink>
+				</Reveal>
+				<Reveal delay={0.05}>
 					<TagChips tag={project.tag} />
 				</Reveal>
 				<Reveal as="h1" lines className="display-lg" delay={0.1} style={{ marginTop: 24 }}>
