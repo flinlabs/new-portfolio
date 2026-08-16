@@ -23,10 +23,26 @@ const plexMono = IBM_Plex_Mono({
 	display: "swap",
 })
 
+const siteUrl =
+	process.env.NEXT_PUBLIC_SITE_URL ??
+	(process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000")
+
 export const metadata: Metadata = {
+	metadataBase: new URL(siteUrl),
 	title: { default: "Faye Lin", template: "%s · Faye Lin" },
 	description:
 		"AI product builder studying Economics & Data Science at UC Berkeley. AI tools shipped inside real companies, marine robots field-tested in Monterey Bay.",
+	openGraph: {
+		title: "Faye Lin",
+		description:
+			"AI product builder studying Economics & Data Science at UC Berkeley. AI tools shipped inside real companies, marine robots field-tested in Monterey Bay.",
+		images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Faye Lin" }],
+		type: "website",
+	},
+	twitter: {
+		card: "summary_large_image",
+		images: ["/og-image.jpg"],
+	},
 }
 
 export const viewport: Viewport = {
