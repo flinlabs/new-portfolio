@@ -49,6 +49,14 @@ export default function About() {
 				</div>
 
 				<div>
+					<Reveal>
+						<div className="exp-snapshot about-snapshot">
+							<span className="snap-tape snap-tape-l" />
+							<span className="snap-tape snap-tape-r" />
+							{/* eslint-disable-next-line @next/next/no-img-element */}
+							<img src="/faye-portrait.jpg" alt="Faye Lin" />
+						</div>
+					</Reveal>
 					<Reveal className="article-section" style={{ paddingTop: 0, borderTop: "none" }}>
 						<h2>Education</h2>
 						<p>UC Berkeley</p>

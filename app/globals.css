@@ -1414,3 +1414,12 @@ h3 {
 .back-link:hover span {
 	transform: translateX(-4px);
 }
+
+/* the About portrait flows at the top of the right column, at any width */
+.about-snapshot {
+	display: block;
+	position: static;
+	width: min(330px, 82vw);
+	margin: 6px 0 44px;
+	transform: rotate(2deg);
+}
