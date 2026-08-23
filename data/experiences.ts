@@ -13,6 +13,7 @@ export type Experience = {
 	websiteLabel?: string
 	related?: { label: string; href: string }
 	challenges?: string[]
+	featured?: { title: string; body: string }
 	logo?: string
 }
 
@@ -139,6 +140,10 @@ export const experiences: Experience[] = [
 			"Built core skills in investment evaluation and asset-level due diligence across live multifamily deals.",
 			"Kept monthly reporting accurate across a $100M+ portfolio through recurring reconciliation and variance analysis.",
 		],
+		featured: {
+			title: "AI Applications in Real Estate · Linfinity Fest",
+			body: "When a panel change opened a slot with less than 24 hours' notice, I put together a three-slide framework and gave a seven-minute deep dive on retrieval-augmented generation at the annual Linfinity Fest. I presented live tech integrations alongside a Google AI specialist and corporate real estate veterans, to an audience of nearly 100 industry guests: real estate GPs, active investors, and senior lenders from Texas Old Capital.",
+		},
 		skills: ["Underwriting", "Pro-forma modeling", "T12 / rent roll analysis", "CapEx budgeting", "Financial auditing", "Variance analysis", "Excel"],
 	},
 	{
@@ -159,6 +164,8 @@ export const experiences: Experience[] = [
 			"Hosted themed educational events layered onto cleanups and workshops, including \"Robotics for the Real World\" (National Robotics Week with CP Mentorship), a climate resilience talk with expert Lauren Eisele, \"Giant Kelp S.O.S.\" with G2KR, and a school talk with AquaMeridian Hong Kong founder Sharon Kwok.",
 			"Organized the Lunar New Year Jar Painting Extravaganza, a fundraiser sponsored by Apple Store East Bay supporting G2KR and Village of the Stars.",
 			"Launched the Annual Student Leadership Forum in 2025, connecting student and industry voices on environmental leadership and future career paths.",
+			"Established an institutional partnership with the Alameda County Science & Engineering Fair (ACSEF) 2026, driving local fundraising and serving as a returning Grand Awards Judge in the Energy: Sustainable Materials and Design and Computational Biology and Bioinformatics categories.",
+			"Launched and sponsored the \"Ocean Award\" at ACSEF 2026, a custom AquaMeridian initiative designed to recognize, evaluate, and fund high school student innovations in marine conservation.",
 		],
 		achievements: [
 			"Grew the chapter to 300+ community members and sustained operations across 4 years.",
