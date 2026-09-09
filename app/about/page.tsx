@@ -24,9 +24,10 @@ export default function About() {
 			<div className="about-grid">
 				<div>
 					<Reveal as="p" lines className="about-lede">
-						My projects range from marine robots that go into the actual ocean, to AI tools that real
-						recruiting teams use, to a conservation nonprofit I started from scratch. What ties them
-						together is that I genuinely needed each one to exist.
+						My projects range from IEEE-published research, to AI tools that real teams use, to a
+						conservation nonprofit I started from scratch. What ties them together is access: each one
+						takes information that was stuck in a system, a price tag, or a hundred scattered guides,
+						and hands it to the people who need it.
 					</Reveal>
 					<Reveal delay={0.1}>
 						<div className="about-body">

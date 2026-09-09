@@ -9,7 +9,7 @@ export const metadata: Metadata = { title: "Projects" }
 const pastels = ["var(--lav)", "var(--powder)", "var(--butter)", "var(--mint)", "var(--blush)"]
 
 // pinned per project so colors survive reordering; ESRT work reads mint
-// (matching its experience row) and the sea robot reads powder blue
+// (matching its experience row), WAL-SEA powder blue
 const slugWash: Record<string, string> = {
 	complens: "var(--lav)",
 	"lease-intelligence": "var(--mint)",
