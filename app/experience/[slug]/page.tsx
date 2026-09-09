@@ -96,6 +96,16 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
 					</Reveal>
 				)}
 
+				{exp.featured && (
+					<Reveal className="article-section">
+						<h2>Featured presentation</h2>
+						<p style={{ fontFamily: "var(--mono)", fontSize: 12.5, letterSpacing: "0.05em", textTransform: "uppercase", color: "var(--ink-soft)", marginBottom: 14 }}>
+							{exp.featured.title}
+						</p>
+						<p>{exp.featured.body}</p>
+					</Reveal>
+				)}
+
 				{exp.skills && exp.skills.length > 0 && (
 					<Reveal className="article-section">
 						<h2>Skills</h2>

@@ -31,11 +31,11 @@ export const metadata: Metadata = {
 	metadataBase: new URL(siteUrl),
 	title: { default: "Faye Lin", template: "%s · Faye Lin" },
 	description:
-		"AI product builder studying Economics & Data Science at UC Berkeley. AI tools shipped inside real companies, marine robots field-tested in Monterey Bay.",
+		"Third-year at UC Berkeley studying Economics & Data Science, and an IEEE-published researcher. I build tools that open up hard-to-reach information: self-serve lease answers, affordable rent comps, and more.",
 	openGraph: {
 		title: "Faye Lin",
 		description:
-			"AI product builder studying Economics & Data Science at UC Berkeley. AI tools shipped inside real companies, marine robots field-tested in Monterey Bay.",
+			"Third-year at UC Berkeley studying Economics & Data Science, and an IEEE-published researcher. I build tools that open up hard-to-reach information: self-serve lease answers, affordable rent comps, and more.",
 		images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Faye Lin" }],
 		type: "website",
 	},

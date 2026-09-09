@@ -124,7 +124,7 @@ export default function ProjectsDesk() {
 						<span className="desk-tape" aria-hidden="true" />
 						<Image src="/walsea-rov.jpg" alt="The WAL-SEA ROV on deck" width={800} height={600} className="desk-card-photo" />
 						<h3>WAL-SEA</h3>
-						<p>A modular ROV that surveys and vacuums urchins. Four prototypes, seven ocean deployments, one published paper.</p>
+						<p>The three-year research project that made me an IEEE-published author, with seven ocean deployments behind the paper.</p>
 						<span className="desk-card-meta">
 							<span>2021&ndash;24 &middot; Monterey Bay</span>
 							<Motif size={26} strokeWidth={3.4} className="desk-stamp" />
@@ -232,9 +232,6 @@ export default function ProjectsDesk() {
 							</TransitionLink>
 							<TransitionLink href="/experience/loeb" label="Loeb.nyc" className="desk-note-row">
 								Due diligence on seven startups at a NYC family office <span>&#8599;</span>
-							</TransitionLink>
-							<TransitionLink href="/projects/urchin-camera" label="The PVC camera rig" className="desk-note-row">
-								An underwater camera rig built in eighth grade <span>&#8599;</span>
 							</TransitionLink>
 						</span>
 					</span>

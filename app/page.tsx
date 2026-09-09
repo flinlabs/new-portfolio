@@ -31,9 +31,10 @@ export default function Home() {
 					</Reveal>
 					<Reveal delay={0.18}>
 						<p className="body-lg" style={{ marginTop: 32, maxWidth: "52ch" }}>
-							I&rsquo;m a sophomore at Berkeley studying economics and data science. Before that I spent
-							three years building underwater robots in Monterey Bay. This past summer I built AI tools
-							for the Empire State Building&rsquo;s landlord; right now I&rsquo;m building CompLens.
+							I&rsquo;m a third-year at Berkeley studying economics and data science. Most of what I build
+							opens up information that&rsquo;s hard to get to: lease answers that used to sit behind a
+							legal queue, rent comps that usually cost a subscription, game knowledge scattered across
+							a hundred guides.
 						</p>
 						<p className="muted" style={{ marginTop: 16, fontSize: 15.5 }}>
 							Everything I&rsquo;ve built is below, most recent first.
