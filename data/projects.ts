@@ -137,7 +137,7 @@ export const projects: Project[] = [
 				images: [
 					{ src: "/oc-mianyue-wheel.webp", w: 900, h: 1800, caption: "Wheel of Destiny panel for Mi\u00e1nyu\u00e8: wintersweet, the flower of the twelfth month.", size: "half" },
 					{ src: "/oc-naru-wheel.webp", w: 900, h: 1800, caption: "Wheel of Destiny panel for Naru: a white deer in green and gold.", size: "half" },
-					{ src: "/oc-naru-clover.webp", w: 1000, h: 1000, caption: "Papercut-style portrait with a four-leaf clover.", size: "third" },
+					{ src: "/oc-naru-clover.webp", w: 1000, h: 1000, caption: "Papercut-style portrait.", size: "third" },
 					{ src: "/oc-naru-chibi.webp", w: 800, h: 800, caption: "Chibi portrait.", size: "third" },
 					{ src: "/oc-naru-stamp.webp", w: 800, h: 800, caption: "Stamp portrait.", size: "third" },
 					{ src: "/oc-emote-squish.webp", w: 512, h: 512, size: "tiny" },
