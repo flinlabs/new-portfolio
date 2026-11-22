@@ -146,7 +146,7 @@ export const projects: Project[] = [
 				],
 			},
 		],
-		images: ["/oc-mianyue-portrait.webp"],
+		images: ["/oc-naru-stamp.webp"],
 	},
 	{
 		slug: "lease-intelligence",
