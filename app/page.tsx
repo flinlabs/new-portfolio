@@ -31,10 +31,10 @@ export default function Home() {
 					</Reveal>
 					<Reveal delay={0.18}>
 						<p className="body-lg" style={{ marginTop: 32, maxWidth: "52ch" }}>
-							I&rsquo;m a third-year at UC Berkeley studying economics and data science, and most of what
-							I build comes down to making information more accessible: lease answers that used to wait
-							on a legal queue, rent comps that usually sit behind a subscription, game knowledge
-							scattered across a hundred guides.
+							I&rsquo;m a third-year at UC Berkeley studying economics and data
+							science. Most of what I build is about making information easier to get
+							to- lease answers that used to wait on legal, rent comps that cost a
+							subscription, that kind of thing.
 						</p>
 						<p className="muted" style={{ marginTop: 16, fontSize: 15.5 }}>
 							Everything I&rsquo;ve built is below, most recent first.

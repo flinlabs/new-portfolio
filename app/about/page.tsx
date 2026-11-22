@@ -24,27 +24,25 @@ export default function About() {
 			<div className="about-grid">
 				<div>
 					<Reveal as="p" lines className="about-lede">
-						My projects range from IEEE-published research, to AI tools that real teams
-						use, to a conservation nonprofit I started from scratch. For me they all
-						come back to the same thing: taking information that was stuck in a system,
-						a price tag, or a hundred scattered guides, and handing it to the people who
-						need it.
+						I&rsquo;ve done a pretty wide range of projects, from IEEE-published
+						research to a conservation nonprofit I started from scratch. Most of them
+						started the same way: some information was annoying to get to, and I wanted
+						to fix that.
 					</Reveal>
 					<Reveal delay={0.1}>
 						<div className="about-body">
 							<p>
 								I&rsquo;m a third-year at UC Berkeley studying Economics and Data
-								Science. The coursework gives me the quantitative foundation, but
-								most of what I&rsquo;ve learned came from building real things and
-								figuring out what I got wrong along the way.
+								Science. Honestly most of what I&rsquo;ve learned came from building
+								real things and figuring out what I got wrong along the way.
 							</p>
 							<p>
 								I love connecting people and ideas. My best work happens when there&rsquo;s a
 								spreadsheet and a real conversation in the same room.
 							</p>
 							<p>
-								I use AI to move faster and go deeper. It handles the repetitive
-								work so I can focus on the parts that actually need a person, and
+								I use AI constantly, mostly to get the repetitive work out of the
+								way so I can spend time on the parts that actually need a person.
 								I&rsquo;m not interested in replacing judgment or real conversation.
 							</p>
 						</div>
