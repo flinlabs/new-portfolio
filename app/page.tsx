@@ -10,6 +10,7 @@ const descriptors = [
 	"studying econ + data science at Berkeley",
 	"optimizing gacha teams for Morimens",
 	"running a 300-member ocean nonprofit",
+	"drawing two characters out of Chinese folklore",
 ]
 
 const expItems = experiences.map(({ slug, title, company, period, tag }) => ({ slug, title, company, period, tag }))

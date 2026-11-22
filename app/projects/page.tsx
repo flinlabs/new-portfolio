@@ -14,6 +14,7 @@ const slugWash: Record<string, string> = {
 	complens: "var(--lav)",
 	"lease-intelligence": "var(--mint)",
 	"morimens-team-builder": "var(--sand)",
+	characters: "var(--blush)",
 	candi: "var(--butter)",
 	walsea: "var(--powder)",
 	"urchin-camera": "var(--blush)",
