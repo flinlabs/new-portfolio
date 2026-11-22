@@ -132,11 +132,12 @@ export const projects: Project[] = [
 			{
 				title: "The Morimens studies",
 				body: [
-					"Morimens has my favorite art direction of any game I play, so I've been copying its formats to learn from them: the ornate Wheel of Destiny panels, the chibi and stamp portraits, and a set of chat emotes.",
+					"Morimens has my favorite art direction of any game I play, so I've been copying its formats to learn from them: the ornate Wheel of Destiny panels, the chibi, stamp, and papercut portraits, and a set of chat emotes.",
 				],
 				images: [
 					{ src: "/oc-mianyue-wheel.webp", w: 900, h: 1800, caption: "Mi\u00e1nyu\u00e8's Wheel of Destiny panel: wintersweet, the flower of his month.", size: "half" },
 					{ src: "/oc-naru-wheel.webp", w: 900, h: 1800, caption: "Naru's panel: a white deer in green and gold.", size: "half" },
+					{ src: "/oc-naru-clover.webp", w: 1000, h: 1000, caption: "Papercut-style portrait. He leaves four-leaf clovers for people he likes.", size: "half" },
 					{ src: "/oc-naru-chibi.webp", w: 800, h: 800, caption: "Chibi portrait.", size: "half" },
 					{ src: "/oc-naru-stamp.webp", w: 800, h: 800, caption: "Stamp portrait.", size: "half" },
 					{ src: "/oc-emote-squish.webp", w: 512, h: 512, size: "tiny" },
@@ -146,7 +147,7 @@ export const projects: Project[] = [
 				],
 			},
 		],
-		images: ["/oc-naru-stamp.webp"],
+		images: ["/oc-naru-clover.webp"],
 	},
 	{
 		slug: "lease-intelligence",
