@@ -28,7 +28,7 @@ export default function ProjectsPage() {
 				</Reveal>
 				<Reveal delay={0.15}>
 					<p className="body-lg muted" style={{ marginTop: 18, maxWidth: "48ch" }}>
-						Everything built and shipped, in one place. The desk on the home page keeps the highlights.
+						Everything I&rsquo;ve built and shipped, in one place. The desk on the home page keeps the highlights.
 					</p>
 				</Reveal>
 			</div>

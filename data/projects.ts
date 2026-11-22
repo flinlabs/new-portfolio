@@ -25,14 +25,14 @@ export const projects: Project[] = [
 		location: "Berkeley, CA",
 		tag: "AI · Product · Real Estate",
 		period: "Jul 2026 – Present",
-		summary: "A rent comp tool I'm building solo. Type any address and get a structured comp memo: nearby multifamily properties ranked by rent per square foot, Census demographics, and a map view.",
-		overview: "CompLens turns the slowest part of underwriting a multifamily deal (pulling comps by hand) into a single search. You type an address, and it returns a structured comp memo: nearby multifamily properties ranked by rent per square foot, demographic context from the Census, and everything plotted on a map.\n\nI'm building it solo, full stack, end to end. The interesting part is the data: instead of leaning on listing aggregators, a two-model Claude pipeline sources asking rents from official property leasing sites first, so the comps reflect what landlords are actually quoting.",
+		summary: "A rent comp tool I'm building solo. Type in any address and get a structured comp memo back: nearby multifamily properties ranked by rent per square foot, Census demographics, and a map view.",
+		overview: "CompLens turns the slowest part of underwriting a multifamily deal (pulling comps by hand) into a single search. You type in an address, and it returns a structured comp memo: nearby multifamily properties ranked by rent per square foot, demographic context from the Census, and everything plotted on a map.\n\nI'm building it solo, full stack. The part I've spent the most time on is the data: instead of leaning on listing aggregators, a two-model Claude pipeline pulls asking rents from official property leasing sites first, so the comps reflect what landlords are actually quoting.",
 		problem: "Pulling rent comps is manual and scattered: aggregator data is stale or padded with fees, official leasing sites all present pricing differently, and analysts end up stitching together screenshots and spreadsheets for every address they underwrite.",
 		approach: [
 			"Built the product solo, full stack: React + Vite frontend deployed on Vercel, Supabase for auth and Postgres.",
 			"Integrated Google Maps APIs for geocoding, nearby-property discovery, and the map view.",
 			"Designed a two-model Claude pipeline that prioritizes official property leasing sites over aggregators when sourcing asking rents.",
-			"Layered in Census demographics so each memo carries neighborhood context, not just rent figures.",
+			"Layered in Census demographics so each memo carries neighborhood context alongside the rent figures.",
 		],
 		outcomes: [
 			"One search produces a structured comp memo that used to take an afternoon of manual pulls.",
@@ -107,7 +107,7 @@ export const projects: Project[] = [
 		tag: "AI · Product · Engineering",
 		period: "Jun – Aug 2025",
 		summary: "A recruiting toolkit built at CGP Group: a low-code recruiter workspace, plus a Chrome extension that scores any LinkedIn profile against a job description in real time.",
-		overview: "CANDI started as an internal recruiter workspace built during my CGP Group internship in Shanghai, and grew into a two-part toolkit for smarter hiring.\n\nThe first part is a Glide + Airtable app that compresses the most time-consuming recruiting tasks (requirements capture, candidate scoring, interview insights, and report generation) into a single workflow. The second part is a Chrome extension I built afterward that lets anyone paste a job description, open a LinkedIn profile, and instantly get an AI-generated match score with a plain-English explanation of fit and gaps.",
+		overview: "CANDI started as an internal recruiter workspace built during my CGP Group internship in Shanghai, and grew into a two-part toolkit.\n\nThe first part is a Glide + Airtable app that compresses the most time-consuming recruiting tasks (requirements capture, candidate scoring, interview insights, and report generation) into a single workflow. The second part is a Chrome extension I built afterward that lets anyone paste a job description, open a LinkedIn profile, and instantly get an AI-generated match score with a plain-English explanation of fit and gaps.",
 		problem: "Recruiters were drowning in fragmented tools: requirements captured inconsistently, screening notes built manually in Sheets, data entered redundantly into the ATS, and status updates scattered across chats and emails.",
 		approach: [
 			"Shadowed recruiters and mapped the end-to-end workflow: sourcing → screening → notes → HM report → ATS entry.",
