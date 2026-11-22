@@ -1440,9 +1440,18 @@ h3 {
 	flex: 1 1 calc(50% - 9px);
 	max-width: calc(50% - 9px);
 }
-.oc-gallery figure.oc-tiny {
-	flex: 1 1 calc(25% - 14px);
-	max-width: calc(25% - 14px);
+.oc-gallery figure.oc-third {
+	flex: 1 1 calc(33.333% - 12px);
+	max-width: calc(33.333% - 12px);
+}
+.oc-gallery figure.oc-strip {
+	flex: 1 1 100%;
+	max-width: 100%;
+}
+.oc-strip-row {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 18px;
 }
 .oc-gallery img {
 	width: 100%;
@@ -1451,7 +1460,7 @@ h3 {
 	border: 1px solid var(--line);
 	background: #fff;
 }
-.oc-gallery figure.oc-tiny img {
+.oc-strip-row img {
 	border: none;
 	background: transparent;
 }
@@ -1466,5 +1475,12 @@ h3 {
 	.oc-gallery figure.oc-half {
 		flex-basis: 100%;
 		max-width: 100%;
+	}
+	.oc-gallery figure.oc-third {
+		flex-basis: calc(50% - 9px);
+		max-width: calc(50% - 9px);
+	}
+	.oc-strip-row {
+		gap: 10px;
 	}
 }

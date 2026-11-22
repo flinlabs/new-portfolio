@@ -32,9 +32,10 @@ export default function Home() {
 					<Reveal delay={0.18}>
 						<p className="body-lg" style={{ marginTop: 32, maxWidth: "52ch" }}>
 							I&rsquo;m a third-year at UC Berkeley studying economics and data
-							science. Most of what I build is about making information easier to get
-							to- lease answers that used to wait on legal, rent comps that cost a
-							subscription, that kind of thing.
+							science. Most of what I build opens up information that&rsquo;s hard to
+							get to: lease answers that used to sit behind a legal queue, rent comps
+							that usually cost a subscription, game knowledge scattered across a
+							hundred guides.
 						</p>
 						<p className="muted" style={{ marginTop: 16, fontSize: 15.5 }}>
 							Everything I&rsquo;ve built is below, most recent first.

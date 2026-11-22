@@ -16,7 +16,7 @@ export default function ExperienceIndexPage() {
 				</Reveal>
 				<Reveal delay={0.15}>
 					<p className="body-lg muted" style={{ marginTop: 18, maxWidth: "48ch" }}>
-						Every internship and program, most recent first. Click into any row for the full story.
+						The complete record, most recent first. Every row opens the full story.
 					</p>
 				</Reveal>
 			</div>
