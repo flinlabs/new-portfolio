@@ -102,7 +102,7 @@ export default function ProjectsDesk() {
 						<span className="desk-tape" aria-hidden="true" />
 						<Image src="/complens-app.png" alt="CompLens comp map view" width={1116} height={555} className="desk-card-photo" />
 						<h3>CompLens</h3>
-						<p>Type in an address and get a rent comp memo back: nearby multifamily ranked by rent per square foot, with demographics and a map. I&rsquo;m building it solo right now.</p>
+						<p>Type an address, get a rent comp memo: nearby multifamily ranked by rent per square foot, with demographics and a map. Building it solo right now.</p>
 						<span className="desk-card-meta">
 							<span>2026 &middot; Berkeley</span>
 							<Motif size={26} strokeWidth={3.4} className="desk-stamp" />
@@ -167,7 +167,7 @@ export default function ProjectsDesk() {
 						<span className="desk-tape" aria-hidden="true" />
 						<Image src="/lease-intelligence-app.png" alt="Lease Intelligence dashboard" width={1600} height={1200} className="desk-card-photo" />
 						<h3>Lease Intelligence</h3>
-						<p>Ask a question about any of 880 leases and get a cited answer back. Its page runs the real app as a sandbox demo on dummy data.</p>
+						<p>Ask 880 leases a question, get a cited answer back. Its page runs the real app as a sandbox demo on dummy data.</p>
 						<span className="desk-card-meta">
 							<span>2026 &middot; ESRT, New York</span>
 							<Motif size={26} strokeWidth={3.4} className="desk-stamp" />
@@ -189,7 +189,7 @@ export default function ProjectsDesk() {
 						<span className="desk-tape" aria-hidden="true" />
 						<Image src="/morimens-team.png" alt="Morimens Team Builder lineup board" width={1600} height={1000} className="desk-card-photo" />
 						<h3>Morimens Team Builder</h3>
-						<p>A team builder for the gacha RPG I play: five D-Tide teams with zero shared units, built from what you actually own.</p>
+						<p>A deterministic team optimizer for the gacha RPG I play: five D-Tide teams, zero shared units, from what you actually own.</p>
 						<span className="desk-card-meta">
 							<span>2026 &middot; Ongoing</span>
 							<Motif size={26} strokeWidth={3.4} className="desk-stamp" />

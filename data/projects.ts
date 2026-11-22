@@ -42,8 +42,8 @@ export const projects: Project[] = [
 		location: "Berkeley, CA",
 		tag: "AI · Product · Real Estate",
 		period: "Jul 2026 – Present",
-		summary: "A rent comp tool I'm building solo. Type in any address and get a structured comp memo back: nearby multifamily properties ranked by rent per square foot, Census demographics, and a map view.",
-		overview: "CompLens turns the slowest part of underwriting a multifamily deal (pulling comps by hand) into a single search. You type in an address, and it returns a structured comp memo: nearby multifamily properties ranked by rent per square foot, demographic context from the Census, and everything plotted on a map.\n\nI'm building it solo, full stack. The part I've spent the most time on is the data: instead of leaning on listing aggregators, a two-model Claude pipeline pulls asking rents from official property leasing sites first, so the comps reflect what landlords are actually quoting.",
+		summary: "A rent comp tool I'm building solo. Type any address and get a structured comp memo: nearby multifamily properties ranked by rent per square foot, Census demographics, and a map view.",
+		overview: "CompLens turns the slowest part of underwriting a multifamily deal (pulling comps by hand) into a single search. You type an address, and it returns a structured comp memo: nearby multifamily properties ranked by rent per square foot, demographic context from the Census, and everything plotted on a map.\n\nI'm building it solo, full stack, end to end. The interesting part is the data: instead of leaning on listing aggregators, a two-model Claude pipeline sources asking rents from official property leasing sites first, so the comps reflect what landlords are actually quoting.",
 		problem: "Pulling rent comps is manual and scattered: aggregator data is stale or padded with fees, official leasing sites all present pricing differently, and analysts end up stitching together screenshots and spreadsheets for every address they underwrite.",
 		approach: [
 			"Built the product solo, full stack: React + Vite frontend deployed on Vercel, Supabase for auth and Postgres.",
