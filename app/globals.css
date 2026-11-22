@@ -1465,11 +1465,12 @@ h3 {
 	cursor: pointer;
 }
 .oc-zoom img {
-	transition: box-shadow 0.3s ease;
+	transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.35s ease;
 }
 .oc-zoom:hover img,
 .oc-zoom:focus-visible img {
-	box-shadow: 0 12px 32px rgba(20, 17, 47, 0.25);
+	transform: translateY(-6px);
+	box-shadow: 0 16px 36px rgba(20, 17, 47, 0.22);
 }
 .oc-strip-row {
 	display: grid;
@@ -1504,6 +1505,17 @@ h3 {
 .oc-lightbox::backdrop {
 	background: rgba(247, 244, 237, 0.88);
 	backdrop-filter: blur(2px);
+}
+@keyframes oc-backdrop-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+.oc-lightbox[open]::backdrop {
+	animation: oc-backdrop-in 0.45s ease both;
 }
 .oc-lightbox img {
 	width: auto;

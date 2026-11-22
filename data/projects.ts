@@ -104,8 +104,8 @@ export const projects: Project[] = [
 			{
 				title: "Mi\u00e1nyu\u00e8 (\u7720\u6708)",
 				body: [
-					"Mi\u00e1nyu\u00e8 is the youngest of Ch\u00e1ngx\u012b's twelve moons. He was born during a lunar eclipse and fell from the sky before his mother could hold him, and Ti\u0101ng\u01d2u, the dog that eats the moon, caught him. One tooth grazed his face, moonlight entered the wound, and the eye inside the scar turned silver. In the present day he rents a room above a bakery in San Francisco's Chinatown.",
-					"The design carries the story: one amber eye shared with his siblings, one silver moon eye inside the crescent scar, and the phases of the moon marked down his spine.",
+					"In the Classic of Mountains and Seas, Ch\u00e1ngx\u012b is the mother of the moons: she bore twelve, one for each month of the year, and was the first to bathe them. Chinese folk belief blamed eclipses on Ti\u0101ng\u01d2u, the heavenly dog, eating the sun or moon, and people beat drums and set off firecrackers to frighten it into letting go. Each lunar month also carries the name of its flower; the twelfth belongs to wintersweet, which blooms in the depths of winter.",
+					"Mi\u00e1nyu\u00e8 is built where those legends meet: the twelfth of Ch\u00e1ngx\u012b's moons, born during an eclipse and caught mid-fall by Ti\u0101ng\u01d2u. The bite left the crescent scar, the moonlight that entered the wound turned that eye silver, and the phases of the moon run down his spine.",
 				],
 				images: [
 					{ src: "/oc-mianyue-portrait.webp", w: 1200, h: 1600, caption: "Portrait. Only the moon eye cries.", size: "half" },
@@ -115,8 +115,8 @@ export const projects: Project[] = [
 			{
 				title: "Naru (\u7eb3\u9732)",
 				body: [
-					"Naru is about a century old, barely past fawnhood for a deer xian. He guards a dozen lingzhi caps growing behind a waterfall, and his emotions carry into the weather around him: mist when he is anxious, light rain when he cries. Both traits come from the legends. Sacred deer are the creatures said to locate lingzhi, and the Fuzhu is a deer spirit whose appearance signals storms.",
-					"Naru went through the most iteration. Partway through I redesigned him with new eye colors (purple over blue, replacing the original green), a gradient in his hair, and a hanfu-inspired outfit built in separable layers.",
+					"Lingzhi is the mushroom of immortality: a woody bracket fungus that dries without rotting, said to grant long life and spiritual clarity, and hunted for it by mortals and spirits alike. In Chinese art, sacred deer appear beside the god of longevity because only they can find lingzhi, guiding the virtuous through mountain mists. The Classic of Mountains and Seas also records the Fuzhu, a white deer with four antlers whose rare appearance was read as an omen of storms and floods.",
+					"Naru draws on all three: a deer xian about a century old, barely past fawnhood, who guards a lingzhi spring behind a waterfall, and whose emotions carry into the weather, mist when he is anxious and light rain when he cries. He was redesigned partway through, with new eye colors (purple over blue, replacing the original green), a gradient in his hair, and a hanfu-inspired outfit built in separable layers.",
 				],
 				images: [
 					{ src: "/oc-naru-og-ref.webp", w: 1800, h: 1073, caption: "The original reference sheet, before the redesign.", size: "half" },
@@ -132,11 +132,11 @@ export const projects: Project[] = [
 			{
 				title: "The Morimens studies",
 				body: [
-					"These pieces are studies of Morimens' art direction, reproducing its formats: the ornate Wheel of Destiny panels, the chibi, stamp, and papercut portraits, and a set of chat emotes.",
+					"These pieces are studies of Morimens' art direction, reproducing its formats: the Wheel of Destiny cards, the chibi, stamp, and papercut portraits, and a set of chat emotes.",
 				],
 				images: [
-					{ src: "/oc-mianyue-wheel.webp", w: 900, h: 1800, caption: "Wheel of Destiny panel for Mi\u00e1nyu\u00e8: wintersweet, the flower of the twelfth month.", size: "third" },
-					{ src: "/oc-naru-wheel.webp", w: 900, h: 1800, caption: "Wheel of Destiny panel for Naru: a white deer in green and gold.", size: "third" },
+					{ src: "/oc-mianyue-wheel.webp", w: 900, h: 1800, caption: "Wheel of Destiny card for Mi\u00e1nyu\u00e8: wintersweet, the flower of the twelfth month.", size: "third" },
+					{ src: "/oc-naru-wheel.webp", w: 900, h: 1800, caption: "Wheel of Destiny card for Naru: a white deer in green and gold.", size: "third" },
 					{ src: "/oc-naru-clover.webp", w: 1000, h: 1000, caption: "Papercut-style portrait.", size: "third" },
 					{ src: "/oc-naru-chibi.webp", w: 800, h: 800, caption: "Chibi portrait.", size: "third" },
 					{ src: "/oc-naru-stamp.webp", w: 800, h: 800, caption: "Stamp portrait.", size: "third" },
