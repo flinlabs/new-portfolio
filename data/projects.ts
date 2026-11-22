@@ -1,3 +1,18 @@
+export type GalleryImage = {
+	src: string
+	w: number
+	h: number
+	caption?: string
+	/** full = own row (default), half = 2-up, tiny = 4-up */
+	size?: "full" | "half" | "tiny"
+}
+
+export type GallerySection = {
+	title: string
+	body: string[]
+	images: GalleryImage[]
+}
+
 export type Project = {
 	slug: string
 	title: string
@@ -7,14 +22,16 @@ export type Project = {
 	period: string
 	summary: string
 	overview: string
-	problem: string
-	approach: string[]
-	outcomes: string[]
-	tech: string
+	problem?: string
+	approach?: string[]
+	outcomes?: string[]
+	tech?: string
 	awards?: string
 	links?: { label: string; url: string }[]
 	thumbnail?: string
 	images?: string[]
+	/** art-forward layout: replaces problem/approach/outcomes with captioned sections */
+	gallery?: GallerySection[]
 }
 
 export const projects: Project[] = [
@@ -25,14 +42,14 @@ export const projects: Project[] = [
 		location: "Berkeley, CA",
 		tag: "AI · Product · Real Estate",
 		period: "Jul 2026 – Present",
-		summary: "A rent comp tool I'm building solo. Type any address and get a structured comp memo: nearby multifamily properties ranked by rent per square foot, Census demographics, and a map view.",
-		overview: "CompLens turns the slowest part of underwriting a multifamily deal (pulling comps by hand) into a single search. You type an address, and it returns a structured comp memo: nearby multifamily properties ranked by rent per square foot, demographic context from the Census, and everything plotted on a map.\n\nI'm building it solo, full stack, end to end. The interesting part is the data: instead of leaning on listing aggregators, a two-model Claude pipeline sources asking rents from official property leasing sites first, so the comps reflect what landlords are actually quoting.",
+		summary: "A rent comp tool I'm building solo. Type in any address and get a structured comp memo back: nearby multifamily properties ranked by rent per square foot, Census demographics, and a map view.",
+		overview: "CompLens turns the slowest part of underwriting a multifamily deal (pulling comps by hand) into a single search. You type in an address, and it returns a structured comp memo: nearby multifamily properties ranked by rent per square foot, demographic context from the Census, and everything plotted on a map.\n\nI'm building it solo, full stack. The part I've spent the most time on is the data: instead of leaning on listing aggregators, a two-model Claude pipeline pulls asking rents from official property leasing sites first, so the comps reflect what landlords are actually quoting.",
 		problem: "Pulling rent comps is manual and scattered: aggregator data is stale or padded with fees, official leasing sites all present pricing differently, and analysts end up stitching together screenshots and spreadsheets for every address they underwrite.",
 		approach: [
 			"Built the product solo, full stack: React + Vite frontend deployed on Vercel, Supabase for auth and Postgres.",
 			"Integrated Google Maps APIs for geocoding, nearby-property discovery, and the map view.",
 			"Designed a two-model Claude pipeline that prioritizes official property leasing sites over aggregators when sourcing asking rents.",
-			"Layered in Census demographics so each memo carries neighborhood context, not just rent figures.",
+			"Layered in Census demographics so each memo carries neighborhood context alongside the rent figures.",
 		],
 		outcomes: [
 			"One search produces a structured comp memo that used to take an afternoon of manual pulls.",
@@ -74,6 +91,65 @@ export const projects: Project[] = [
 		images: ["/morimens-team.png", "/morimens-inventory.png"],
 	},
 	{
+		slug: "characters",
+		title: "Miányuè & Naru",
+		subtitle: "Original characters built from Chinese legends",
+		tag: "Art · Character Design · Worldbuilding",
+		period: "2026 – Present",
+		summary:
+			"My two original characters: a moon god who fell out of the sky the night he was born, and a deer xian guarding a lingzhi spring. Designed from Chinese legends, with a full lore doc behind each.",
+		overview:
+			"These started as drawing practice and got completely out of hand. Both characters are built from Chinese legends: Mi\u00e1nyu\u00e8 is the twelfth moon of Ch\u00e1ngx\u012b from the Classic of Mountains and Seas, and Naru is a deer xian with a little Fuzhu in his blood, guarding the mushroom of immortality. Each one has a full lore doc behind him, and the design details come out of the stories- the crescent scar, the moon-phase markings, the fawn spots.\n\nSome pieces borrow formats from Morimens, the same gacha game my team builder is for, because I wanted to learn how its artists get that ornate card look. Naru came first and got a redesign halfway through. Mi\u00e1nyu\u00e8 is newer, so his gallery is shorter for now.",
+		gallery: [
+			{
+				title: "Mi\u00e1nyu\u00e8 (\u7720\u6708)",
+				body: [
+					"Mi\u00e1nyu\u00e8 is the youngest of Ch\u00e1ngx\u012b's twelve moons. He was born during a lunar eclipse and fell out of the sky before his mother could hold him, and Ti\u0101ng\u01d2u, the dog that eats the moon, caught him. One tooth grazed his face, moonlight got into the wound, and that eye has been silver ever since. These days he rents a room above a bakery in San Francisco's Chinatown and works the dawn shift to pay for it.",
+					"His design carries the story: one amber eye like all his siblings, one silver moon eye inside the crescent scar, and the phases of the moon down his spine.",
+				],
+				images: [
+					{ src: "/oc-mianyue-portrait.webp", w: 1200, h: 1600, caption: "Only the moon eye cries, and its tears glow." },
+					{ src: "/oc-mianyue-ref.webp", w: 1800, h: 1350, caption: "Reference sheet. The back view has the moon phases down his spine." },
+				],
+			},
+			{
+				title: "Naru (\u7eb3\u9732)",
+				body: [
+					"Naru is about a century old, which for a deer xian is barely past fawnhood. He guards a dozen lingzhi caps behind a waterfall, talks to them by name, and his feelings leak into the weather- mist when he's anxious, drizzle when he cries. In the old texts, sacred deer are the ones who can find lingzhi, and the Fuzhu is a deer spirit whose appearance means storms. Naru is both, scaled down to someone whose biggest problems are foragers and the birds that keep beating him to the berries.",
+					"He's also where most of my learning happened. Halfway through I redesigned him with new eye colors (purple over blue instead of the original green), a gradient in his hair, and a hanfu-inspired outfit I could break down layer by layer.",
+				],
+				images: [
+					{ src: "/oc-naru-og-ref.webp", w: 1800, h: 1073, caption: "The first reference sheet, back when his eyes were green." },
+					{ src: "/oc-naru-moss.webp", w: 1400, h: 1354, caption: "Full-render painting practice.", size: "half" },
+					{ src: "/oc-naru-papercut.webp", w: 1400, h: 1400, caption: "Baby Naru, in a flat storybook style.", size: "half" },
+					{ src: "/oc-naru-fox.webp", w: 1600, h: 900, caption: "Face to face with a fox spirit. He is not having a good time." },
+					{ src: "/oc-naru-ref.webp", w: 1800, h: 1149, caption: "The redesign: purple-over-blue eyes and the hair gradient." },
+					{ src: "/oc-naru-outfits.webp", w: 2000, h: 1203, caption: "Outfit reference, layer by layer." },
+					{ src: "/oc-naru-splash.webp", w: 1400, h: 1400, caption: "Splash illustration of the redesign, still in progress.", size: "half" },
+					{ src: "/oc-naru-home.webp", w: 1600, h: 900, caption: "His forest, background art in progress.", size: "half" },
+				],
+			},
+			{
+				title: "The Morimens studies",
+				body: [
+					"Morimens has my favorite art direction of any game I play, so I've been copying its formats to learn from them: the ornate Wheel of Destiny panels, the chibi, stamp, and papercut portraits, and a set of chat emotes.",
+				],
+				images: [
+					{ src: "/oc-mianyue-wheel.webp", w: 900, h: 1800, caption: "Mi\u00e1nyu\u00e8's Wheel of Destiny panel: wintersweet, the flower of his month.", size: "half" },
+					{ src: "/oc-naru-wheel.webp", w: 900, h: 1800, caption: "Naru's panel: a white deer in green and gold.", size: "half" },
+					{ src: "/oc-naru-clover.webp", w: 1000, h: 1000, caption: "Papercut-style portrait. He leaves four-leaf clovers for people he likes.", size: "half" },
+					{ src: "/oc-naru-chibi.webp", w: 800, h: 800, caption: "Chibi portrait.", size: "half" },
+					{ src: "/oc-naru-stamp.webp", w: 800, h: 800, caption: "Stamp portrait.", size: "half" },
+					{ src: "/oc-emote-squish.webp", w: 512, h: 512, size: "tiny" },
+					{ src: "/oc-emote-laugh.webp", w: 512, h: 512, size: "tiny" },
+					{ src: "/oc-emote-love.webp", w: 512, h: 512, size: "tiny" },
+					{ src: "/oc-emote-question.webp", w: 512, h: 512, caption: "Chat emotes.", size: "tiny" },
+				],
+			},
+		],
+		images: ["/oc-naru-clover.webp"],
+	},
+	{
 		slug: "lease-intelligence",
 		title: "Lease Intelligence",
 		subtitle: "Self-serve Q&A over 880 commercial leases",
@@ -107,7 +183,7 @@ export const projects: Project[] = [
 		tag: "AI · Product · Engineering",
 		period: "Jun – Aug 2025",
 		summary: "A recruiting toolkit built at CGP Group: a low-code recruiter workspace, plus a Chrome extension that scores any LinkedIn profile against a job description in real time.",
-		overview: "CANDI started as an internal recruiter workspace built during my CGP Group internship in Shanghai, and grew into a two-part toolkit for smarter hiring.\n\nThe first part is a Glide + Airtable app that compresses the most time-consuming recruiting tasks (requirements capture, candidate scoring, interview insights, and report generation) into a single workflow. The second part is a Chrome extension I built afterward that lets anyone paste a job description, open a LinkedIn profile, and instantly get an AI-generated match score with a plain-English explanation of fit and gaps.",
+		overview: "CANDI started as an internal recruiter workspace built during my CGP Group internship in Shanghai, and grew into a two-part toolkit.\n\nThe first part is a Glide + Airtable app that compresses the most time-consuming recruiting tasks (requirements capture, candidate scoring, interview insights, and report generation) into a single workflow. The second part is a Chrome extension I built afterward that lets anyone paste a job description, open a LinkedIn profile, and instantly get an AI-generated match score with a plain-English explanation of fit and gaps.",
 		problem: "Recruiters were drowning in fragmented tools: requirements captured inconsistently, screening notes built manually in Sheets, data entered redundantly into the ATS, and status updates scattered across chats and emails.",
 		approach: [
 			"Shadowed recruiters and mapped the end-to-end workflow: sourcing → screening → notes → HM report → ATS entry.",

@@ -1423,3 +1423,48 @@ h3 {
 	margin: 6px 0 44px;
 	transform: rotate(2deg);
 }
+
+/* ---- character art gallery (Miányuè & Naru) ---- */
+.oc-gallery {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 18px;
+	margin-top: 28px;
+}
+.oc-gallery figure {
+	margin: 0;
+	flex: 1 1 100%;
+	min-width: 0;
+}
+.oc-gallery figure.oc-half {
+	flex: 1 1 calc(50% - 9px);
+	max-width: calc(50% - 9px);
+}
+.oc-gallery figure.oc-tiny {
+	flex: 1 1 calc(25% - 14px);
+	max-width: calc(25% - 14px);
+}
+.oc-gallery img {
+	width: 100%;
+	height: auto;
+	display: block;
+	border: 1px solid var(--line);
+	background: #fff;
+}
+.oc-gallery figure.oc-tiny img {
+	border: none;
+	background: transparent;
+}
+.oc-gallery figcaption {
+	font-family: var(--mono);
+	font-size: 12.5px;
+	color: var(--ink-soft);
+	margin-top: 10px;
+	line-height: 1.5;
+}
+@media (max-width: 640px) {
+	.oc-gallery figure.oc-half {
+		flex-basis: 100%;
+		max-width: 100%;
+	}
+}

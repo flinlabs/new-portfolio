@@ -40,14 +40,22 @@ export default function Reveal({ children, lines = false, delay = 0, className, 
 			ctx.add(() => {
 				if (lines) {
 					gsap.set(el, { autoAlpha: 1 })
-					split = SplitText.create(el, { type: "lines", mask: "lines" })
-					gsap.from(split.lines, {
-						yPercent: 115,
-						duration: 0.9,
-						stagger: 0.08,
-						delay,
-						ease: "power4.out",
-						scrollTrigger: { trigger: el, start: "top 88%", once: true },
+					// autoSplit re-splits when the element's width changes (scrollbar
+					// appearing, late layout shifts), otherwise the frozen line divs
+					// re-wrap internally and leave orphaned short lines mid-paragraph.
+					split = SplitText.create(el, {
+						type: "lines",
+						mask: "lines",
+						autoSplit: true,
+						onSplit: self =>
+							gsap.from(self.lines, {
+								yPercent: 115,
+								duration: 0.9,
+								stagger: 0.08,
+								delay,
+								ease: "power4.out",
+								scrollTrigger: { trigger: el, start: "top 88%", once: true },
+							}),
 					})
 				} else {
 					gsap.to(el, {

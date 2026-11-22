@@ -87,30 +87,53 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 					</Reveal>
 				)}
 
-				<Reveal className="article-section">
-					<h2>The problem</h2>
-					<p>{project.problem}</p>
-				</Reveal>
-
-				<Reveal className="article-section">
-					<h2>Approach</h2>
-					<ul className="article-list">
-						{project.approach.map(a => (
-							<li key={a}>{a}</li>
+				{project.gallery?.map(section => (
+					<Reveal key={section.title} className="article-section">
+						<h2>{section.title}</h2>
+						{section.body.map((para, i) => (
+							<p key={i}>{para}</p>
 						))}
-					</ul>
-				</Reveal>
+						<div className="oc-gallery">
+							{section.images.map(img => (
+								<figure key={img.src} className={img.size ? `oc-${img.size}` : undefined}>
+									<Image src={img.src} alt={img.caption ?? section.title} width={img.w} height={img.h} />
+									{img.caption && <figcaption>{img.caption}</figcaption>}
+								</figure>
+							))}
+						</div>
+					</Reveal>
+				))}
 
-				<Reveal className="article-section">
-					<h2>Outcomes</h2>
-					<ul className="article-list">
-						{project.outcomes.map(o => (
-							<li key={o}>{o}</li>
-						))}
-					</ul>
-				</Reveal>
+				{project.problem && (
+					<Reveal className="article-section">
+						<h2>The problem</h2>
+						<p>{project.problem}</p>
+					</Reveal>
+				)}
 
-				{project.images && slug !== "lease-intelligence" && (
+				{project.approach && (
+					<Reveal className="article-section">
+						<h2>Approach</h2>
+						<ul className="article-list">
+							{project.approach.map(a => (
+								<li key={a}>{a}</li>
+							))}
+						</ul>
+					</Reveal>
+				)}
+
+				{project.outcomes && (
+					<Reveal className="article-section">
+						<h2>Outcomes</h2>
+						<ul className="article-list">
+							{project.outcomes.map(o => (
+								<li key={o}>{o}</li>
+							))}
+						</ul>
+					</Reveal>
+				)}
+
+				{project.images && slug !== "lease-intelligence" && !project.gallery && (
 					<Reveal className="article-section" style={{ borderTop: "none", paddingTop: 8, display: "flex", flexDirection: "column", gap: 18 }}>
 						{project.images.map(src => (
 							<div key={src} style={{ width: "100%", overflow: "hidden", border: "1px solid var(--line)", background: "#fff" }}>
