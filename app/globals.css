@@ -1427,31 +1427,22 @@ h3 {
 /* ---- character art gallery (Miányuè & Naru) ---- */
 .oc-gallery {
 	display: flex;
-	flex-wrap: wrap;
-	gap: 18px;
+	flex-direction: column;
+	gap: 20px;
 	margin-top: 28px;
 }
 .oc-gallery figure {
 	margin: 0;
-	flex: 1 1 100%;
 	min-width: 0;
 }
-.oc-gallery figure.oc-half {
-	flex: 1 1 calc(50% - 9px);
-	max-width: calc(50% - 9px);
-}
-.oc-gallery figure.oc-third {
-	flex: 1 1 calc(33.333% - 12px);
-	max-width: calc(33.333% - 12px);
-}
-.oc-gallery figure.oc-strip {
-	flex: 1 1 100%;
-	max-width: 100%;
-}
-.oc-strip-row {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+/* justified row: widths split by aspect ratio so every image shares one height */
+.oc-row {
+	display: flex;
 	gap: 18px;
+	align-items: flex-start;
+}
+.oc-row figure {
+	flex: var(--ar, 1) 1 0;
 }
 .oc-gallery img {
 	width: 100%;
@@ -1459,6 +1450,31 @@ h3 {
 	display: block;
 	border: 1px solid var(--line);
 	background: #fff;
+	user-select: none;
+	-webkit-user-select: none;
+	-webkit-user-drag: none;
+}
+.oc-zoom {
+	display: block;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	border: none;
+	background: none;
+	font: inherit;
+	cursor: pointer;
+}
+.oc-zoom img {
+	transition: box-shadow 0.3s ease;
+}
+.oc-zoom:hover img,
+.oc-zoom:focus-visible img {
+	box-shadow: 0 12px 32px rgba(20, 17, 47, 0.25);
+}
+.oc-strip-row {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 18px;
 }
 .oc-strip-row img {
 	border: none;
@@ -1471,15 +1487,50 @@ h3 {
 	margin-top: 10px;
 	line-height: 1.5;
 }
+/* centered enlarge view on the paper background */
+.oc-lightbox {
+	position: fixed;
+	inset: 0;
+	margin: auto;
+	width: fit-content;
+	height: fit-content;
+	border: none;
+	padding: 0;
+	background: transparent;
+	max-width: none;
+	max-height: none;
+	overflow: visible;
+}
+.oc-lightbox::backdrop {
+	background: rgba(247, 244, 237, 0.88);
+	backdrop-filter: blur(2px);
+}
+.oc-lightbox img {
+	width: auto;
+	height: auto;
+	max-width: 90vw;
+	max-height: 85vh;
+	display: block;
+	margin: 0 auto;
+	border: 1px solid var(--line);
+	background: #fff;
+	box-shadow: 0 24px 64px rgba(20, 17, 47, 0.3);
+	user-select: none;
+	-webkit-user-select: none;
+	-webkit-user-drag: none;
+}
+.oc-lightbox p {
+	font-family: var(--mono);
+	font-size: 12.5px;
+	color: var(--ink);
+	text-align: center;
+	margin-top: 12px;
+}
 @media (max-width: 640px) {
-	.oc-gallery figure.oc-half {
-		flex-basis: 100%;
-		max-width: 100%;
+	.oc-gallery {
+		gap: 14px;
 	}
-	.oc-gallery figure.oc-third {
-		flex-basis: calc(50% - 9px);
-		max-width: calc(50% - 9px);
-	}
+	.oc-row,
 	.oc-strip-row {
 		gap: 10px;
 	}
