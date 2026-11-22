@@ -2,6 +2,7 @@ import { projects } from "@/data/projects"
 import { notFound } from "next/navigation"
 import Image from "next/image"
 import TagChips from "@/components/TagChips"
+import ArtGallery from "@/components/ArtGallery"
 import Reveal from "@/components/motion/Reveal"
 import { TransitionLink } from "@/components/motion/PageTransition"
 
@@ -93,35 +94,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 						{section.body.map((para, i) => (
 							<p key={i}>{para}</p>
 						))}
-						<div className="oc-gallery">
-							{section.images
-								.reduce<(typeof section.images | (typeof section.images)[number])[]>((groups, img) => {
-									// consecutive "tiny" images render as one fixed 4-up strip
-									const last = groups[groups.length - 1]
-									if (img.size === "tiny") {
-										if (Array.isArray(last)) last.push(img)
-										else groups.push([img])
-									} else groups.push(img)
-									return groups
-								}, [])
-								.map(item =>
-									Array.isArray(item) ? (
-										<figure key={item[0].src} className="oc-strip">
-											<span className="oc-strip-row">
-												{item.map(img => (
-													<Image key={img.src} src={img.src} alt={img.caption ?? section.title} width={img.w} height={img.h} />
-												))}
-											</span>
-											{item.some(i => i.caption) && <figcaption>{item.map(i => i.caption).find(Boolean)}</figcaption>}
-										</figure>
-									) : (
-										<figure key={item.src} className={item.size ? `oc-${item.size}` : undefined}>
-											<Image src={item.src} alt={item.caption ?? section.title} width={item.w} height={item.h} />
-											{item.caption && <figcaption>{item.caption}</figcaption>}
-										</figure>
-									),
-								)}
-						</div>
+						<ArtGallery images={section.images} context={section.title} />
 					</Reveal>
 				))}
 
