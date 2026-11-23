@@ -3,6 +3,8 @@ export type GalleryImage = {
 	w: number
 	h: number
 	caption?: string
+	/** optional source/reference link appended to the caption */
+	refLink?: { label: string; url: string }
 	/** full = own row (default), half = 2-up, third = 3-up, tiny = 4-up emote strip */
 	size?: "full" | "half" | "third" | "tiny"
 }
@@ -109,8 +111,8 @@ export const projects: Project[] = [
 					"Mi\u00e1nyu\u00e8 is built where those legends meet: the twelfth of Ch\u00e1ngx\u012b's moons, born during an eclipse and caught mid-fall by Ti\u0101ng\u01d2u. The bite left the crescent scar, the moonlight that entered the wound turned that eye silver, and the phases of the moon run down his spine.",
 				],
 				images: [
-					{ src: "/oc-mianyue-portrait.webp", w: 1200, h: 1600, caption: "Portrait. Only the moon eye cries.", size: "half" },
-					{ src: "/oc-mianyue-ref.webp", w: 1800, h: 1350, caption: "Reference sheet. The back view shows the moon phases along his spine.", size: "half" },
+					{ src: "/oc-mianyue-portrait.webp", w: 1200, h: 1600, caption: "Portrait.", size: "half" },
+					{ src: "/oc-mianyue-ref.webp", w: 1800, h: 1350, caption: "Reference sheet.", size: "half" },
 				],
 			},
 			{
@@ -125,7 +127,7 @@ export const projects: Project[] = [
 					{ src: "/oc-naru-moss.webp", w: 1400, h: 1354, caption: "Full-render painting study.", size: "half" },
 					{ src: "/oc-naru-papercut.webp", w: 1400, h: 1400, caption: "Baby Naru in a flat storybook style.", size: "half" },
 					{ src: "/oc-naru-fox.webp", w: 1600, h: 900, caption: "An encounter with a fox spirit.", size: "half" },
-					{ src: "/oc-naru-ref.webp", w: 1800, h: 1149, caption: "The redesigned reference sheet: new eye colors and hair gradient.", size: "half" },
+					{ src: "/oc-naru-ref.webp", w: 1800, h: 1149, caption: "The redesigned reference sheet.", size: "half" },
 					{ src: "/oc-naru-outfits.webp", w: 2000, h: 1203, caption: "Outfit reference, broken down layer by layer.", size: "half" },
 					{ src: "/oc-naru-splash.webp", w: 1400, h: 1400, caption: "Splash illustration of the redesign, in progress.", size: "half" },
 					{ src: "/oc-naru-home.webp", w: 1600, h: 900, caption: "Background painting of his forest, in progress.", size: "half" },
@@ -145,7 +147,7 @@ export const projects: Project[] = [
 					{ src: "/oc-emote-squish.webp", w: 512, h: 512, size: "tiny" },
 					{ src: "/oc-emote-laugh.webp", w: 512, h: 512, size: "tiny" },
 					{ src: "/oc-emote-love.webp", w: 512, h: 512, size: "tiny" },
-					{ src: "/oc-emote-question.webp", w: 512, h: 512, caption: "Chat emotes.", size: "tiny" },
+					{ src: "/oc-emote-question.webp", w: 512, h: 512, caption: "Chat emotes: Naru drawn over existing Morimens emotes.", size: "tiny" },
 				],
 			},
 		],

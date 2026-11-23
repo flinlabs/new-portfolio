@@ -1547,3 +1547,10 @@ h3 {
 		gap: 10px;
 	}
 }
+
+.oc-gallery figcaption a,
+.oc-lightbox p a {
+	color: inherit;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
