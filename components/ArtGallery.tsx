@@ -10,6 +10,21 @@ const CAP = { half: 2, third: 3 } as const
 
 const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches
 
+const Caption = ({ img }: { img: GalleryImage }) =>
+	img.caption || img.refLink ? (
+		<>
+			{img.caption}
+			{img.refLink && (
+				<>
+					{" "}
+					<a href={img.refLink.url} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()}>
+						{img.refLink.label} &#8599;
+					</a>
+				</>
+			)}
+		</>
+	) : null
+
 /**
  * Captioned art grid in justified rows: every image in a row renders at the
  * same height (widths split by aspect ratio). Clicking a piece zooms it from
@@ -106,14 +121,36 @@ export default function ArtGallery({ images, context }: { images: GalleryImage[]
 				row.kind === "strip" ? (
 					<figure key={i} className="oc-strip">
 						<span className="oc-strip-row">{row.items.map(img => <span key={img.src}>{art(img)}</span>)}</span>
-						{row.items.some(x => x.caption) && <figcaption>{row.items.map(x => x.caption).find(Boolean)}</figcaption>}
+						{(() => {
+							const text = row.items.map(x => x.caption).find(Boolean)
+							const links = row.items.filter(x => x.refLink)
+							if (!text && links.length === 0) return null
+							return (
+								<figcaption>
+									{text}
+									{links.length > 0 && (
+										<>
+											{" Originals: "}
+											{links.map((x, j) => (
+												<span key={x.src}>
+													{j > 0 && " \u00b7 "}
+													<a href={x.refLink!.url} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()}>
+														{x.refLink!.label} &#8599;
+													</a>
+												</span>
+											))}
+										</>
+									)}
+								</figcaption>
+							)
+						})()}
 					</figure>
 				) : (
 					<div key={i} className="oc-row">
 						{row.items.map(img => (
 							<figure key={img.src} style={{ "--ar": img.w / img.h } as React.CSSProperties}>
 								{art(img)}
-								{img.caption && <figcaption>{img.caption}</figcaption>}
+								{(img.caption || img.refLink) && <figcaption><Caption img={img} /></figcaption>}
 							</figure>
 						))}
 					</div>
@@ -134,7 +171,7 @@ export default function ArtGallery({ images, context }: { images: GalleryImage[]
 					{active && (
 						<>
 							<Image src={active.src} alt={active.caption ?? context} width={active.w} height={active.h} draggable={false} />
-							{active.caption && <p>{active.caption}</p>}
+							{(active.caption || active.refLink) && <p><Caption img={active} /></p>}
 						</>
 					)}
 				</div>
