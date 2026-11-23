@@ -141,7 +141,7 @@ export const projects: Project[] = [
 				images: [
 					{ src: "/oc-mianyue-wheel.webp", w: 900, h: 1800, caption: "Wheel of Destiny card for Mi\u00e1nyu\u00e8: wintersweet, the flower of the twelfth month.", refLink: { label: "reference", url: "https://morimens.huijiwiki.com/wiki/%E5%91%BD%E8%BD%AE" }, size: "third" },
 					{ src: "/oc-naru-wheel.webp", w: 900, h: 1800, caption: "Wheel of Destiny card for Naru: a white deer in green and gold.", refLink: { label: "reference", url: "https://morimens.huijiwiki.com/wiki/%E5%91%BD%E8%BD%AE" }, size: "third" },
-					{ src: "/oc-naru-clover.webp", w: 1000, h: 1000, caption: "Papercut-style portrait.", size: "third" },
+					{ src: "/oc-naru-clover.webp", w: 1000, h: 1000, caption: "Papercut-style portrait.", refLink: { label: "reference", url: "https://morimens.huijiwiki.com/wiki/%E6%96%87%E4%BB%B6:PlayerAvatar_S_013.png" }, size: "third" },
 					{ src: "/oc-naru-chibi.webp", w: 800, h: 800, caption: "Chibi portrait.", refLink: { label: "reference", url: "https://morimens.huijiwiki.com/wiki/%E6%96%87%E4%BB%B6:PlayerAvatar_Style_Blocks_C04.png" }, size: "third" },
 					{ src: "/oc-naru-stamp.webp", w: 800, h: 800, caption: "Stamp portrait.", refLink: { label: "reference", url: "https://morimens.huijiwiki.com/wiki/%E6%96%87%E4%BB%B6:PlayerAvatar_Style_Stamp_B04.png" }, size: "third" },
 					{ src: "/oc-emote-squish.webp", w: 512, h: 512, refLink: { label: "Aurita", url: "https://morimens.huijiwiki.com/wiki/%E6%96%87%E4%BB%B6:Emoji_ORT_R_08.png" }, size: "tiny" },
