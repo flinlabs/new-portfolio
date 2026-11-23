@@ -145,7 +145,7 @@ export const projects: Project[] = [
 					{ src: "/oc-naru-chibi.webp", w: 800, h: 800, caption: "Chibi portrait.", size: "third" },
 					{ src: "/oc-naru-stamp.webp", w: 800, h: 800, caption: "Stamp portrait.", size: "third" },
 					{ src: "/oc-emote-squish.webp", w: 512, h: 512, size: "tiny" },
-					{ src: "/oc-emote-laugh.webp", w: 512, h: 512, size: "tiny" },
+					{ src: "/oc-emote-please.webp", w: 512, h: 512, size: "tiny" },
 					{ src: "/oc-emote-love.webp", w: 512, h: 512, size: "tiny" },
 					{ src: "/oc-emote-question.webp", w: 512, h: 512, caption: "Chat emotes: Naru drawn over existing Morimens emotes.", size: "tiny" },
 				],
