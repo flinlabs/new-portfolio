@@ -139,8 +139,8 @@ export const projects: Project[] = [
 					"These pieces are studies of Morimens' art direction, reproducing its formats: the Wheel of Destiny cards, the chibi, stamp, and papercut portraits, and a set of chat emotes.",
 				],
 				images: [
-					{ src: "/oc-mianyue-wheel.webp", w: 900, h: 1800, caption: "Wheel of Destiny card for Mi\u00e1nyu\u00e8: wintersweet, the flower of the twelfth month.", refLink: { label: "reference", url: "https://morimens.huijiwiki.com/wiki/%E5%91%BD%E8%BD%AE" }, size: "third" },
-					{ src: "/oc-naru-wheel.webp", w: 900, h: 1800, caption: "Wheel of Destiny card for Naru: a white deer in green and gold.", refLink: { label: "reference", url: "https://morimens.huijiwiki.com/wiki/%E5%91%BD%E8%BD%AE" }, size: "third" },
+					{ src: "/oc-mianyue-wheel.webp", w: 900, h: 1800, caption: "Wheel of Destiny card for Mi\u00e1nyu\u00e8: wintersweet, the flower of the twelfth month.", refLink: { label: "reference", url: "https://morimens.huijiwiki.com/wiki/%E8%85%90%E6%9C%BD%E8%B5%A0%E7%A4%BC#/media/%E6%96%87%E4%BB%B6:%E8%85%90%E6%9C%BD%E8%B5%A0%E7%A4%BC.png" }, size: "third" },
+					{ src: "/oc-naru-wheel.webp", w: 900, h: 1800, caption: "Wheel of Destiny card for Naru: a white deer in green and gold.", refLink: { label: "reference", url: "https://morimens.huijiwiki.com/wiki/%E6%84%BF%E4%B8%96%E7%95%8C%E5%8C%96%E4%BD%9C%E8%8A%AC%E8%8A%B3#/media/%E6%96%87%E4%BB%B6:%E6%84%BF%E4%B8%96%E7%95%8C%E5%8C%96%E4%BD%9C%E8%8A%AC%E8%8A%B3.png" }, size: "third" },
 					{ src: "/oc-naru-clover.webp", w: 1000, h: 1000, caption: "Papercut-style portrait.", refLink: { label: "reference", url: "https://morimens.huijiwiki.com/wiki/%E6%96%87%E4%BB%B6:PlayerAvatar_S_013.png" }, size: "third" },
 					{ src: "/oc-naru-chibi.webp", w: 800, h: 800, caption: "Chibi portrait.", refLink: { label: "reference", url: "https://morimens.huijiwiki.com/wiki/%E6%96%87%E4%BB%B6:PlayerAvatar_Style_Blocks_C04.png" }, size: "third" },
 					{ src: "/oc-naru-stamp.webp", w: 800, h: 800, caption: "Stamp portrait.", refLink: { label: "reference", url: "https://morimens.huijiwiki.com/wiki/%E6%96%87%E4%BB%B6:PlayerAvatar_Style_Stamp_B04.png" }, size: "third" },
