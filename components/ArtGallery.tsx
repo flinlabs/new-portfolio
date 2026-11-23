@@ -122,8 +122,27 @@ export default function ArtGallery({ images, context }: { images: GalleryImage[]
 					<figure key={i} className="oc-strip">
 						<span className="oc-strip-row">{row.items.map(img => <span key={img.src}>{art(img)}</span>)}</span>
 						{(() => {
-							const lead = row.items.find(x => x.caption || x.refLink)
-							return lead ? <figcaption><Caption img={lead} /></figcaption> : null
+							const text = row.items.map(x => x.caption).find(Boolean)
+							const links = row.items.filter(x => x.refLink)
+							if (!text && links.length === 0) return null
+							return (
+								<figcaption>
+									{text}
+									{links.length > 0 && (
+										<>
+											{" Originals: "}
+											{links.map((x, j) => (
+												<span key={x.src}>
+													{j > 0 && " \u00b7 "}
+													<a href={x.refLink!.url} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()}>
+														{x.refLink!.label} &#8599;
+													</a>
+												</span>
+											))}
+										</>
+									)}
+								</figcaption>
+							)
 						})()}
 					</figure>
 				) : (
